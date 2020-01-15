@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'd:\Dokumentumok\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\Models\JKModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\Models\JKModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

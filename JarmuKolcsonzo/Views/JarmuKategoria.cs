@@ -20,13 +20,11 @@ namespace JarmuKolcsonzo.Views
         private int perPage = 1;
         private int page = 1;
         private int total = 0;
-        private int maxPage;
 
         public JarmuKategoria()
         {
             InitializeComponent();
             presenter = new JarmuKategoriaPresenter(this);
-            maxPage = total / perPage;
         }
 
         public BindingList<jarmukategoria> bindingList 
@@ -68,20 +66,21 @@ namespace JarmuKolcsonzo.Views
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-            while (page != 1)
+            if (page > 1)
             {
                 page--;
+                presenter.LoadData();
             }
-            presenter.LoadData();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (page != maxPage)
+            var maxPage = total / perPage;
+            if (page < maxPage)
             {
                 page++;
+                presenter.LoadData();
             }
-            presenter.LoadData();
         }
 
         private void LastButton_Click(object sender, EventArgs e)

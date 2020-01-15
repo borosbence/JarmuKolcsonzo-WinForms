@@ -21,17 +21,22 @@ namespace JarmuKolcsonzo.Repositories
             string sortBy = null,
             bool ascending = true)
         {
-            db.jarmukategoria.Local.Clear();
-            db.jarmukategoria
-                .OrderBy(x => x.Id)
+
+            var query = db.jarmukategoria
+               .OrderBy(x => x.Id)
                 // Oldaltördelés
-                .Skip(page - 1).Take(itemsPerPage).Load();
-            var query = db.jarmukategoria.Local.ToBindingList();
+                .Skip((page - 1) * itemsPerPage);
+                //.Take(itemsPerPage);
+            // TODO: ellenőrzés
+            if (itemsPerPage > 0)
+            {
+                query = query.Take(itemsPerPage);
+            }
 
             // Összes adat kiszámítása
             _totalItems = db.jarmukategoria.Count();
 
-            return query;
+            return new BindingList<jarmukategoria>(query.ToList());
         }
 
         public int Count()
