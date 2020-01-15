@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="jarmukolcsonzoModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="jarmu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rendszam" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="kategoriaId" Type="int" Nullable="false" />
+          <Property Name="tipus" Type="varchar" MaxLength="50" />
+          <Property Name="modell" Type="varchar" MaxLength="50" />
+          <Property Name="ferohely" Type="int" />
+          <Property Name="fogyasztas" Type="double" />
+          <Property Name="elerheto" Type="bool" Nullable="false" />
+          <Property Name="szervizben" Type="bool" Nullable="false" />
+          <Property Name="szervizDatum" Type="datetime" Precision="0" />
+          <Property Name="muszakiDatum" Type="datetime" Precision="0" />
+          <Property Name="beszerzesDatum" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="jarmukategoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategoriaNev" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="jarmu_ibfk_1">
+          <End Role="jarmukategoria" Type="Self.jarmukategoria" Multiplicity="1" />
+          <End Role="jarmu" Type="Self.jarmu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jarmukategoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="jarmu">
+              <PropertyRef Name="kategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="jarmukolcsonzoModelStoreContainer">
+          <EntitySet Name="jarmu" EntityType="Self.jarmu" Schema="jarmukolcsonzo" store:Type="Tables" />
+          <EntitySet Name="jarmukategoria" EntityType="Self.jarmukategoria" Schema="jarmukolcsonzo" store:Type="Tables" />
+          <AssociationSet Name="jarmu_ibfk_1" Association="Self.jarmu_ibfk_1">
+            <End Role="jarmukategoria" EntitySet="jarmukategoria" />
+            <End Role="jarmu" EntitySet="jarmu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="jarmukolcsonzoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="JKContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="jarmu" EntityType="jarmukolcsonzoModel.jarmu" />
+          <EntitySet Name="jarmukategoria" EntityType="jarmukolcsonzoModel.jarmukategoria" />
+          <AssociationSet Name="jarmu_ibfk_1" Association="jarmukolcsonzoModel.jarmu_ibfk_1">
+            <End Role="jarmukategoria" EntitySet="jarmukategoria" />
+            <End Role="jarmu" EntitySet="jarmu" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="jarmu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rendszam" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="kategoriaId" Type="Int32" Nullable="false" />
+          <Property Name="tipus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modell" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ferohely" Type="Int32" />
+          <Property Name="fogyasztas" Type="Double" />
+          <Property Name="elerheto" Type="Boolean" Nullable="false" />
+          <Property Name="szervizben" Type="Boolean" Nullable="false" />
+          <Property Name="szervizDatum" Type="DateTime" />
+          <Property Name="muszakiDatum" Type="DateTime" />
+          <Property Name="beszerzesDatum" Type="DateTime" />
+          <NavigationProperty Name="jarmukategoria" Relationship="jarmukolcsonzoModel.jarmu_ibfk_1" FromRole="jarmu" ToRole="jarmukategoria" />
+        </EntityType>
+        <EntityType Name="jarmukategoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriaNev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="jarmu" Relationship="jarmukolcsonzoModel.jarmu_ibfk_1" FromRole="jarmukategoria" ToRole="jarmu" />
+        </EntityType>
+        <Association Name="jarmu_ibfk_1">
+          <End Type="jarmukolcsonzoModel.jarmukategoria" Role="jarmukategoria" Multiplicity="1" />
+          <End Type="jarmukolcsonzoModel.jarmu" Role="jarmu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jarmukategoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="jarmu">
+              <PropertyRef Name="kategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="jarmukolcsonzoModelStoreContainer" CdmEntityContainer="JKContext">
+          <EntitySetMapping Name="jarmu">
+            <EntityTypeMapping TypeName="jarmukolcsonzoModel.jarmu">
+              <MappingFragment StoreEntitySet="jarmu">
+                <ScalarProperty Name="beszerzesDatum" ColumnName="beszerzesDatum" />
+                <ScalarProperty Name="muszakiDatum" ColumnName="muszakiDatum" />
+                <ScalarProperty Name="szervizDatum" ColumnName="szervizDatum" />
+                <ScalarProperty Name="szervizben" ColumnName="szervizben" />
+                <ScalarProperty Name="elerheto" ColumnName="elerheto" />
+                <ScalarProperty Name="fogyasztas" ColumnName="fogyasztas" />
+                <ScalarProperty Name="ferohely" ColumnName="ferohely" />
+                <ScalarProperty Name="modell" ColumnName="modell" />
+                <ScalarProperty Name="tipus" ColumnName="tipus" />
+                <ScalarProperty Name="kategoriaId" ColumnName="kategoriaId" />
+                <ScalarProperty Name="rendszam" ColumnName="rendszam" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jarmukategoria">
+            <EntityTypeMapping TypeName="jarmukolcsonzoModel.jarmukategoria">
+              <MappingFragment StoreEntitySet="jarmukategoria">
+                <ScalarProperty Name="kategoriaNev" ColumnName="kategoriaNev" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="001c8a8cb5ab45ed803365c6ac906a5d" Name="Diagram1">
+        <EntityTypeShape EntityType="jarmukolcsonzoModel.jarmu" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="jarmukolcsonzoModel.jarmukategoria" Width="1.5" PointX="0.75" PointY="2" />
+        <AssociationConnector Association="jarmukolcsonzoModel.jarmu_ibfk_1" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
