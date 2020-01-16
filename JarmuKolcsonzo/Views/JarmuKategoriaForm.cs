@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace JarmuKolcsonzo.Views
 {
-    public partial class JarmuKategoria : Form, IDataGridList<jarmukategoria>
+    public partial class JarmuKategoriaForm : Form, IDataGridList<jarmukategoria>
     {
         private JarmuKategoriaPresenter presenter;
         // Oldaltördelés
@@ -21,7 +21,7 @@ namespace JarmuKolcsonzo.Views
         private int page = 1;
         private int pageCount;
 
-        public JarmuKategoria()
+        public JarmuKategoriaForm()
         {
             InitializeComponent();
             presenter = new JarmuKategoriaPresenter(this);

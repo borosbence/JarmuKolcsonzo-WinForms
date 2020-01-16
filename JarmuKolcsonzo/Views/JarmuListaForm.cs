@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace JarmuKolcsonzo.Views
 {
-    public partial class JarmuLista : Form, IJarmuListaView
+    public partial class JarmuListaForm : Form, IJarmuListaView
     {
         private JarmuListaPresenter presenter;
         // Combobox létrehozása
@@ -24,7 +24,7 @@ namespace JarmuKolcsonzo.Views
         private int page = 1;
         private int pageCount;
 
-        public JarmuLista()
+        public JarmuListaForm()
         {
             InitializeComponent();
             presenter = new JarmuListaPresenter(this);

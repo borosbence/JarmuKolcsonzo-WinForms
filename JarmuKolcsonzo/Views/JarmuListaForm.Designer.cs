@@ -1,6 +1,6 @@
 ﻿namespace JarmuKolcsonzo.Views
 {
-    partial class JarmuLista
+    partial class JarmuListaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuLista));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuListaForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.KategoriaFrissittoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mentestoolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -43,6 +43,7 @@
             this.NextButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rendszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,12 +57,11 @@
             this.szervizDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.muszakiDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.beszerzesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -217,6 +217,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(775, 373);
             this.dataGridView1.TabIndex = 0;
             // 
+            // jarmuBindingSource
+            // 
+            this.jarmuBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmu);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
@@ -287,7 +291,6 @@
             this.szervizDatumDataGridViewTextBoxColumn.DataPropertyName = "szervizDatum";
             this.szervizDatumDataGridViewTextBoxColumn.HeaderText = "szervizDatum";
             this.szervizDatumDataGridViewTextBoxColumn.Name = "szervizDatumDataGridViewTextBoxColumn";
-            this.szervizDatumDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // muszakiDatumDataGridViewTextBoxColumn
             // 
@@ -301,11 +304,7 @@
             this.beszerzesDatumDataGridViewTextBoxColumn.HeaderText = "beszerzesDatum";
             this.beszerzesDatumDataGridViewTextBoxColumn.Name = "beszerzesDatumDataGridViewTextBoxColumn";
             // 
-            // jarmuBindingSource
-            // 
-            this.jarmuBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmu);
-            // 
-            // JarmuLista
+            // JarmuListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -313,7 +312,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "JarmuLista";
+            this.Name = "JarmuListaForm";
             this.Text = "JarmuLista";
             this.Load += new System.EventHandler(this.JarmuLista_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -321,8 +320,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,6 +341,8 @@
         private System.Windows.Forms.ToolStripTextBox keresestoolStripTextBox;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripButton KategoriaFrissittoolStripButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rendszamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kategoriaIdDataGridViewTextBoxColumn;
@@ -354,7 +355,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn szervizDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn muszakiDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn beszerzesDatumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripButton KategoriaFrissittoolStripButton;
     }
 }

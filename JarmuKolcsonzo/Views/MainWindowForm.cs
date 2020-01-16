@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace JarmuKolcsonzo.Views
 {
-    public partial class MainWindow : Form
+    public partial class MainWindowForm : Form
     {
         private int childFormNumber = 0;
 
-        public MainWindow()
+        public MainWindowForm()
         {
             InitializeComponent();
         }
@@ -106,14 +106,14 @@ namespace JarmuKolcsonzo.Views
 
         private void kategoriakToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form childForm = new JarmuKategoria();
+            Form childForm = new JarmuKategoriaForm();
             childForm.MdiParent = this;
             childForm.Show();
         }
 
         private void jarmulistaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form childForm = new JarmuLista();
+            Form childForm = new JarmuListaForm();
             childForm.MdiParent = this;
             childForm.Show();
         }
