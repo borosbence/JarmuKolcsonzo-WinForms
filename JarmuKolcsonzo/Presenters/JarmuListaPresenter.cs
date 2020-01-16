@@ -13,7 +13,7 @@ namespace JarmuKolcsonzo.Presenters
     {
         private IJarmuListaView view;
         private JarmuListaRepository repo = new JarmuListaRepository();
-        private JarmuKategoriaRepository jkrepo = new JarmuKategoriaRepository();
+        // private JarmuKategoriaRepository jkrepo = new JarmuKategoriaRepository();
 
         public JarmuListaPresenter(IJarmuListaView param)
         {
@@ -23,10 +23,14 @@ namespace JarmuKolcsonzo.Presenters
         public void LoadData()
         {
             view.bindingList = repo.GetAllJarmu(
-                view.pageNumber, view.itemsPerPage);
-            view.jarmukategoriaList = jkrepo.GetAllJarmuKategoria();
-
+                    view.pageNumber, view.itemsPerPage, view.search);
+            //view.jarmukategoriaList = jkrepo.GetAllJarmuKategoria();
             view.totalItems = repo.Count();
+
+            using (var jkrepo = new JarmuKategoriaRepository())
+            {
+                view.jarmukategoriaList = jkrepo.GetAllJarmuKategoria();
+            }
         }
 
         public void Save()

@@ -20,17 +20,15 @@ namespace JarmuKolcsonzo.Views
         // Combobox létrehozása
         private DataGridViewComboBoxColumn jkCol;
         // Oldaltördelés
-        private int perPage = 1;
+        private int perPage = 25;
         private int page = 1;
-        private int total = 0;
-        private int maxPage;
+        private int pageCount;
 
         public JarmuLista()
         {
             InitializeComponent();
             presenter = new JarmuListaPresenter(this);
             jkCol = new DataGridViewComboBoxColumn();
-            maxPage = total / perPage;
         }
 
         public BindingList<jarmu> bindingList
@@ -56,8 +54,8 @@ namespace JarmuKolcsonzo.Views
         {
             set
             {
-                total = value;
-                label1.Text = page.ToString() + "/" + total.ToString();
+                pageCount = (value - 1) / perPage + 1;
+                label1.Text = page.ToString() + "/" + pageCount.ToString();
             }
         }
 
@@ -90,25 +88,35 @@ namespace JarmuKolcsonzo.Views
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-            while (page != 1)
+            if (page != 1)
             {
                 page--;
+                presenter.LoadData();
             }
-            presenter.LoadData();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (page != maxPage)
+            if (page != pageCount)
             {
                 page++;
+                presenter.LoadData();
             }
-            presenter.LoadData();
         }
 
         private void LastButton_Click(object sender, EventArgs e)
         {
-            page = total / perPage;
+            page = pageCount;
+            presenter.LoadData();
+        }
+
+        private void KategoriaFrissittoolStripButton_Click(object sender, EventArgs e)
+        {
+            JarmuLista_Load(null, null);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
             presenter.LoadData();
         }
     }

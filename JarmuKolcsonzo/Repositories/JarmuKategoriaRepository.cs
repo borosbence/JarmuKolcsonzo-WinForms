@@ -9,32 +9,46 @@ using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.Repositories
 {
-    public class JarmuKategoriaRepository
+    public class JarmuKategoriaRepository : IDisposable
     {
         private JKContext db = new JKContext();
         private int _totalItems;
 
         public BindingList<jarmukategoria> GetAllJarmuKategoria(
-            int page = 1,
+            int page = 0,
             int itemsPerPage = 0,
             string search = null,
             string sortBy = null,
             bool ascending = true)
         {
+            var query = db.jarmukategoria.OrderBy(x => x.Id).AsQueryable();
 
-            var query = db.jarmukategoria
-               .OrderBy(x => x.Id)
-                // Oldaltördelés
-                .Skip((page - 1) * itemsPerPage);
-                //.Take(itemsPerPage);
-            // TODO: ellenőrzés
-            if (itemsPerPage > 0)
+            // Keresés
+            if (!string.IsNullOrWhiteSpace(search))
             {
-                query = query.Take(itemsPerPage);
+                search = search.ToLower();
+
+                query = query.Where(x => x.kategoriaNev.Contains(search));
             }
 
-            // Összes adat kiszámítása
-            _totalItems = db.jarmukategoria.Count();
+            // Sorbarendezés
+            if (!string.IsNullOrWhiteSpace(sortBy))
+            {
+                query = query.OrderBy(x => x.kategoriaNev);
+            }
+            if (!ascending)
+            {
+                query.Reverse();
+            }
+
+            // Összes találat kiszámítása
+            _totalItems = query.Count();
+
+            // Oldaltördelés
+            if (page + itemsPerPage > 0)
+            {
+                query = query.Skip((page - 1) * itemsPerPage).Take(itemsPerPage);
+            }
 
             return new BindingList<jarmukategoria>(query.ToList());
         }
@@ -47,6 +61,11 @@ namespace JarmuKolcsonzo.Repositories
         public void Save()
         {
             db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            db.Dispose();
         }
     }
 }

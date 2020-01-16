@@ -9,29 +9,48 @@ using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.Repositories
 {
-    public class JarmuListaRepository
+    public class JarmuListaRepository : IDisposable
     {
         private JKContext db = new JKContext();
         private int _totalItems;
 
         public BindingList<jarmu> GetAllJarmu(
             int page = 0,
-            int itemsPerPage = 25,
+            int itemsPerPage = 0,
             string search = null,
             string sortBy = null,
             bool ascending = true)
         {
-            db.jarmu.Local.Clear();
-            db.jarmu
-                .OrderBy(x => x.Id)
-                // Oldaltördelés
-                .Skip(page -1).Take(itemsPerPage).Load();
-            var query = db.jarmu.Local.ToBindingList();
+            var query = db.jarmu.OrderBy(x => x.Id).AsQueryable();
 
-            // Összes adat kiszámítása
-            _totalItems = db.jarmu.Count();
+            // Keresés
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                search = search.ToLower();
 
-            return query;
+                query = query.Where(x => x.rendszam.Contains(search));
+            }
+
+            // Sorbarendezés
+            if (!string.IsNullOrWhiteSpace(sortBy))
+            {
+                query = query.OrderBy(x => x.rendszam);
+            }
+            if (!ascending)
+            {
+                query.Reverse();
+            }
+
+            // Összes találat kiszámítása
+            _totalItems = query.Count();
+
+            // Oldaltördelés
+            if (page + itemsPerPage > 0)
+            {
+                query = query.Skip((page - 1) * itemsPerPage).Take(itemsPerPage);
+            }
+
+            return new BindingList<jarmu>(query.ToList());
         }
 
         public int Count()
@@ -42,6 +61,11 @@ namespace JarmuKolcsonzo.Repositories
         public void Save()
         {
             db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            db.Dispose();
         }
     }
 }

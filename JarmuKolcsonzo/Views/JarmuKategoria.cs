@@ -17,9 +17,9 @@ namespace JarmuKolcsonzo.Views
     {
         private JarmuKategoriaPresenter presenter;
         // Oldaltördelés
-        private int perPage = 1;
+        private int perPage = 25;
         private int page = 1;
-        private int total = 0;
+        private int pageCount;
 
         public JarmuKategoria()
         {
@@ -42,8 +42,8 @@ namespace JarmuKolcsonzo.Views
         {
             set
             {
-                total = value;
-                label1.Text = page.ToString() + "/" + total.ToString();
+                pageCount = (value - 1) / perPage + 1;
+                label1.Text = page.ToString() + "/" + pageCount.ToString();
             }
         }
 
@@ -55,7 +55,6 @@ namespace JarmuKolcsonzo.Views
         private void mentestoolStripButton_Click(object sender, EventArgs e)
         {
             presenter.Save();
-            // presenter.LoadData();
         }
 
         private void FirstButton_Click(object sender, EventArgs e)
@@ -75,8 +74,7 @@ namespace JarmuKolcsonzo.Views
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            var maxPage = total / perPage;
-            if (page < maxPage)
+            if (page < pageCount)
             {
                 page++;
                 presenter.LoadData();
@@ -85,7 +83,7 @@ namespace JarmuKolcsonzo.Views
 
         private void LastButton_Click(object sender, EventArgs e)
         {
-            page = total / perPage;
+            page = pageCount;
             presenter.LoadData();
         }
     }

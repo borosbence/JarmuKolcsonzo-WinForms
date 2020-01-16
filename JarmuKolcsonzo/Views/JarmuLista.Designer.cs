@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuLista));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.KategoriaFrissittoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mentestoolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.keresestoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -66,6 +67,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.KategoriaFrissittoolStripButton,
             this.mentestoolStripButton1,
             this.toolStripSeparator1,
             this.keresestoolStripTextBox,
@@ -75,6 +77,15 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // KategoriaFrissittoolStripButton
+            // 
+            this.KategoriaFrissittoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("KategoriaFrissittoolStripButton.Image")));
+            this.KategoriaFrissittoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.KategoriaFrissittoolStripButton.Name = "KategoriaFrissittoolStripButton";
+            this.KategoriaFrissittoolStripButton.Size = new System.Drawing.Size(127, 22);
+            this.KategoriaFrissittoolStripButton.Text = "Kategória Frissítése";
+            this.KategoriaFrissittoolStripButton.Click += new System.EventHandler(this.KategoriaFrissittoolStripButton_Click);
             // 
             // mentestoolStripButton1
             // 
@@ -102,6 +113,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(66, 22);
             this.toolStripButton1.Text = "Keresés";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -343,5 +355,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn muszakiDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn beszerzesDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripButton KategoriaFrissittoolStripButton;
     }
 }
