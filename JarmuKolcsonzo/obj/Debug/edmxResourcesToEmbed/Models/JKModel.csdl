@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="jarmukolcsonzoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="JKContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="jarmu" EntityType="jarmukolcsonzoModel.jarmu" />
+    <EntitySet Name="jarmukategoria" EntityType="jarmukolcsonzoModel.jarmukategoria" />
+    <AssociationSet Name="jarmu_ibfk_1" Association="jarmukolcsonzoModel.jarmu_ibfk_1">
+      <End Role="jarmukategoria" EntitySet="jarmukategoria" />
+      <End Role="jarmu" EntitySet="jarmu" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="jarmu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rendszam" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="kategoriaId" Type="Int32" Nullable="false" />
+    <Property Name="tipus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modell" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ferohely" Type="Int32" />
+    <Property Name="fogyasztas" Type="Double" />
+    <Property Name="elerheto" Type="Boolean" Nullable="false" />
+    <Property Name="szervizben" Type="Boolean" Nullable="false" />
+    <Property Name="szervizDatum" Type="DateTime" />
+    <Property Name="muszakiDatum" Type="DateTime" />
+    <Property Name="beszerzesDatum" Type="DateTime" />
+    <NavigationProperty Name="jarmukategoria" Relationship="jarmukolcsonzoModel.jarmu_ibfk_1" FromRole="jarmu" ToRole="jarmukategoria" />
+  </EntityType>
+  <EntityType Name="jarmukategoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kategoriaNev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="jarmu" Relationship="jarmukolcsonzoModel.jarmu_ibfk_1" FromRole="jarmukategoria" ToRole="jarmu" />
+  </EntityType>
+  <Association Name="jarmu_ibfk_1">
+    <End Type="jarmukolcsonzoModel.jarmukategoria" Role="jarmukategoria" Multiplicity="1" />
+    <End Type="jarmukolcsonzoModel.jarmu" Role="jarmu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jarmukategoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="jarmu">
+        <PropertyRef Name="kategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
