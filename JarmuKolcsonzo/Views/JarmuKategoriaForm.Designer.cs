@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuKategoriaForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kategoriaNevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jarmuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jarmukategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.mentestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.keresestoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.KeresestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -44,15 +47,11 @@
             this.LastButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kategoriaNevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jarmuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jarmukategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jarmukategoriaBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmukategoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -71,6 +70,30 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(775, 376);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // kategoriaNevDataGridViewTextBoxColumn
+            // 
+            this.kategoriaNevDataGridViewTextBoxColumn.DataPropertyName = "kategoriaNev";
+            this.kategoriaNevDataGridViewTextBoxColumn.HeaderText = "Név";
+            this.kategoriaNevDataGridViewTextBoxColumn.Name = "kategoriaNevDataGridViewTextBoxColumn";
+            // 
+            // jarmuDataGridViewTextBoxColumn
+            // 
+            this.jarmuDataGridViewTextBoxColumn.DataPropertyName = "jarmu";
+            this.jarmuDataGridViewTextBoxColumn.HeaderText = "jarmu";
+            this.jarmuDataGridViewTextBoxColumn.Name = "jarmuDataGridViewTextBoxColumn";
+            this.jarmuDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // jarmukategoriaBindingSource
+            // 
+            this.jarmukategoriaBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmukategoria);
             // 
             // toolStrip1
             // 
@@ -78,7 +101,7 @@
             this.mentestoolStripButton,
             this.toolStripSeparator1,
             this.keresestoolStripTextBox,
-            this.toolStripButton1});
+            this.KeresestoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -87,7 +110,7 @@
             // 
             // mentestoolStripButton
             // 
-            this.mentestoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("mentestoolStripButton.Image")));
+            this.mentestoolStripButton.Image = global::JarmuKolcsonzo.Properties.Resources.saveToolStripButton;
             this.mentestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mentestoolStripButton.Name = "mentestoolStripButton";
             this.mentestoolStripButton.Size = new System.Drawing.Size(66, 22);
@@ -101,17 +124,17 @@
             // 
             // keresestoolStripTextBox
             // 
-            this.keresestoolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keresestoolStripTextBox.Name = "keresestoolStripTextBox";
             this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 25);
             // 
-            // toolStripButton1
+            // KeresestoolStripButton
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(66, 22);
-            this.toolStripButton1.Text = "Keresés";
+            this.KeresestoolStripButton.Image = global::JarmuKolcsonzo.Properties.Resources.searchToolStripMenuItem;
+            this.KeresestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.KeresestoolStripButton.Name = "KeresestoolStripButton";
+            this.KeresestoolStripButton.Size = new System.Drawing.Size(66, 22);
+            this.KeresestoolStripButton.Text = "Keresés";
+            this.KeresestoolStripButton.Click += new System.EventHandler(this.KeresestoolStripButton_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -205,30 +228,7 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "0/0";
             // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // kategoriaNevDataGridViewTextBoxColumn
-            // 
-            this.kategoriaNevDataGridViewTextBoxColumn.DataPropertyName = "kategoriaNev";
-            this.kategoriaNevDataGridViewTextBoxColumn.HeaderText = "Név";
-            this.kategoriaNevDataGridViewTextBoxColumn.Name = "kategoriaNevDataGridViewTextBoxColumn";
-            // 
-            // jarmuDataGridViewTextBoxColumn
-            // 
-            this.jarmuDataGridViewTextBoxColumn.DataPropertyName = "jarmu";
-            this.jarmuDataGridViewTextBoxColumn.HeaderText = "jarmu";
-            this.jarmuDataGridViewTextBoxColumn.Name = "jarmuDataGridViewTextBoxColumn";
-            this.jarmuDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // jarmukategoriaBindingSource
-            // 
-            this.jarmukategoriaBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmukategoria);
-            // 
-            // JarmuKategoria
+            // JarmuKategoriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -236,16 +236,16 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "JarmuKategoria";
+            this.Name = "JarmuKategoriaForm";
             this.Text = "JarmuKategoria";
             this.Load += new System.EventHandler(this.JarmuKategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jarmukategoriaBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmukategoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +263,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jarmuDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox keresestoolStripTextBox;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton KeresestoolStripButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button PrevButton;

@@ -24,6 +24,20 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="kategoriaNev" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="ugyfel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vezeteknev" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="keresztnev" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="varos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cim" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="irszam" Type="int" Nullable="false" />
+    <Property Name="telefonszam" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pont" Type="int" />
+  </EntityType>
   <Association Name="jarmu_ibfk_1">
     <End Role="jarmukategoria" Type="Self.jarmukategoria" Multiplicity="1" />
     <End Role="jarmu" Type="Self.jarmu" Multiplicity="*" />
@@ -39,6 +53,7 @@
   <EntityContainer Name="jarmukolcsonzoModelStoreContainer">
     <EntitySet Name="jarmu" EntityType="Self.jarmu" Schema="jarmukolcsonzo" store:Type="Tables" />
     <EntitySet Name="jarmukategoria" EntityType="Self.jarmukategoria" Schema="jarmukolcsonzo" store:Type="Tables" />
+    <EntitySet Name="ugyfel" EntityType="Self.ugyfel" Schema="jarmukolcsonzo" store:Type="Tables" />
     <AssociationSet Name="jarmu_ibfk_1" Association="Self.jarmu_ibfk_1">
       <End Role="jarmukategoria" EntitySet="jarmukategoria" />
       <End Role="jarmu" EntitySet="jarmu" />

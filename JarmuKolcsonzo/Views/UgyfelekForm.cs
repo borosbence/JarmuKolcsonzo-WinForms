@@ -13,30 +13,35 @@ using System.Windows.Forms;
 
 namespace JarmuKolcsonzo.Views
 {
-    public partial class JarmuKategoriaForm : Form, IDataGridList<jarmukategoria>
+    public partial class UgyfelekForm : Form, IDataGridList<ugyfel>
     {
-        private JarmuKategoriaPresenter presenter;
+        private UgyfelPresenter presenter;
         // Oldaltördelés
         private int pageCount;
         private int sortIndex;
 
-        public JarmuKategoriaForm()
+        public UgyfelekForm()
         {
             InitializeComponent();
-            presenter = new JarmuKategoriaPresenter(this);
+            presenter = new UgyfelPresenter(this);
+            Init();
+        }
+
+        public void Init()
+        {
             pageNumber = 1;
-            itemsPerPage = 25;
+            itemsPerPage = 20;
             sortBy = "Id";
             sortIndex = 0;
             ascending = true;
         }
 
-        public BindingList<jarmukategoria> bindingList 
+        public BindingList<ugyfel> bindingList
         {
-            get => (BindingList<jarmukategoria>)dataGridView1.DataSource;
-            set => dataGridView1.DataSource = value; 
+            get => (BindingList<ugyfel>)dataGridView1.DataSource;
+            set => dataGridView1.DataSource = value;
         }
-        public int pageNumber { get ; set; }
+        public int pageNumber { get; set; }
         public int itemsPerPage { get; set; }
         public string search { get => keresestoolStripTextBox.Text; }
         public string sortBy { get; set; }
@@ -47,10 +52,12 @@ namespace JarmuKolcsonzo.Views
             {
                 pageCount = (value - 1) / itemsPerPage + 1;
                 label1.Text = pageNumber.ToString() + "/" + pageCount.ToString();
+                OsszesLabel.Text = "Összesen: " + value.ToString();
             }
         }
 
-        private void JarmuKategoria_Load(object sender, EventArgs e)
+
+        private void UgyfelekForm_Load(object sender, EventArgs e)
         {
             presenter.LoadData();
         }
@@ -58,11 +65,6 @@ namespace JarmuKolcsonzo.Views
         private void mentestoolStripButton_Click(object sender, EventArgs e)
         {
             presenter.Save();
-        }
-
-        private void KeresestoolStripButton_Click(object sender, EventArgs e)
-        {
-            presenter.LoadData();
         }
 
         private void FirstButton_Click(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace JarmuKolcsonzo.Views
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-            if (pageNumber > 1)
+            if (pageNumber != 1)
             {
                 pageNumber--;
                 presenter.LoadData();
@@ -82,7 +84,7 @@ namespace JarmuKolcsonzo.Views
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (pageNumber < pageCount)
+            if (pageNumber != pageCount)
             {
                 pageNumber++;
                 presenter.LoadData();
@@ -105,17 +107,20 @@ namespace JarmuKolcsonzo.Views
             {
                 case 1:
                     sortBy = "kategoriaNev";
+                    sortIndex = e.ColumnIndex;
                     break;
                 default:
                     sortBy = "Id";
+                    sortIndex = e.ColumnIndex;
                     break;
             }
-
-            sortIndex = e.ColumnIndex;
 
             presenter.LoadData();
         }
 
-
+        private void KeresestoolStripButton_Click(object sender, EventArgs e)
+        {
+            presenter.LoadData();
+        }
     }
 }

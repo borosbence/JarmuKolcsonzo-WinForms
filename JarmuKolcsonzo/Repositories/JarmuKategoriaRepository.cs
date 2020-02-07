@@ -34,12 +34,18 @@ namespace JarmuKolcsonzo.Repositories
             // Sorbarendezés
             if (!string.IsNullOrWhiteSpace(sortBy))
             {
-                query = query.OrderBy(x => x.kategoriaNev);
+
+                switch (sortBy)
+                {
+                    default:
+                        query = ascending ? query.OrderBy(x => x.Id) : query.OrderByDescending(x => x.Id);
+                        break;
+                    case "kategoriaNev":
+                        query = ascending ? query.OrderBy(x => x.kategoriaNev) : query.OrderByDescending(x => x.kategoriaNev);
+                        break;
+                }
             }
-            if (!ascending)
-            {
-                query.Reverse();
-            }
+
 
             // Összes találat kiszámítása
             _totalItems = query.Count();
@@ -65,7 +71,15 @@ namespace JarmuKolcsonzo.Repositories
 
         public void Dispose()
         {
-            db.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
         }
     }
 }

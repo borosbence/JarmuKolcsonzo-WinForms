@@ -27,5 +27,6 @@ namespace JarmuKolcsonzo.Models
     
         public virtual DbSet<jarmu> jarmu { get; set; }
         public virtual DbSet<jarmukategoria> jarmukategoria { get; set; }
+        public virtual DbSet<ugyfel> ugyfel { get; set; }
     }
 }

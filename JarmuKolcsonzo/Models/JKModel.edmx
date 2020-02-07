@@ -29,6 +29,20 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kategoriaNev" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="ugyfel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vezeteknev" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="keresztnev" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="varos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cim" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="irszam" Type="int" Nullable="false" />
+          <Property Name="telefonszam" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pont" Type="int" />
+        </EntityType>
         <Association Name="jarmu_ibfk_1">
           <End Role="jarmukategoria" Type="Self.jarmukategoria" Multiplicity="1" />
           <End Role="jarmu" Type="Self.jarmu" Multiplicity="*" />
@@ -44,6 +58,7 @@
         <EntityContainer Name="jarmukolcsonzoModelStoreContainer">
           <EntitySet Name="jarmu" EntityType="Self.jarmu" Schema="jarmukolcsonzo" store:Type="Tables" />
           <EntitySet Name="jarmukategoria" EntityType="Self.jarmukategoria" Schema="jarmukolcsonzo" store:Type="Tables" />
+          <EntitySet Name="ugyfel" EntityType="Self.ugyfel" Schema="jarmukolcsonzo" store:Type="Tables" />
           <AssociationSet Name="jarmu_ibfk_1" Association="Self.jarmu_ibfk_1">
             <End Role="jarmukategoria" EntitySet="jarmukategoria" />
             <End Role="jarmu" EntitySet="jarmu" />
@@ -60,6 +75,7 @@
             <End Role="jarmukategoria" EntitySet="jarmukategoria" />
             <End Role="jarmu" EntitySet="jarmu" />
           </AssociationSet>
+          <EntitySet Name="ugyfel" EntityType="jarmukolcsonzoModel.ugyfel" />
         </EntityContainer>
         <EntityType Name="jarmu">
           <Key>
@@ -99,6 +115,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ugyfel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vezeteknev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="keresztnev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="varos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cim" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="irszam" Type="Int32" Nullable="false" />
+          <Property Name="telefonszam" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pont" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -131,6 +161,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ugyfel">
+            <EntityTypeMapping TypeName="jarmukolcsonzoModel.ugyfel">
+              <MappingFragment StoreEntitySet="ugyfel">
+                <ScalarProperty Name="pont" ColumnName="pont" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefonszam" ColumnName="telefonszam" />
+                <ScalarProperty Name="irszam" ColumnName="irszam" />
+                <ScalarProperty Name="cim" ColumnName="cim" />
+                <ScalarProperty Name="varos" ColumnName="varos" />
+                <ScalarProperty Name="keresztnev" ColumnName="keresztnev" />
+                <ScalarProperty Name="vezeteknev" ColumnName="vezeteknev" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -157,6 +202,7 @@
         <EntityTypeShape EntityType="jarmukolcsonzoModel.jarmu" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="jarmukolcsonzoModel.jarmukategoria" Width="1.5" PointX="0.75" PointY="2" />
         <AssociationConnector Association="jarmukolcsonzoModel.jarmu_ibfk_1" />
+        <EntityTypeShape EntityType="jarmukolcsonzoModel.ugyfel" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </Diagrams>
   </Designer>

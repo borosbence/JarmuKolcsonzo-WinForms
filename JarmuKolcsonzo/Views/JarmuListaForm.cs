@@ -20,15 +20,24 @@ namespace JarmuKolcsonzo.Views
         // Combobox létrehozása
         private DataGridViewComboBoxColumn jkCol;
         // Oldaltördelés
-        private int perPage = 25;
-        private int page = 1;
         private int pageCount;
+        private int sortIndex;
 
         public JarmuListaForm()
         {
             InitializeComponent();
             presenter = new JarmuListaPresenter(this);
             jkCol = new DataGridViewComboBoxColumn();
+            Init();
+        }
+
+        public void Init()
+        {
+            pageNumber = 1;
+            itemsPerPage = 25;
+            sortBy = "Id";
+            sortIndex = 0;
+            ascending = true;
         }
 
         public BindingList<jarmu> bindingList
@@ -45,17 +54,17 @@ namespace JarmuKolcsonzo.Views
                 jkCol.DataSource = value;
             }
         }
-        public int pageNumber => page;
-        public int itemsPerPage => perPage;
+        public int pageNumber { get; set; }
+        public int itemsPerPage { get; set; }
         public string search => keresestoolStripTextBox.Text;
-        public string sortBy => throw new NotImplementedException();
-        public bool ascending => throw new NotImplementedException();
+        public string sortBy { get; set; }
+        public bool ascending { get; set; }
         public int totalItems 
         {
             set
             {
-                pageCount = (value - 1) / perPage + 1;
-                label1.Text = page.ToString() + "/" + pageCount.ToString();
+                pageCount = (value - 1) / itemsPerPage + 1;
+                label1.Text = pageNumber.ToString() + "/" + pageCount.ToString();
             }
         }
 
@@ -82,31 +91,31 @@ namespace JarmuKolcsonzo.Views
 
         private void FirstButton_Click(object sender, EventArgs e)
         {
-            page = 1;
+            pageNumber = 1;
             presenter.LoadData();
         }
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-            if (page != 1)
+            if (pageNumber != 1)
             {
-                page--;
+                pageNumber--;
                 presenter.LoadData();
             }
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (page != pageCount)
+            if (pageNumber != pageCount)
             {
-                page++;
+                pageNumber++;
                 presenter.LoadData();
             }
         }
 
         private void LastButton_Click(object sender, EventArgs e)
         {
-            page = pageCount;
+            pageNumber = pageCount;
             presenter.LoadData();
         }
 
@@ -115,9 +124,52 @@ namespace JarmuKolcsonzo.Views
             JarmuLista_Load(null, null);
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void KeresestoolStripButton_Click(object sender, EventArgs e)
         {
             presenter.LoadData();
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (sortIndex == e.ColumnIndex)
+            {
+                ascending = !ascending;
+            }
+            switch (e.ColumnIndex)
+            {
+                case 1:
+                    sortBy = "rendszam";
+                    break;
+                case 2:
+                    sortBy = "kategoriaId";
+                    break;
+                case 4:
+                    sortBy = "tipus";
+                    break;
+                case 5:
+                    sortBy = "modell";
+                    break;
+                default:
+                    sortBy = "Id";
+                    break;
+            }
+
+            sortIndex = e.ColumnIndex;
+
+            presenter.LoadData();
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.Exception != null && e.ColumnIndex == 6)
+            {
+                MessageBox.Show("Kérem az egész szám után vesszővel válassza el a tört értéket.", "Hiba",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show(e.Exception.Message);
+            }
+            
         }
     }
 }

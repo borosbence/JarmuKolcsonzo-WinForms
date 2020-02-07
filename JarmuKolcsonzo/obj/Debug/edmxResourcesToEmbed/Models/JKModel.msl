@@ -27,5 +27,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ugyfel">
+      <EntityTypeMapping TypeName="jarmukolcsonzoModel.ugyfel">
+        <MappingFragment StoreEntitySet="ugyfel">
+          <ScalarProperty Name="pont" ColumnName="pont" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefonszam" ColumnName="telefonszam" />
+          <ScalarProperty Name="irszam" ColumnName="irszam" />
+          <ScalarProperty Name="cim" ColumnName="cim" />
+          <ScalarProperty Name="varos" ColumnName="varos" />
+          <ScalarProperty Name="keresztnev" ColumnName="keresztnev" />
+          <ScalarProperty Name="vezeteknev" ColumnName="vezeteknev" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

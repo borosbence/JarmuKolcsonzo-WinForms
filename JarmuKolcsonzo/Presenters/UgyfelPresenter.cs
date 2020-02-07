@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.Presenters
 {
-    class JarmuKategoriaPresenter
+    class UgyfelPresenter
     {
-        private IDataGridList<jarmukategoria> view;
-        private JarmuKategoriaRepository repo = new JarmuKategoriaRepository();
-        public JarmuKategoriaPresenter(IDataGridList<jarmukategoria> param)
+        private IDataGridList<ugyfel> view;
+        private UgyfelRepository repo = new UgyfelRepository();
+        public UgyfelPresenter(IDataGridList<ugyfel> param)
         {
             view = param;
         }
 
         public void LoadData()
         {
-            view.bindingList = repo.GetAllJarmuKategoria(
+            view.bindingList = repo.GetAllUgyfel(
                 view.pageNumber, view.itemsPerPage, view.search, view.sortBy, view.ascending);
             view.totalItems = repo.Count();
         }

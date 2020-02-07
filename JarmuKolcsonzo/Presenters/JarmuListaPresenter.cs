@@ -23,7 +23,7 @@ namespace JarmuKolcsonzo.Presenters
         public void LoadData()
         {
             view.bindingList = repo.GetAllJarmu(
-                    view.pageNumber, view.itemsPerPage, view.search);
+                    view.pageNumber, view.itemsPerPage, view.search,view.sortBy,view.ascending);
             //view.jarmukategoriaList = jkrepo.GetAllJarmuKategoria();
             view.totalItems = repo.Count();
 

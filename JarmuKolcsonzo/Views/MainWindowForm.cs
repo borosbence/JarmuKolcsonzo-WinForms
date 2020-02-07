@@ -117,5 +117,12 @@ namespace JarmuKolcsonzo.Views
             childForm.MdiParent = this;
             childForm.Show();
         }
+
+        private void UgyfelektoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form childForm = new UgyfelekForm();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
     }
 }
