@@ -1,6 +1,6 @@
 ﻿namespace JarmuKolcsonzo.Views
 {
-    partial class UjJarmuKategoriaForm
+    partial class JarmuKategoriaSzerkForm
     {
         /// <summary>
         /// Required designer variable.
@@ -57,7 +57,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Létrehoz";
+            this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -70,7 +70,7 @@
             this.button2.Text = "Mégse";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // UjJarmuKategoriaForm
+            // JarmuKategoriaSzerkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -79,7 +79,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "UjJarmuKategoriaForm";
+            this.Name = "JarmuKategoriaSzerkForm";
             this.Text = "UjJarmuKategoriaForm";
             this.ResumeLayout(false);
             this.PerformLayout();

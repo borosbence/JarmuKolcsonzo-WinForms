@@ -46,6 +46,11 @@ namespace JarmuKolcsonzo.Presenters
             repo.Delete(jk);
         }
 
+        public void Modify(jarmu jarmu)
+        {
+            repo.Update(jarmu);
+        }
+
         public void Save()
         {
             repo.Save();

@@ -13,14 +13,14 @@ using System.Windows.Forms;
 
 namespace JarmuKolcsonzo.Views
 {
-    public partial class JarmuKategoriaForm : Form, IDataGridList<jarmukategoria>
+    public partial class JarmuKategoriaListaForm : Form, IDataGridList<jarmukategoria>
     {
         private JarmuKategoriaPresenter presenter;
         // Oldaltördelés
         private int pageCount;
         private int sortIndex;
 
-        public JarmuKategoriaForm()
+        public JarmuKategoriaListaForm()
         {
             InitializeComponent();
             presenter = new JarmuKategoriaPresenter(this);
@@ -131,7 +131,7 @@ namespace JarmuKolcsonzo.Views
 
         private void UjtoolStripButton_Click(object sender, EventArgs e)
         {
-            var addForm = new UjJarmuKategoriaForm();
+            var addForm = new JarmuKategoriaSzerkForm();
             DialogResult dr = addForm.ShowDialog(this);
             if (dr == DialogResult.Cancel)
             {
@@ -141,6 +141,30 @@ namespace JarmuKolcsonzo.Views
             {
                 presenter.Add(addForm.jarmukategoria);
                 addForm.Close();
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var jk = (jarmukategoria)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+
+                if (jk != null)
+                {
+                    var modForm = new JarmuKategoriaSzerkForm();
+                    modForm.jarmukategoria = jk;
+                    DialogResult dr = modForm.ShowDialog(this);
+                    if (dr == DialogResult.Cancel)
+                    {
+                        modForm.Close();
+                    }
+                    else if (dr == DialogResult.OK)
+                    {
+                        presenter.Modify(modForm.jarmukategoria);
+                        modForm.Close();
+                    }
+                }
             }
         }
     }

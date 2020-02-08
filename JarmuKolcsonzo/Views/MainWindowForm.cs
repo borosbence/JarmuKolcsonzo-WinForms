@@ -106,7 +106,7 @@ namespace JarmuKolcsonzo.Views
 
         private void kategoriakToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form childForm = new JarmuKategoriaForm();
+            Form childForm = new JarmuKategoriaListaForm();
             childForm.MdiParent = this;
             childForm.Show();
         }

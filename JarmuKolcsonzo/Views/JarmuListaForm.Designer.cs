@@ -33,6 +33,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.KategoriaFrissittoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mentestoolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.UjtoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.TorlestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.keresestoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.KeresestoolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -43,6 +45,7 @@
             this.NextButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rendszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kategoriaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,14 +59,11 @@
             this.muszakiDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.beszerzesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.UjtoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.TorlestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -99,6 +99,24 @@
             this.mentestoolStripButton1.Size = new System.Drawing.Size(66, 22);
             this.mentestoolStripButton1.Text = "Mentés";
             this.mentestoolStripButton1.Click += new System.EventHandler(this.mentestoolStripButton1_Click);
+            // 
+            // UjtoolStripButton
+            // 
+            this.UjtoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("UjtoolStripButton.Image")));
+            this.UjtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UjtoolStripButton.Name = "UjtoolStripButton";
+            this.UjtoolStripButton.Size = new System.Drawing.Size(38, 22);
+            this.UjtoolStripButton.Text = "Új";
+            this.UjtoolStripButton.Click += new System.EventHandler(this.UjtoolStripButton_Click);
+            // 
+            // TorlestoolStripButton
+            // 
+            this.TorlestoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("TorlestoolStripButton.Image")));
+            this.TorlestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TorlestoolStripButton.Name = "TorlestoolStripButton";
+            this.TorlestoolStripButton.Size = new System.Drawing.Size(57, 22);
+            this.TorlestoolStripButton.Text = "Törlés";
+            this.TorlestoolStripButton.Click += new System.EventHandler(this.TorlestoolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
@@ -198,6 +216,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -221,8 +241,18 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(775, 373);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 407);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 43);
+            this.panel1.TabIndex = 3;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -302,33 +332,6 @@
             // 
             this.jarmuBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmu);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 407);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 43);
-            this.panel1.TabIndex = 3;
-            // 
-            // UjtoolStripButton
-            // 
-            this.UjtoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("UjtoolStripButton.Image")));
-            this.UjtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.UjtoolStripButton.Name = "UjtoolStripButton";
-            this.UjtoolStripButton.Size = new System.Drawing.Size(38, 22);
-            this.UjtoolStripButton.Text = "Új";
-            this.UjtoolStripButton.Click += new System.EventHandler(this.UjtoolStripButton_Click);
-            // 
-            // TorlestoolStripButton
-            // 
-            this.TorlestoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("TorlestoolStripButton.Image")));
-            this.TorlestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TorlestoolStripButton.Name = "TorlestoolStripButton";
-            this.TorlestoolStripButton.Size = new System.Drawing.Size(57, 22);
-            this.TorlestoolStripButton.Text = "Törlés";
-            this.TorlestoolStripButton.Click += new System.EventHandler(this.TorlestoolStripButton_Click);
-            // 
             // JarmuListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,8 +348,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

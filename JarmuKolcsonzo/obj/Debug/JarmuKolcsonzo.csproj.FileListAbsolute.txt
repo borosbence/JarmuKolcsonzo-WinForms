@@ -88,7 +88,6 @@ D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug
 D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\MySql.Data.EntityFramework.xml
 D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.csprojAssemblyReference.cache
 D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Properties.Resources.resources
-D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuKategoriaForm.resources
 D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuListaForm.resources
 D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.MainWindowForm.resources
 D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.UgyfelekForm.resources
@@ -96,5 +95,6 @@ D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug
 D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.csproj.CopyComplete
 D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.exe
 D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.pdb
-D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.UjJarmuKategoriaForm.resources
-D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.UjJarmuForm.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuKategoriaListaForm.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuSzerkForm.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuKategoriaSzerkForm.resources

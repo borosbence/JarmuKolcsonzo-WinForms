@@ -182,7 +182,7 @@ namespace JarmuKolcsonzo.Views
 
         private void UjtoolStripButton_Click(object sender, EventArgs e)
         {
-            var addForm = new UjJarmuForm();
+            var addForm = new JarmuSzerkForm();
             DialogResult dr = addForm.ShowDialog(this);
             if (dr == DialogResult.Cancel)
             {
@@ -192,6 +192,30 @@ namespace JarmuKolcsonzo.Views
             {
                 presenter.Add(addForm.jarmu);
                 addForm.Close();
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var jk = (jarmu)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+
+                if (jk != null)
+                {
+                    var modForm = new JarmuSzerkForm();
+                    modForm.jarmu = jk;
+                    DialogResult dr = modForm.ShowDialog(this);
+                    if (dr == DialogResult.Cancel)
+                    {
+                        modForm.Close();
+                    }
+                    else if (dr == DialogResult.OK)
+                    {
+                        presenter.Modify(modForm.jarmu);
+                        modForm.Close();
+                    }
+                }
             }
         }
     }

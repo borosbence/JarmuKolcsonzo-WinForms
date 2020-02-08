@@ -74,6 +74,15 @@ namespace JarmuKolcsonzo.Repositories
             db.jarmukategoria.Remove(jk);
         }
 
+        public void Update(jarmukategoria param)
+        {
+            var jk = db.jarmukategoria.Find(param.Id);
+            if (jk != null)
+            {
+                db.Entry(jk).CurrentValues.SetValues(param);
+            }
+        }
+
         public void Save()
         {
             db.SaveChanges();

@@ -9,6 +9,6 @@ namespace JarmuKolcsonzo.ViewInterfaces
 {
     interface IJarmuKategoriaView
     {
-        jarmukategoria jarmukategoria { get; }
+        jarmukategoria jarmukategoria { get; set; }
     }
 }

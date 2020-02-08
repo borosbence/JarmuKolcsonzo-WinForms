@@ -10,7 +10,7 @@ namespace JarmuKolcsonzo.ViewInterfaces
 {
     public interface IJarmuView
     {
-        jarmu jarmu { get; }
+        jarmu jarmu { get; set; }
         BindingList<jarmukategoria> jarmukategoriaList { get; set; }
     }
 }

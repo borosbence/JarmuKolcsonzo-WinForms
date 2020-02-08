@@ -96,10 +96,10 @@
     <Compile Include="Models\ugyfel.cs">
       <DependentUpon>JKModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\JarmuPresenter.cs" />
     <Compile Include="Presenters\UgyfelPresenter.cs" />
     <Compile Include="Presenters\JarmuKategoriaPresenter.cs" />
     <Compile Include="Presenters\JarmuListaPresenter.cs" />
-    <Compile Include="Presenters\UjJarmuPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\JarmuKategoriaRepository.cs" />
@@ -109,11 +109,11 @@
     <Compile Include="ViewInterfaces\IJarmuView.cs" />
     <Compile Include="ViewInterfaces\IJarmuKategoriaView.cs" />
     <Compile Include="ViewInterfaces\IJarmuListaView.cs" />
-    <Compile Include="Views\JarmuKategoriaForm.cs">
+    <Compile Include="Views\JarmuKategoriaListaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\JarmuKategoriaForm.Designer.cs">
-      <DependentUpon>JarmuKategoriaForm.cs</DependentUpon>
+    <Compile Include="Views\JarmuKategoriaListaForm.Designer.cs">
+      <DependentUpon>JarmuKategoriaListaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\JarmuListaForm.cs">
       <SubType>Form</SubType>
@@ -133,17 +133,17 @@
     <Compile Include="Views\UgyfelekForm.Designer.cs">
       <DependentUpon>UgyfelekForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UjJarmuForm.cs">
+    <Compile Include="Views\JarmuSzerkForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UjJarmuForm.Designer.cs">
-      <DependentUpon>UjJarmuForm.cs</DependentUpon>
+    <Compile Include="Views\JarmuSzerkForm.Designer.cs">
+      <DependentUpon>JarmuSzerkForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UjJarmuKategoriaForm.cs">
+    <Compile Include="Views\JarmuKategoriaSzerkForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UjJarmuKategoriaForm.Designer.cs">
-      <DependentUpon>UjJarmuKategoriaForm.cs</DependentUpon>
+    <Compile Include="Views\JarmuKategoriaSzerkForm.Designer.cs">
+      <DependentUpon>JarmuKategoriaSzerkForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -155,8 +155,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\JarmuKategoriaForm.resx">
-      <DependentUpon>JarmuKategoriaForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\JarmuKategoriaListaForm.resx">
+      <DependentUpon>JarmuKategoriaListaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\JarmuListaForm.resx">
       <DependentUpon>JarmuListaForm.cs</DependentUpon>
@@ -167,11 +167,11 @@
     <EmbeddedResource Include="Views\UgyfelekForm.resx">
       <DependentUpon>UgyfelekForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UjJarmuForm.resx">
-      <DependentUpon>UjJarmuForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\JarmuSzerkForm.resx">
+      <DependentUpon>JarmuSzerkForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UjJarmuKategoriaForm.resx">
-      <DependentUpon>UjJarmuKategoriaForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\JarmuKategoriaSzerkForm.resx">
+      <DependentUpon>JarmuKategoriaSzerkForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\JKModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

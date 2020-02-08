@@ -73,6 +73,11 @@ namespace JarmuKolcsonzo.Repositories
             return new BindingList<jarmu>(query.ToList());
         }
 
+        public int Count()
+        {
+            return _totalItems;
+        }
+
         public void Insert(jarmu jarmu)
         {
             db.jarmu.Add(jarmu);
@@ -83,11 +88,14 @@ namespace JarmuKolcsonzo.Repositories
             db.jarmu.Remove(jarmu);
         }
 
-        public int Count()
+        public void Update(jarmu param)
         {
-            return _totalItems;
+            var jarmu = db.jarmu.Find(param.Id);
+            if (jarmu != null)
+            {
+                db.Entry(jarmu).CurrentValues.SetValues(param);
+            }
         }
-
         public void Save()
         {
             db.SaveChanges();

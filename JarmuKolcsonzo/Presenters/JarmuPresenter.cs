@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.Presenters
 {
-    public class UjJarmuPresenter
+    public class JarmuPresenter
     {
         IJarmuView view;
         JarmuKategoriaRepository repo = new JarmuKategoriaRepository();
 
-        public UjJarmuPresenter(IJarmuView param)
+        public JarmuPresenter(IJarmuView param)
         {
             view = param;
         }
