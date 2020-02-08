@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuListaForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.KategoriaFrissittoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mentestoolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -56,6 +57,8 @@
             this.beszerzesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.UjtoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.TorlestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -68,6 +71,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.KategoriaFrissittoolStripButton,
             this.mentestoolStripButton1,
+            this.UjtoolStripButton,
+            this.TorlestoolStripButton,
             this.toolStripSeparator1,
             this.keresestoolStripTextBox,
             this.KeresestoolStripButton});
@@ -306,6 +311,24 @@
             this.panel1.Size = new System.Drawing.Size(800, 43);
             this.panel1.TabIndex = 3;
             // 
+            // UjtoolStripButton
+            // 
+            this.UjtoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("UjtoolStripButton.Image")));
+            this.UjtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UjtoolStripButton.Name = "UjtoolStripButton";
+            this.UjtoolStripButton.Size = new System.Drawing.Size(38, 22);
+            this.UjtoolStripButton.Text = "Új";
+            this.UjtoolStripButton.Click += new System.EventHandler(this.UjtoolStripButton_Click);
+            // 
+            // TorlestoolStripButton
+            // 
+            this.TorlestoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("TorlestoolStripButton.Image")));
+            this.TorlestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TorlestoolStripButton.Name = "TorlestoolStripButton";
+            this.TorlestoolStripButton.Size = new System.Drawing.Size(57, 22);
+            this.TorlestoolStripButton.Text = "Törlés";
+            this.TorlestoolStripButton.Click += new System.EventHandler(this.TorlestoolStripButton_Click);
+            // 
             // JarmuListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,5 +380,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn szervizDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn muszakiDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn beszerzesDatumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton UjtoolStripButton;
+        private System.Windows.Forms.ToolStripButton TorlestoolStripButton;
     }
 }

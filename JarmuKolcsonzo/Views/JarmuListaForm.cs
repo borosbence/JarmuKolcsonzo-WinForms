@@ -171,5 +171,28 @@ namespace JarmuKolcsonzo.Views
             }
             
         }
+
+        private void TorlestoolStripButton_Click(object sender, EventArgs e)
+        {
+            while (dataGridView1.SelectedRows.Count > 0)
+            {
+                presenter.Remove(dataGridView1.SelectedRows[0].Index);
+            }
+        }
+
+        private void UjtoolStripButton_Click(object sender, EventArgs e)
+        {
+            var addForm = new UjJarmuForm();
+            DialogResult dr = addForm.ShowDialog(this);
+            if (dr == DialogResult.Cancel)
+            {
+                addForm.Close();
+            }
+            else if (dr == DialogResult.OK)
+            {
+                presenter.Add(addForm.jarmu);
+                addForm.Close();
+            }
+        }
     }
 }

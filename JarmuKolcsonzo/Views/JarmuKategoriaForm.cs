@@ -24,8 +24,13 @@ namespace JarmuKolcsonzo.Views
         {
             InitializeComponent();
             presenter = new JarmuKategoriaPresenter(this);
+            Init();
+        }
+
+        public void Init()
+        {
             pageNumber = 1;
-            itemsPerPage = 25;
+            itemsPerPage = 10;
             sortBy = "Id";
             sortIndex = 0;
             ascending = true;
@@ -116,6 +121,27 @@ namespace JarmuKolcsonzo.Views
             presenter.LoadData();
         }
 
+        private void TorlestoolStripButton_Click(object sender, EventArgs e)
+        {
+            while (dataGridView1.SelectedRows.Count > 0)
+            {
+                presenter.Remove(dataGridView1.SelectedRows[0].Index);
+            }
+        }
 
+        private void UjtoolStripButton_Click(object sender, EventArgs e)
+        {
+            var addForm = new UjJarmuKategoriaForm();
+            DialogResult dr = addForm.ShowDialog(this);
+            if (dr == DialogResult.Cancel)
+            {
+                addForm.Close();
+            }
+            else if (dr == DialogResult.OK)
+            {
+                presenter.Add(addForm.jarmukategoria);
+                addForm.Close();
+            }
+        }
     }
 }

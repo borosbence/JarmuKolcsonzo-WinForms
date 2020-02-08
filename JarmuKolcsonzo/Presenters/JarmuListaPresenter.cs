@@ -33,6 +33,19 @@ namespace JarmuKolcsonzo.Presenters
             }
         }
 
+        public void Add(jarmu jarmu)
+        {
+            view.bindingList.Add(jarmu);
+            repo.Insert(jarmu);
+        }
+
+        public void Remove(int index)
+        {
+            var jk = view.bindingList.ElementAt(index);
+            view.bindingList.RemoveAt(index);
+            repo.Delete(jk);
+        }
+
         public void Save()
         {
             repo.Save();

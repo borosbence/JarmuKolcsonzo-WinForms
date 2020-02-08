@@ -28,13 +28,13 @@ namespace JarmuKolcsonzo.Repositories
             {
                 search = search.ToLower();
 
-                double fogyasztas;
-                double.TryParse(search, out fogyasztas);
+                //double fogyasztas;
+                //double.TryParse(search, out fogyasztas);
 
                 query = query.Where(x => x.rendszam.ToLower().Contains(search) ||
                                          x.tipus.ToLower().Contains(search) ||
-                                         x.modell.ToLower().Contains(search) ||
-                                         x.fogyasztas.Value.Equals(fogyasztas)
+                                         x.modell.ToLower().Contains(search)
+                                         // x.fogyasztas.Value.Equals(fogyasztas)
                                          );
             }
 
@@ -73,59 +73,14 @@ namespace JarmuKolcsonzo.Repositories
             return new BindingList<jarmu>(query.ToList());
         }
 
-        public BindingList<jarmu> GetAllJarmuSzervizben(
-            int page = 0,
-            int itemsPerPage = 0,
-            string search = null,
-            string sortBy = null,
-            bool ascending = true)
+        public void Insert(jarmu jarmu)
         {
-            var query = db.jarmu.Where(x => x.szervizben == true).OrderBy(x => x.Id).AsQueryable();
+            db.jarmu.Add(jarmu);
+        }
 
-            // Keresés
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                search = search.ToLower();
-
-                query = query.Where(x => x.rendszam.ToLower().Contains(search) ||
-                                         x.tipus.ToLower().Contains(search) ||
-                                         x.modell.ToLower().Contains(search)
-                                         );
-            }
-
-            // Sorbarendezés
-            if (!string.IsNullOrWhiteSpace(sortBy))
-            {
-                switch (sortBy)
-                {
-                    default:
-                        query = ascending ? query.OrderBy(x => x.Id) : query.OrderByDescending(x => x.Id);
-                        break;
-                    case "kategoriaId":
-                        query = ascending ? query.OrderBy(x => x.kategoriaId) : query.OrderByDescending(x => x.kategoriaId);
-                        break;
-                    case "rendszam":
-                        query = ascending ? query.OrderBy(x => x.rendszam) : query.OrderByDescending(x => x.rendszam);
-                        break;
-                    case "tipus":
-                        query = ascending ? query.OrderBy(x => x.tipus) : query.OrderByDescending(x => x.tipus);
-                        break;
-                    case "modell":
-                        query = ascending ? query.OrderBy(x => x.modell) : query.OrderByDescending(x => x.modell);
-                        break;
-                }
-            }
-
-            // Összes találat kiszámítása
-            _totalItems = query.Count();
-
-            // Oldaltördelés
-            if (page + itemsPerPage > 0)
-            {
-                query = query.Skip((page - 1) * itemsPerPage).Take(itemsPerPage);
-            }
-
-            return new BindingList<jarmu>(query.ToList());
+        public void Delete(jarmu jarmu)
+        {
+            db.jarmu.Remove(jarmu);
         }
 
         public int Count()

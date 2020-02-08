@@ -64,6 +64,16 @@ namespace JarmuKolcsonzo.Repositories
             return _totalItems;
         }
 
+        public void Insert(jarmukategoria jk)
+        {
+            db.jarmukategoria.Add(jk);
+        }
+
+        public void Delete(jarmukategoria jk)
+        {
+            db.jarmukategoria.Remove(jk);
+        }
+
         public void Save()
         {
             db.SaveChanges();

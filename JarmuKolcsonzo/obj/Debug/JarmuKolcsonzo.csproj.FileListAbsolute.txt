@@ -72,3 +72,29 @@ C:\Users\E2696\Downloads\JarmuKolcsonzo-20200207T091422Z-001\JarmuKolcsonzo\Jarm
 C:\Users\E2696\Downloads\JarmuKolcsonzo-20200207T091422Z-001\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.exe
 C:\Users\E2696\Downloads\JarmuKolcsonzo-20200207T091422Z-001\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.pdb
 D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.UgyfelekForm.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\JarmuKolcsonzo.exe.config
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\JarmuKolcsonzo.exe
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\JarmuKolcsonzo.pdb
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\EntityFramework.dll
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\MySql.Data.dll
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\MySql.Data.EntityFramework.dll
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\Google.Protobuf.dll
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\BouncyCastle.Crypto.dll
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\Renci.SshNet.dll
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\EntityFramework.xml
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\MySql.Data.xml
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\MySql.Data.EntityFramework.xml
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.csprojAssemblyReference.cache
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Properties.Resources.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuKategoriaForm.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuListaForm.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.MainWindowForm.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.UgyfelekForm.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.csproj.GenerateResource.cache
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.csproj.CopyComplete
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.exe
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.pdb
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.UjJarmuKategoriaForm.resources
+D:\Dokumentumok\Visual Studio 2019\Repos\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.UjJarmuForm.resources

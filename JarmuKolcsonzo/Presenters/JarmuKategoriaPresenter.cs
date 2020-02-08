@@ -26,6 +26,19 @@ namespace JarmuKolcsonzo.Presenters
             view.totalItems = repo.Count();
         }
 
+        public void Add(jarmukategoria jk)
+        {
+            view.bindingList.Add(jk);
+            repo.Insert(jk);
+        }
+
+        public void Remove(int index)
+        {
+            var jk = view.bindingList.ElementAt(index);
+            view.bindingList.RemoveAt(index);
+            repo.Delete(jk);
+        }
+
         public void Save()
         {
             repo.Save();
