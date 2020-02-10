@@ -56,7 +56,6 @@ namespace JarmuKolcsonzo.Views
             }
         }
 
-
         private void UgyfelekForm_Load(object sender, EventArgs e)
         {
             presenter.LoadData();

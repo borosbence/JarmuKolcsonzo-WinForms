@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.Repositories
 {
-    public class JarmuListaRepository : IDisposable
+    public class JarmuRepository : IDisposable
     {
         private JKContext db = new JKContext();
         private int _totalItems;
@@ -28,14 +28,18 @@ namespace JarmuKolcsonzo.Repositories
             {
                 search = search.ToLower();
 
-                //double fogyasztas;
-                //double.TryParse(search, out fogyasztas);
-
-                query = query.Where(x => x.rendszam.ToLower().Contains(search) ||
+                double fogyasztas;
+                double.TryParse(search, out fogyasztas);
+                if (fogyasztas > 0)
+                {
+                    query = query.Where(x => x.fogyasztas.Value.Equals(fogyasztas));
+                }
+                else
+                {
+                    query = query.Where(x => x.rendszam.ToLower().Contains(search) ||
                                          x.tipus.ToLower().Contains(search) ||
-                                         x.modell.ToLower().Contains(search)
-                                         // x.fogyasztas.Value.Equals(fogyasztas)
-                                         );
+                                         x.modell.ToLower().Contains(search));
+                }
             }
 
             // Sorbarendezés
@@ -80,11 +84,16 @@ namespace JarmuKolcsonzo.Repositories
 
         public void Insert(jarmu jarmu)
         {
+            if (db.jarmu.Any(x => x.rendszam == jarmu.rendszam))
+            {
+                throw new Exception("Már létezik ilyen rendszámmal jármű!");
+            }
             db.jarmu.Add(jarmu);
         }
 
-        public void Delete(jarmu jarmu)
+        public void Delete(int id)
         {
+            var jarmu = db.jarmu.Find(id);
             db.jarmu.Remove(jarmu);
         }
 
@@ -96,6 +105,12 @@ namespace JarmuKolcsonzo.Repositories
                 db.Entry(jarmu).CurrentValues.SetValues(param);
             }
         }
+
+        public bool Exists(jarmu jarmu)
+        {
+            return db.jarmu.Any(x => x.Id == jarmu.Id);
+        }
+
         public void Save()
         {
             db.SaveChanges();

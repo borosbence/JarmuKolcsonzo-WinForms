@@ -31,13 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuListaForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.KategoriaFrissittoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mentestoolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.UjtoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.TorlestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.keresestoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.KeresestoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.FrissitestoolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.refKatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.PrevButton = new System.Windows.Forms.Button();
             this.FirstButton = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.NextButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rendszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kategoriaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,18 +58,23 @@
             this.szervizDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.muszakiDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.beszerzesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.SzerkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TorlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.KategoriaFrissittoolStripButton,
+            this.FrissitestoolStripDropDownButton,
             this.mentestoolStripButton1,
             this.UjtoolStripButton,
             this.TorlestoolStripButton,
@@ -81,15 +86,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // KategoriaFrissittoolStripButton
-            // 
-            this.KategoriaFrissittoolStripButton.Image = global::JarmuKolcsonzo.Properties.Resources.undoToolStripMenuItem;
-            this.KategoriaFrissittoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.KategoriaFrissittoolStripButton.Name = "KategoriaFrissittoolStripButton";
-            this.KategoriaFrissittoolStripButton.Size = new System.Drawing.Size(127, 22);
-            this.KategoriaFrissittoolStripButton.Text = "Kategória Frissítése";
-            this.KategoriaFrissittoolStripButton.Click += new System.EventHandler(this.KategoriaFrissittoolStripButton_Click);
             // 
             // mentestoolStripButton1
             // 
@@ -125,7 +121,6 @@
             // 
             // keresestoolStripTextBox
             // 
-            this.keresestoolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keresestoolStripTextBox.Name = "keresestoolStripTextBox";
             this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 25);
             // 
@@ -137,6 +132,23 @@
             this.KeresestoolStripButton.Size = new System.Drawing.Size(66, 22);
             this.KeresestoolStripButton.Text = "Keresés";
             this.KeresestoolStripButton.Click += new System.EventHandler(this.KeresestoolStripButton_Click);
+            // 
+            // FrissitestoolStripDropDownButton
+            // 
+            this.FrissitestoolStripDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refKatToolStripMenuItem});
+            this.FrissitestoolStripDropDownButton.Image = global::JarmuKolcsonzo.Properties.Resources.undoToolStripMenuItem;
+            this.FrissitestoolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FrissitestoolStripDropDownButton.Name = "FrissitestoolStripDropDownButton";
+            this.FrissitestoolStripDropDownButton.Size = new System.Drawing.Size(77, 22);
+            this.FrissitestoolStripDropDownButton.Text = "Frissítés";
+            // 
+            // refKatToolStripMenuItem
+            // 
+            this.refKatToolStripMenuItem.Name = "refKatToolStripMenuItem";
+            this.refKatToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refKatToolStripMenuItem.Text = "Kategória";
+            this.refKatToolStripMenuItem.Click += new System.EventHandler(this.refKatToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -236,23 +248,14 @@
             this.szervizDatumDataGridViewTextBoxColumn,
             this.muszakiDatumDataGridViewTextBoxColumn,
             this.beszerzesDatumDataGridViewTextBoxColumn});
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.DataSource = this.jarmuBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(775, 373);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 407);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 43);
-            this.panel1.TabIndex = 3;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -328,9 +331,40 @@
             this.beszerzesDatumDataGridViewTextBoxColumn.HeaderText = "beszerzesDatum";
             this.beszerzesDatumDataGridViewTextBoxColumn.Name = "beszerzesDatumDataGridViewTextBoxColumn";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SzerkToolStripMenuItem,
+            this.TorlesToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 48);
+            // 
+            // SzerkToolStripMenuItem
+            // 
+            this.SzerkToolStripMenuItem.Name = "SzerkToolStripMenuItem";
+            this.SzerkToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.SzerkToolStripMenuItem.Text = "Szerkesztés";
+            this.SzerkToolStripMenuItem.Click += new System.EventHandler(this.SzerkToolStripMenuItem_Click);
+            // 
+            // TorlesToolStripMenuItem
+            // 
+            this.TorlesToolStripMenuItem.Name = "TorlesToolStripMenuItem";
+            this.TorlesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.TorlesToolStripMenuItem.Text = "Törlés";
+            this.TorlesToolStripMenuItem.Click += new System.EventHandler(this.TorlesToolStripMenuItem_Click);
+            // 
             // jarmuBindingSource
             // 
             this.jarmuBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmu);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 407);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 43);
+            this.panel1.TabIndex = 3;
             // 
             // JarmuListaForm
             // 
@@ -348,8 +382,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,7 +405,6 @@
         private System.Windows.Forms.ToolStripButton KeresestoolStripButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripButton KategoriaFrissittoolStripButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rendszamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kategoriaIdDataGridViewTextBoxColumn;
@@ -385,5 +419,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn beszerzesDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton UjtoolStripButton;
         private System.Windows.Forms.ToolStripButton TorlestoolStripButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem SzerkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TorlesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton FrissitestoolStripDropDownButton;
+        private System.Windows.Forms.ToolStripMenuItem refKatToolStripMenuItem;
     }
 }

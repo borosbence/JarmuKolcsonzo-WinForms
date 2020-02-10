@@ -66,11 +66,16 @@ namespace JarmuKolcsonzo.Repositories
 
         public void Insert(jarmukategoria jk)
         {
+            if (db.jarmukategoria.Any(x => x.kategoriaNev == jk.kategoriaNev))
+            {
+                throw new Exception("Már létezik ilyen névvel kategória!");
+            }
             db.jarmukategoria.Add(jk);
         }
 
-        public void Delete(jarmukategoria jk)
+        public void Delete(int id)
         {
+            var jk = db.jarmukategoria.Find(id);
             db.jarmukategoria.Remove(jk);
         }
 
@@ -81,6 +86,11 @@ namespace JarmuKolcsonzo.Repositories
             {
                 db.Entry(jk).CurrentValues.SetValues(param);
             }
+        }
+
+        public bool Exists(jarmukategoria jk)
+        {
+            return db.jarmukategoria.Any(x => x.Id == jk.Id);
         }
 
         public void Save()

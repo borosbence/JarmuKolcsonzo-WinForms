@@ -76,11 +76,25 @@ namespace JarmuKolcsonzo.Views
             get => (BindingList<jarmukategoria>)KategoriacomboBox1.DataSource;
             set
             {
-                value.Insert(0, new jarmukategoria() { Id = 0 });
                 KategoriacomboBox1.DataSource = value;
                 KategoriacomboBox1.DisplayMember = "kategoriaNev";
                 KategoriacomboBox1.Name = "kategoriaId";
                 KategoriacomboBox1.ValueMember = "Id";
+            }
+        }
+
+        public string errorMessage
+        {
+            get => errorProvider1.GetError(RendszamtextBox);
+            set => errorProvider1.SetError(RendszamtextBox, value);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            presenter.Save(this.jarmu);
+            if (string.IsNullOrEmpty(errorMessage))
+            {
+                this.DialogResult = DialogResult.OK;
             }
         }
     }

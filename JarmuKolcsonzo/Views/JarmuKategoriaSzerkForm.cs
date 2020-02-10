@@ -1,4 +1,5 @@
 ﻿using JarmuKolcsonzo.Models;
+using JarmuKolcsonzo.Presenters;
 using JarmuKolcsonzo.ViewInterfaces;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,11 @@ namespace JarmuKolcsonzo.Views
     public partial class JarmuKategoriaSzerkForm : Form, IJarmuKategoriaView
     {
         private int Id;
+        JarmuKategoriaPresenter presenter;
         public JarmuKategoriaSzerkForm()
         {
             InitializeComponent();
+            presenter = new JarmuKategoriaPresenter(this);
         }
 
         public jarmukategoria jarmukategoria {
@@ -34,6 +37,21 @@ namespace JarmuKolcsonzo.Views
             {
                 textBox1.Text = value.kategoriaNev;
                 Id = value.Id;
+            }
+        }
+
+        public string errorMessage
+        {
+            get => errorProvider1.GetError(textBox1);
+            set => errorProvider1.SetError(textBox1, value);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            presenter.Save(this.jarmukategoria);
+            if (string.IsNullOrEmpty(errorMessage))
+            {
+                this.DialogResult = DialogResult.OK;
             }
         }
     }

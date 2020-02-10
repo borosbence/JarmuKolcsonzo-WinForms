@@ -12,7 +12,7 @@ namespace JarmuKolcsonzo.Presenters
     class JarmuListaPresenter
     {
         private IJarmuListaView view;
-        private JarmuListaRepository repo = new JarmuListaRepository();
+        private JarmuRepository repo = new JarmuRepository();
         // private JarmuKategoriaRepository jkrepo = new JarmuKategoriaRepository();
 
         public JarmuListaPresenter(IJarmuListaView param)
@@ -36,14 +36,16 @@ namespace JarmuKolcsonzo.Presenters
         public void Add(jarmu jarmu)
         {
             view.bindingList.Add(jarmu);
-            repo.Insert(jarmu);
         }
 
         public void Remove(int index)
         {
             var jk = view.bindingList.ElementAt(index);
             view.bindingList.RemoveAt(index);
-            repo.Delete(jk);
+            if (jk.Id > 0)
+            {
+                repo.Delete(jk.Id);
+            }
         }
 
         public void Modify(jarmu jarmu)

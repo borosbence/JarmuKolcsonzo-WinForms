@@ -3,50 +3,48 @@ using JarmuKolcsonzo.Repositories;
 using JarmuKolcsonzo.ViewInterfaces;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.Presenters
 {
-    class JarmuKategoriaPresenter
+    public class JarmuKategoriaPresenter
     {
-        private IDataGridList<jarmukategoria> view;
-        private JarmuKategoriaRepository repo = new JarmuKategoriaRepository();
-        public JarmuKategoriaPresenter(IDataGridList<jarmukategoria> param)
+        IJarmuKategoriaView view;
+        JarmuKategoriaRepository repo = new JarmuKategoriaRepository();
+
+        public JarmuKategoriaPresenter(IJarmuKategoriaView param)
         {
             view = param;
         }
 
-        public void LoadData()
+        public void Save(jarmukategoria jk)
         {
-            view.bindingList = repo.GetAllJarmuKategoria(
-                view.pageNumber, view.itemsPerPage, view.search, view.sortBy, view.ascending);
-            view.totalItems = repo.Count();
-        }
+            view.errorMessage = null;
 
-        public void Add(jarmukategoria jk)
-        {
-            view.bindingList.Add(jk);
-            repo.Insert(jk);
-        }
-
-        public void Remove(int index)
-        {
-            var jk = view.bindingList.ElementAt(index);
-            view.bindingList.RemoveAt(index);
-            repo.Delete(jk);
-        }
-
-        public void Modify(jarmukategoria jk)
-        {
-            repo.Update(jk);
-        }
-
-        public void Save()
-        {
-            repo.Save();
+            if (repo.Exists(jk))
+            {
+                try
+                {
+                    repo.Update(jk);
+                }
+                catch (Exception ex)
+                {
+                    view.errorMessage = ex.Message;
+                }
+            }
+            else
+            {
+                try
+                {
+                    repo.Insert(jk);
+                }
+                catch (Exception ex)
+                {
+                    view.errorMessage = ex.Message;
+                }
+            }
         }
     }
 }

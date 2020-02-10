@@ -96,15 +96,16 @@
     <Compile Include="Models\ugyfel.cs">
       <DependentUpon>JKModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\JarmuKategoriaPresenter.cs" />
     <Compile Include="Presenters\JarmuPresenter.cs" />
     <Compile Include="Presenters\UgyfelPresenter.cs" />
-    <Compile Include="Presenters\JarmuKategoriaPresenter.cs" />
+    <Compile Include="Presenters\JarmuKategoriaListaPresenter.cs" />
     <Compile Include="Presenters\JarmuListaPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\JarmuKategoriaRepository.cs" />
     <Compile Include="Repositories\UgyfelRepository.cs" />
-    <Compile Include="Repositories\JarmuListaRepository y.cs" />
+    <Compile Include="Repositories\JarmuRepository y.cs" />
     <Compile Include="ViewInterfaces\IDataGridList.cs" />
     <Compile Include="ViewInterfaces\IJarmuView.cs" />
     <Compile Include="ViewInterfaces\IJarmuKategoriaView.cs" />

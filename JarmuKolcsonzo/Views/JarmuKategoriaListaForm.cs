@@ -15,7 +15,7 @@ namespace JarmuKolcsonzo.Views
 {
     public partial class JarmuKategoriaListaForm : Form, IDataGridList<jarmukategoria>
     {
-        private JarmuKategoriaPresenter presenter;
+        private JarmuKategoriaListaPresenter presenter;
         // Oldaltördelés
         private int pageCount;
         private int sortIndex;
@@ -23,14 +23,14 @@ namespace JarmuKolcsonzo.Views
         public JarmuKategoriaListaForm()
         {
             InitializeComponent();
-            presenter = new JarmuKategoriaPresenter(this);
+            presenter = new JarmuKategoriaListaPresenter(this);
             Init();
         }
 
         public void Init()
         {
             pageNumber = 1;
-            itemsPerPage = 10;
+            itemsPerPage = 25;
             sortBy = "Id";
             sortIndex = 0;
             ascending = true;
@@ -100,6 +100,52 @@ namespace JarmuKolcsonzo.Views
             presenter.LoadData();
         }
 
+        private void NewDGRow()
+        {
+            using (var szerkForm = new JarmuKategoriaSzerkForm())
+            {
+                DialogResult dr = szerkForm.ShowDialog(this);
+                if (dr == DialogResult.Cancel)
+                {
+                    szerkForm.Close();
+                }
+                else if (dr == DialogResult.OK)
+                {
+                    presenter.Add(szerkForm.jarmukategoria);
+                    szerkForm.Close();
+                }
+            }
+        }
+        private void EditDGRow(int index)
+        {
+            var jk = (jarmukategoria)dataGridView1.Rows[index].DataBoundItem;
+
+            if (jk != null)
+            {
+                using (var modForm = new JarmuKategoriaSzerkForm())
+                {
+                    modForm.jarmukategoria = jk;
+                    DialogResult dr = modForm.ShowDialog(this);
+                    if (dr == DialogResult.Cancel)
+                    {
+                        modForm.Close();
+                    }
+                    else if (dr == DialogResult.OK)
+                    {
+                        presenter.Modify(modForm.jarmukategoria);
+                        modForm.Close();
+                    }
+                }            
+            }
+        }
+        private void DelDGRow()
+        {
+            while (dataGridView1.SelectedRows.Count > 0)
+            {
+                presenter.Remove(dataGridView1.SelectedRows[0].Index);
+            }
+        }
+
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (sortIndex == e.ColumnIndex)
@@ -121,51 +167,36 @@ namespace JarmuKolcsonzo.Views
             presenter.LoadData();
         }
 
-        private void TorlestoolStripButton_Click(object sender, EventArgs e)
-        {
-            while (dataGridView1.SelectedRows.Count > 0)
-            {
-                presenter.Remove(dataGridView1.SelectedRows[0].Index);
-            }
-        }
-
         private void UjtoolStripButton_Click(object sender, EventArgs e)
         {
-            var addForm = new JarmuKategoriaSzerkForm();
-            DialogResult dr = addForm.ShowDialog(this);
-            if (dr == DialogResult.Cancel)
-            {
-                addForm.Close();
-            }
-            else if (dr == DialogResult.OK)
-            {
-                presenter.Add(addForm.jarmukategoria);
-                addForm.Close();
-            }
+            NewDGRow();
         }
 
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void TorlestoolStripButton_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                var jk = (jarmukategoria)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+            DelDGRow();
+        }
 
-                if (jk != null)
-                {
-                    var modForm = new JarmuKategoriaSzerkForm();
-                    modForm.jarmukategoria = jk;
-                    DialogResult dr = modForm.ShowDialog(this);
-                    if (dr == DialogResult.Cancel)
-                    {
-                        modForm.Close();
-                    }
-                    else if (dr == DialogResult.OK)
-                    {
-                        presenter.Modify(modForm.jarmukategoria);
-                        modForm.Close();
-                    }
-                }
+        private void UjToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewDGRow();
+        }
+
+        private void SzerkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows != null)
+            {
+                var sorIndex = dataGridView1.SelectedCells[0].RowIndex;
+                dataGridView1.ClearSelection();
+                dataGridView1.Rows[sorIndex].Selected = true;
             }
+
+            EditDGRow(dataGridView1.SelectedRows[0].Index);
+        }
+
+        private void TorlesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DelDGRow();
         }
     }
 }

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.ViewInterfaces
 {
-    interface IJarmuKategoriaView
+    public interface IJarmuKategoriaView
     {
         jarmukategoria jarmukategoria { get; set; }
+        string errorMessage { get; set; }
     }
 }

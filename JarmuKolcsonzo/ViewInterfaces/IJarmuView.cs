@@ -12,5 +12,6 @@ namespace JarmuKolcsonzo.ViewInterfaces
     {
         jarmu jarmu { get; set; }
         BindingList<jarmukategoria> jarmukategoriaList { get; set; }
+        string errorMessage { get; set; }
     }
 }
