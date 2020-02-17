@@ -2,12 +2,12 @@
 <Schema Namespace="jarmukolcsonzoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="JKContext" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="jarmu" EntityType="jarmukolcsonzoModel.jarmu" />
+    <EntitySet Name="ugyfel" EntityType="jarmukolcsonzoModel.ugyfel" />
     <EntitySet Name="jarmukategoria" EntityType="jarmukolcsonzoModel.jarmukategoria" />
     <AssociationSet Name="jarmu_ibfk_1" Association="jarmukolcsonzoModel.jarmu_ibfk_1">
       <End Role="jarmukategoria" EntitySet="jarmukategoria" />
       <End Role="jarmu" EntitySet="jarmu" />
     </AssociationSet>
-    <EntitySet Name="ugyfel" EntityType="jarmukolcsonzoModel.ugyfel" />
   </EntityContainer>
   <EntityType Name="jarmu">
     <Key>
@@ -26,6 +26,20 @@
     <Property Name="muszakiDatum" Type="DateTime" />
     <Property Name="beszerzesDatum" Type="DateTime" />
     <NavigationProperty Name="jarmukategoria" Relationship="jarmukolcsonzoModel.jarmu_ibfk_1" FromRole="jarmu" ToRole="jarmukategoria" />
+  </EntityType>
+  <EntityType Name="ugyfel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vezeteknev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="keresztnev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="varos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cim" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="irszam" Type="Int32" Nullable="false" />
+    <Property Name="telefonszam" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pont" Type="Int32" />
   </EntityType>
   <EntityType Name="jarmukategoria">
     <Key>
@@ -47,18 +61,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="ugyfel">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="vezeteknev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="keresztnev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="varos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="cim" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="irszam" Type="Int32" Nullable="false" />
-    <Property Name="telefonszam" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="pont" Type="Int32" />
-  </EntityType>
 </Schema>

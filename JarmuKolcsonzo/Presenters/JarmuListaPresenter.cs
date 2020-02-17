@@ -36,6 +36,8 @@ namespace JarmuKolcsonzo.Presenters
         public void Add(jarmu jarmu)
         {
             view.bindingList.Add(jarmu);
+            // hozzáadás ehhez a contexthez is
+            repo.Insert(jarmu);
         }
 
         public void Remove(int index)

@@ -105,11 +105,7 @@ namespace JarmuKolcsonzo.Views
             using (var szerkForm = new JarmuKategoriaSzerkForm())
             {
                 DialogResult dr = szerkForm.ShowDialog(this);
-                if (dr == DialogResult.Cancel)
-                {
-                    szerkForm.Close();
-                }
-                else if (dr == DialogResult.OK)
+                if (dr == DialogResult.OK)
                 {
                     presenter.Add(szerkForm.jarmukategoria);
                     szerkForm.Close();
@@ -126,11 +122,7 @@ namespace JarmuKolcsonzo.Views
                 {
                     modForm.jarmukategoria = jk;
                     DialogResult dr = modForm.ShowDialog(this);
-                    if (dr == DialogResult.Cancel)
-                    {
-                        modForm.Close();
-                    }
-                    else if (dr == DialogResult.OK)
+                    if (dr == DialogResult.OK)
                     {
                         presenter.Modify(modForm.jarmukategoria);
                         modForm.Close();

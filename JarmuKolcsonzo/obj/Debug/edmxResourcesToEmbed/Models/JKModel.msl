@@ -19,14 +19,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="jarmukategoria">
-      <EntityTypeMapping TypeName="jarmukolcsonzoModel.jarmukategoria">
-        <MappingFragment StoreEntitySet="jarmukategoria">
-          <ScalarProperty Name="kategoriaNev" ColumnName="kategoriaNev" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ugyfel">
       <EntityTypeMapping TypeName="jarmukolcsonzoModel.ugyfel">
         <MappingFragment StoreEntitySet="ugyfel">
@@ -38,6 +30,14 @@
           <ScalarProperty Name="varos" ColumnName="varos" />
           <ScalarProperty Name="keresztnev" ColumnName="keresztnev" />
           <ScalarProperty Name="vezeteknev" ColumnName="vezeteknev" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jarmukategoria">
+      <EntityTypeMapping TypeName="jarmukolcsonzoModel.jarmukategoria">
+        <MappingFragment StoreEntitySet="jarmukategoria">
+          <ScalarProperty Name="kategoriaNev" ColumnName="kategoriaNev" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

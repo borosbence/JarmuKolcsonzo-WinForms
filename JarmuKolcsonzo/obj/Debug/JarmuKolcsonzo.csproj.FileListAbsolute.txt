@@ -39,7 +39,6 @@ D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\
 D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\bin\Debug\MySql.Data.EntityFramework.xml
 D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.csprojAssemblyReference.cache
 D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Properties.Resources.resources
-D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuKategoriaForm.resources
 D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuListaForm.resources
 D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.MainWindowForm.resources
 D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.csproj.GenerateResource.cache
@@ -125,3 +124,6 @@ C:\Users\E2696\Downloads\JarmuKolcsonzo-20200210T094011Z-001\JarmuKolcsonzo\Jarm
 C:\Users\E2696\Downloads\JarmuKolcsonzo-20200210T094011Z-001\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.csproj.CopyComplete
 C:\Users\E2696\Downloads\JarmuKolcsonzo-20200210T094011Z-001\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.exe
 C:\Users\E2696\Downloads\JarmuKolcsonzo-20200210T094011Z-001\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.pdb
+D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuKategoriaListaForm.resources
+D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuSzerkForm.resources
+D:\Google Drive\Vasvári\Programozási nyelvek\10\JarmuKolcsonzo\JarmuKolcsonzo\obj\Debug\JarmuKolcsonzo.Views.JarmuKategoriaSzerkForm.resources

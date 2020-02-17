@@ -171,11 +171,7 @@ namespace JarmuKolcsonzo.Views
             using (var szerkForm = new JarmuSzerkForm())
             {
                 DialogResult dr = szerkForm.ShowDialog(this);
-                if (dr == DialogResult.Cancel)
-                {
-                    szerkForm.Close();
-                }
-                else if (dr == DialogResult.OK)
+                if (dr == DialogResult.OK)
                 {
                     presenter.Add(szerkForm.jarmu);
                     szerkForm.Close();
@@ -192,11 +188,7 @@ namespace JarmuKolcsonzo.Views
                 {
                     modForm.jarmu = jk;
                     DialogResult dr = modForm.ShowDialog(this);
-                    if (dr == DialogResult.Cancel)
-                    {
-                        modForm.Close();
-                    }
-                    else if (dr == DialogResult.OK)
+                    if (dr == DialogResult.OK)
                     {
                         presenter.Modify(modForm.jarmu);
                         modForm.Close();

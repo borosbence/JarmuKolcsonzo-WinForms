@@ -35,6 +35,7 @@ namespace JarmuKolcsonzo.Presenters
             else
             {
                 view.bindingList.Add(jk);
+                repo.Insert(jk);
             }
         }
 

@@ -48,7 +48,7 @@ namespace JarmuKolcsonzo.Views
                 {
                     jarmu.Id = Id;
                 }
-                jarmu.jarmukategoria = kategoria;
+                //jarmu.jarmukategoria = kategoria;
                 return jarmu;
             }
             set
