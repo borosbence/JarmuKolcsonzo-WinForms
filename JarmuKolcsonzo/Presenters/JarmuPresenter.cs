@@ -1,4 +1,5 @@
 ﻿using JarmuKolcsonzo.Models;
+using JarmuKolcsonzo.Properties;
 using JarmuKolcsonzo.Repositories;
 using JarmuKolcsonzo.ViewInterfaces;
 using System;
@@ -29,28 +30,45 @@ namespace JarmuKolcsonzo.Presenters
 
         public void Save(jarmu jarmu)
         {
-            view.errorMessage = null;
+            view.errorRendszam = null;
+            view.errorFerohely = null;
 
-            if (repo.Exists(jarmu))
+            bool helyes = true;
+            if (string.IsNullOrEmpty(jarmu.rendszam))
             {
-                try
-                {
-                    repo.Update(jarmu);
-                }
-                catch (Exception ex)
-                {
-                    view.errorMessage = ex.Message;
-                }
+                view.errorRendszam = Resources.KotelezoMezo;
+                helyes = false;
             }
-            else
+            if (jarmu.ferohely < 1)
             {
-                try
+                view.errorFerohely = Resources.KotelezoMezo;
+                helyes = false;
+            }
+
+            // Repo ellenőrzés
+            if (helyes)
+            {
+                if (repo.Exists(jarmu))
                 {
-                    repo.Insert(jarmu);
+                    try
+                    {
+                        repo.Update(jarmu);
+                    }
+                    catch (Exception ex)
+                    {
+                        view.errorRendszam = ex.Message;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    view.errorMessage = ex.Message;
+                    try
+                    {
+                        repo.Insert(jarmu);
+                    }
+                    catch (Exception ex)
+                    {
+                        view.errorRendszam = ex.Message;
+                    }
                 }
             }
         }

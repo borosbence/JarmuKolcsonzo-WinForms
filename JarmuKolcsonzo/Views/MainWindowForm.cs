@@ -120,7 +120,7 @@ namespace JarmuKolcsonzo.Views
 
         private void UgyfelektoolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form childForm = new UgyfelekForm();
+            Form childForm = new UgyfelListaForm();
             childForm.MdiParent = this;
             childForm.Show();
         }

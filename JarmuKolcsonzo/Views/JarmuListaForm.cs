@@ -168,7 +168,7 @@ namespace JarmuKolcsonzo.Views
 
         private void NewDGRow()
         {
-            using (var szerkForm = new JarmuSzerkForm())
+            using (var szerkForm = new JarmuForm())
             {
                 DialogResult dr = szerkForm.ShowDialog(this);
                 if (dr == DialogResult.OK)
@@ -184,7 +184,7 @@ namespace JarmuKolcsonzo.Views
 
             if (jk != null)
             {
-                using (var modForm = new JarmuSzerkForm())
+                using (var modForm = new JarmuForm())
                 {
                     modForm.jarmu = jk;
                     DialogResult dr = modForm.ShowDialog(this);

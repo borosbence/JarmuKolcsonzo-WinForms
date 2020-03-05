@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `ugyfel` (
-  `Id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `vezeteknev` varchar(50) NOT NULL,
   `keresztnev` varchar(50) NOT NULL,
   `varos` varchar(50) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `ugyfel` (
   `irszam` int(5) NOT NULL,
   `telefonszam` varchar(10) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `pont` int(3) DEFAULT 0
+  `pont` int(3) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `ugyfel` (
 -- A tábla indexei `ugyfel`
 --
 ALTER TABLE `ugyfel`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -58,7 +58,7 @@ ALTER TABLE `ugyfel`
 -- AUTO_INCREMENT a táblához `ugyfel`
 --
 ALTER TABLE `ugyfel`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

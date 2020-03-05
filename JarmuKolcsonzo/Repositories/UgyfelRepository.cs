@@ -21,7 +21,7 @@ namespace JarmuKolcsonzo.Repositories
             string sortBy = null,
             bool ascending = true)
         {
-            var query = db.ugyfel.OrderBy(x => x.Id).AsQueryable();
+            var query = db.ugyfel.OrderBy(x => x.id).AsQueryable();
 
             // Keresés
             if (!string.IsNullOrWhiteSpace(search))
@@ -45,7 +45,7 @@ namespace JarmuKolcsonzo.Repositories
                 switch (sortBy)
                 {
                     default:
-                        query = ascending ? query.OrderBy(x => x.Id) : query.OrderByDescending(x => x.Id);
+                        query = ascending ? query.OrderBy(x => x.id) : query.OrderByDescending(x => x.id);
                         break;
                     case "vezeteknev":
                         query = ascending ? query.OrderBy(x => x.vezeteknev) : query.OrderByDescending(x => x.vezeteknev);
@@ -68,6 +68,9 @@ namespace JarmuKolcsonzo.Repositories
                     case "email":
                         query = ascending ? query.OrderBy(x => x.email) : query.OrderByDescending(x => x.email);
                         break;
+                    case "pont":
+                        query = ascending ? query.OrderBy(x => x.email) : query.OrderByDescending(x => x.email);
+                        break;
                 }
             }
 
@@ -86,6 +89,31 @@ namespace JarmuKolcsonzo.Repositories
         public int Count()
         {
             return _totalItems;
+        }
+
+        public void Insert(ugyfel uf)
+        {
+            db.ugyfel.Add(uf);
+        }
+
+        public void Delete(int id)
+        {
+            var ugyfel = db.ugyfel.Find(id);
+            db.ugyfel.Remove(ugyfel);
+        }
+
+        public void Update(ugyfel param)
+        {
+            var uf = db.ugyfel.Find(param.id);
+            if (uf != null)
+            {
+                db.Entry(uf).CurrentValues.SetValues(param);
+            }
+        }
+
+        public bool Exists(ugyfel uf)
+        {
+            return db.ugyfel.Any(x => x.id == uf.id);
         }
 
         public void Save()

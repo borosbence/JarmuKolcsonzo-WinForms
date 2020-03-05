@@ -15,27 +15,22 @@ namespace JarmuKolcsonzo.Models
 using System;
     using System.Collections.Generic;
     
-public partial class jarmukategoria
+public partial class rendeles
 {
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public jarmukategoria()
-    {
+    public int id { get; set; }
 
-        this.jarmu = new HashSet<jarmu>();
+    public int ugyfel_id { get; set; }
 
-    }
+    public int jarmu_id { get; set; }
 
-
-    public int Id { get; set; }
-
-    public string kategoriaNev { get; set; }
+    public Nullable<System.DateTime> datum { get; set; }
 
 
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual jarmu jarmu { get; set; }
 
-    public virtual ICollection<jarmu> jarmu { get; set; }
+    public virtual ugyfel ugyfel { get; set; }
 
 }
 

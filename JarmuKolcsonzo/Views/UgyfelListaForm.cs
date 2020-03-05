@@ -13,35 +13,35 @@ using System.Windows.Forms;
 
 namespace JarmuKolcsonzo.Views
 {
-    public partial class JarmuKategoriaListaForm : Form, IDataGridList<jarmukategoria>
+    public partial class UgyfelListaForm : Form, IDataGridList<ugyfel>
     {
-        private JarmuKategoriaListaPresenter presenter;
+        private UgyfelListaPresenter presenter;
         // Oldaltördelés
         private int pageCount;
         private int sortIndex;
 
-        public JarmuKategoriaListaForm()
+        public UgyfelListaForm()
         {
             InitializeComponent();
-            presenter = new JarmuKategoriaListaPresenter(this);
+            presenter = new UgyfelListaPresenter(this);
             Init();
         }
 
         public void Init()
         {
             pageNumber = 1;
-            itemsPerPage = 25;
+            itemsPerPage = 20;
             sortBy = "Id";
             sortIndex = 0;
             ascending = true;
         }
 
-        public BindingList<jarmukategoria> bindingList 
+        public BindingList<ugyfel> bindingList
         {
-            get => (BindingList<jarmukategoria>)dataGridView1.DataSource;
-            set => dataGridView1.DataSource = value; 
+            get => (BindingList<ugyfel>)dataGridView1.DataSource;
+            set => dataGridView1.DataSource = value;
         }
-        public int pageNumber { get ; set; }
+        public int pageNumber { get; set; }
         public int itemsPerPage { get; set; }
         public string search { get => keresestoolStripTextBox.Text; }
         public string sortBy { get; set; }
@@ -52,10 +52,11 @@ namespace JarmuKolcsonzo.Views
             {
                 pageCount = (value - 1) / itemsPerPage + 1;
                 label1.Text = pageNumber.ToString() + "/" + pageCount.ToString();
+                OsszesLabel.Text = "Összesen: " + value.ToString();
             }
         }
 
-        private void JarmuKategoria_Load(object sender, EventArgs e)
+        private void UgyfelekForm_Load(object sender, EventArgs e)
         {
             presenter.LoadData();
         }
@@ -63,11 +64,6 @@ namespace JarmuKolcsonzo.Views
         private void mentestoolStripButton_Click(object sender, EventArgs e)
         {
             presenter.Save();
-        }
-
-        private void KeresestoolStripButton_Click(object sender, EventArgs e)
-        {
-            presenter.LoadData();
         }
 
         private void FirstButton_Click(object sender, EventArgs e)
@@ -78,7 +74,7 @@ namespace JarmuKolcsonzo.Views
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-            if (pageNumber > 1)
+            if (pageNumber != 1)
             {
                 pageNumber--;
                 presenter.LoadData();
@@ -87,7 +83,7 @@ namespace JarmuKolcsonzo.Views
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (pageNumber < pageCount)
+            if (pageNumber != pageCount)
             {
                 pageNumber++;
                 presenter.LoadData();
@@ -100,44 +96,6 @@ namespace JarmuKolcsonzo.Views
             presenter.LoadData();
         }
 
-        private void NewDGRow()
-        {
-            using (var szerkForm = new JarmuKategoriaForm())
-            {
-                DialogResult dr = szerkForm.ShowDialog(this);
-                if (dr == DialogResult.OK)
-                {
-                    presenter.Add(szerkForm.jarmukategoria);
-                    szerkForm.Close();
-                }
-            }
-        }
-        private void EditDGRow(int index)
-        {
-            var jk = (jarmukategoria)dataGridView1.Rows[index].DataBoundItem;
-
-            if (jk != null)
-            {
-                using (var modForm = new JarmuKategoriaForm())
-                {
-                    modForm.jarmukategoria = jk;
-                    DialogResult dr = modForm.ShowDialog(this);
-                    if (dr == DialogResult.OK)
-                    {
-                        presenter.Modify(modForm.jarmukategoria);
-                        modForm.Close();
-                    }
-                }            
-            }
-        }
-        private void DelDGRow()
-        {
-            while (dataGridView1.SelectedRows.Count > 0)
-            {
-                presenter.Remove(dataGridView1.SelectedRows[0].Index);
-            }
-        }
-
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (sortIndex == e.ColumnIndex)
@@ -147,7 +105,28 @@ namespace JarmuKolcsonzo.Views
             switch (e.ColumnIndex)
             {
                 case 1:
-                    sortBy = "kategoriaNev";
+                    sortBy = "vezeteknev";
+                    break;
+                case 2:
+                    sortBy = "keresztnev";
+                    break;
+                case 3:
+                    sortBy = "varos";
+                    break;
+                case 4:
+                    sortBy = "cim";
+                    break;
+                case 5:
+                    sortBy = "irszam";
+                    break;
+                case 6:
+                    sortBy = "telefonszam";
+                    break;
+                case 7:
+                    sortBy = "email";
+                    break;
+                case 8:
+                    sortBy = "pont";
                     break;
                 default:
                     sortBy = "Id";
@@ -156,7 +135,51 @@ namespace JarmuKolcsonzo.Views
 
             sortIndex = e.ColumnIndex;
 
+
             presenter.LoadData();
+        }
+
+        private void KeresestoolStripButton_Click(object sender, EventArgs e)
+        {
+            presenter.LoadData();
+        }
+
+        private void NewDGRow()
+        {
+            using (var szerkForm = new UgyfelForm())
+            {
+                DialogResult dr = szerkForm.ShowDialog(this);
+                if (dr == DialogResult.OK)
+                {
+                    presenter.Add(szerkForm.ugyfel);
+                    szerkForm.Close();
+                }
+            }
+        }
+        private void EditDGRow(int index)
+        {
+            var uf = (ugyfel)dataGridView1.Rows[index].DataBoundItem;
+
+            if (uf != null)
+            {
+                using (var modForm = new UgyfelForm())
+                {
+                    modForm.ugyfel = uf;
+                    DialogResult dr = modForm.ShowDialog(this);
+                    if (dr == DialogResult.OK)
+                    {
+                        presenter.Modify(modForm.ugyfel);
+                        modForm.Close();
+                    }
+                }
+            }
+        }
+        private void DelDGRow()
+        {
+            while (dataGridView1.SelectedRows.Count > 0)
+            {
+                presenter.Remove(dataGridView1.SelectedRows[0].Index);
+            }
         }
 
         private void UjtoolStripButton_Click(object sender, EventArgs e)
@@ -169,12 +192,7 @@ namespace JarmuKolcsonzo.Views
             DelDGRow();
         }
 
-        private void UjToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NewDGRow();
-        }
-
-        private void SzerkToolStripMenuItem_Click(object sender, EventArgs e)
+        private void szerkesztesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows != null)
             {
@@ -182,11 +200,11 @@ namespace JarmuKolcsonzo.Views
                 dataGridView1.ClearSelection();
                 dataGridView1.Rows[sorIndex].Selected = true;
             }
-
             EditDGRow(dataGridView1.SelectedRows[0].Index);
+
         }
 
-        private void TorlesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void torlesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DelDGRow();
         }

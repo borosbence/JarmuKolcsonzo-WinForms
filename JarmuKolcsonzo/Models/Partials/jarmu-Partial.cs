@@ -33,10 +33,5 @@ namespace JarmuKolcsonzo.Models
             this.muszakiDatum = muszakiDatum;
             this.beszerzesDatum = beszerzesDatum;
         }
-
-        public jarmu()
-        {
-
-        }
     }
 }

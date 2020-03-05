@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 17. 15:33
+-- Létrehozás ideje: 2020. Már 05. 16:20
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.1
 
@@ -578,11 +578,32 @@ INSERT INTO `jarmukategoria` (`Id`, `kategoriaNev`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `rendeles`
+--
+
+CREATE TABLE `rendeles` (
+  `id` int(11) NOT NULL,
+  `ugyfel_id` int(11) NOT NULL,
+  `jarmu_id` int(11) NOT NULL,
+  `datum` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- A tábla adatainak kiíratása `rendeles`
+--
+
+INSERT INTO `rendeles` (`id`, `ugyfel_id`, `jarmu_id`, `datum`) VALUES
+(1, 1, 1, '2020-03-05 00:00:00'),
+(2, 2, 2, '2020-03-05 15:57:34');
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `ugyfel`
 --
 
 CREATE TABLE `ugyfel` (
-  `Id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `vezeteknev` varchar(50) NOT NULL,
   `keresztnev` varchar(50) NOT NULL,
   `varos` varchar(50) NOT NULL,
@@ -590,14 +611,14 @@ CREATE TABLE `ugyfel` (
   `irszam` int(5) NOT NULL,
   `telefonszam` varchar(10) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `pont` int(3) DEFAULT 0
+  `pont` int(3) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- A tábla adatainak kiíratása `ugyfel`
 --
 
-INSERT INTO `ugyfel` (`Id`, `vezeteknev`, `keresztnev`, `varos`, `cim`, `irszam`, `telefonszam`, `email`, `pont`) VALUES
+INSERT INTO `ugyfel` (`id`, `vezeteknev`, `keresztnev`, `varos`, `cim`, `irszam`, `telefonszam`, `email`, `pont`) VALUES
 (1, 'Butt', 'James', 'New Orleans', '6649 N Blue Gum St', 70116, '504-621-89', 'jbutt@gmail.com', 0),
 (2, 'Darakjy', 'Josephine', 'Brighton', '4 B Blue Ridge Blvd', 48116, '810-292-93', 'josephine_darakjy@darakjy.org', 0),
 (3, 'Venere', 'Art', 'Bridgeport', '8 W Cerritos Ave #54', 8014, '856-636-87', 'art@venere.org', 0),
@@ -1063,7 +1084,7 @@ INSERT INTO `ugyfel` (`Id`, `vezeteknev`, `keresztnev`, `varos`, `cim`, `irszam`
 (463, 'Dewar', 'Izetta', 'Baltimore', '2 W Scyene Rd #3', 21217, '410-473-17', 'idewar@dewar.com', 0),
 (464, 'Arceo', 'Tegan', 'Monroe Township', '62260 Park Stre', 8831, '732-730-26', 'tegan.arceo@arceo.org', 0),
 (465, 'Keener', 'Ruthann', 'Kerrville', '3424 29th St Se', 78028, '830-258-27', 'ruthann@hotmail.com', 0);
-INSERT INTO `ugyfel` (`Id`, `vezeteknev`, `keresztnev`, `varos`, `cim`, `irszam`, `telefonszam`, `email`, `pont`) VALUES
+INSERT INTO `ugyfel` (`id`, `vezeteknev`, `keresztnev`, `varos`, `cim`, `irszam`, `telefonszam`, `email`, `pont`) VALUES
 (466, 'Breland', 'Joni', 'Elk Grove Village', '35 E Main St #43', 60007, '847-519-59', 'joni_breland@cox.net', 0),
 (467, 'Rentfro', 'Vi', 'Freehold', '7163 W Clark Rd', 7728, '732-605-47', 'vrentfro@cox.net', 0),
 (468, 'Kardas', 'Colette', 'Omaha', '21575 S Apple Creek Rd', 68124, '402-896-59', 'colette.kardas@yahoo.com', 0),
@@ -1119,10 +1140,18 @@ ALTER TABLE `jarmukategoria`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- A tábla indexei `rendeles`
+--
+ALTER TABLE `rendeles`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jarmu_id` (`jarmu_id`),
+  ADD KEY `ugyfel_id` (`ugyfel_id`);
+
+--
 -- A tábla indexei `ugyfel`
 --
 ALTER TABLE `ugyfel`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -1141,10 +1170,16 @@ ALTER TABLE `jarmukategoria`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT a táblához `rendeles`
+--
+ALTER TABLE `rendeles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT a táblához `ugyfel`
 --
 ALTER TABLE `ugyfel`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=501;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=501;
 
 --
 -- Megkötések a kiírt táblákhoz
@@ -1155,6 +1190,13 @@ ALTER TABLE `ugyfel`
 --
 ALTER TABLE `jarmu`
   ADD CONSTRAINT `jarmu_ibfk_1` FOREIGN KEY (`kategoriaId`) REFERENCES `jarmukategoria` (`Id`);
+
+--
+-- Megkötések a táblához `rendeles`
+--
+ALTER TABLE `rendeles`
+  ADD CONSTRAINT `rendeles_ibfk_1` FOREIGN KEY (`jarmu_id`) REFERENCES `jarmu` (`Id`),
+  ADD CONSTRAINT `rendeles_ibfk_2` FOREIGN KEY (`ugyfel_id`) REFERENCES `ugyfel` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

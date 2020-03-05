@@ -19,7 +19,7 @@ namespace JarmuKolcsonzo.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -87,6 +87,24 @@ namespace JarmuKolcsonzo.Properties {
             get {
                 object obj = ResourceManager.GetObject("helpToolStripButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kötelező mező..
+        /// </summary>
+        internal static string KotelezoMezo {
+            get {
+                return ResourceManager.GetString("KotelezoMezo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nem helyes e-mail cím!.
+        /// </summary>
+        internal static string NemEmail {
+            get {
+                return ResourceManager.GetString("NemEmail", resourceCulture);
             }
         }
         
