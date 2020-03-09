@@ -91,6 +91,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JKModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\rendeles-Partial.cs" />
     <Compile Include="Models\Partials\ugyfel-Partial.cs" />
     <Compile Include="Models\Partials\jarmu-Partial.cs" />
     <Compile Include="Models\Partials\jarmukategoria-Partial.cs" />
@@ -101,6 +102,8 @@
       <DependentUpon>JKModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Presenters\JarmuKategoriaPresenter.cs" />
+    <Compile Include="Presenters\RendelesListaPresenter.cs" />
+    <Compile Include="Presenters\RendelesPresenter.cs" />
     <Compile Include="Presenters\UgyfelPresenter.cs" />
     <Compile Include="Presenters\JarmuPresenter.cs" />
     <Compile Include="Presenters\UgyfelListaPresenter.cs" />
@@ -109,9 +112,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\JarmuKategoriaRepository.cs" />
+    <Compile Include="Repositories\RendelesRepository.cs" />
     <Compile Include="Repositories\UgyfelRepository.cs" />
     <Compile Include="Repositories\JarmuRepository y.cs" />
     <Compile Include="ViewInterfaces\IDataGridList.cs" />
+    <Compile Include="ViewInterfaces\IRendelesView.cs" />
     <Compile Include="ViewInterfaces\IUgyfelView.cs" />
     <Compile Include="ViewInterfaces\IJarmuView.cs" />
     <Compile Include="ViewInterfaces\IJarmuKategoriaView.cs" />
@@ -134,6 +139,18 @@
     </Compile>
     <Compile Include="Views\MainWindowForm.Designer.cs">
       <DependentUpon>MainWindowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RendelesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RendelesForm.Designer.cs">
+      <DependentUpon>RendelesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RendelesListaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RendelesListaForm.Designer.cs">
+      <DependentUpon>RendelesListaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UgyfelForm.cs">
       <SubType>Form</SubType>
@@ -178,6 +195,12 @@
     <EmbeddedResource Include="Views\MainWindowForm.resx">
       <DependentUpon>MainWindowForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\RendelesForm.resx">
+      <DependentUpon>RendelesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RendelesListaForm.resx">
+      <DependentUpon>RendelesListaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UgyfelForm.resx">
       <DependentUpon>UgyfelForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +224,7 @@
     <None Include="Properties\DataSources\JarmuKolcsonzo.Models.jarmu.datasource" />
     <None Include="Properties\DataSources\JarmuKolcsonzo.Models.jarmukategoria.datasource" />
     <None Include="Properties\DataSources\JarmuKolcsonzo.Models.ugyfel.datasource" />
+    <None Include="Properties\DataSources\JarmuKolcsonzo.ViewModels.rendelesVM.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -229,6 +253,7 @@
       <LastGenOutput>JKModel.cs</LastGenOutput>
     </Content>
     <Content Include="SQL\jarmukolcsonzo.sql" />
+    <Content Include="SQL\rendeles.sql" />
     <Content Include="SQL\ugyfel.sql" />
   </ItemGroup>
   <ItemGroup>

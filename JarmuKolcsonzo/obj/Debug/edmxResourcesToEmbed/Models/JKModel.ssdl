@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="jarmukolcsonzoModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="jarmu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rendszam" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="kategoriaId" Type="int" Nullable="false" />
+    <Property Name="tipus" Type="varchar" MaxLength="50" />
+    <Property Name="modell" Type="varchar" MaxLength="50" />
+    <Property Name="ferohely" Type="int" />
+    <Property Name="fogyasztas" Type="double" />
+    <Property Name="elerheto" Type="bool" Nullable="false" />
+    <Property Name="szervizben" Type="bool" Nullable="false" />
+    <Property Name="szervizDatum" Type="datetime" Precision="0" />
+    <Property Name="muszakiDatum" Type="datetime" Precision="0" />
+    <Property Name="beszerzesDatum" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="jarmukategoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kategoriaNev" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rendeles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ugyfel_id" Type="int" Nullable="false" />
+    <Property Name="jarmu_id" Type="int" Nullable="false" />
+    <Property Name="datum" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="ugyfel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vezeteknev" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="keresztnev" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="varos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cim" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="irszam" Type="int" Nullable="false" />
+    <Property Name="telefonszam" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pont" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="jarmu_ibfk_1">
+    <End Role="jarmukategoria" Type="Self.jarmukategoria" Multiplicity="1" />
+    <End Role="jarmu" Type="Self.jarmu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jarmukategoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="jarmu">
+        <PropertyRef Name="kategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rendeles_ibfk_1">
+    <End Role="jarmu" Type="Self.jarmu" Multiplicity="1" />
+    <End Role="rendeles" Type="Self.rendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jarmu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="rendeles">
+        <PropertyRef Name="jarmu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rendeles_ibfk_2">
+    <End Role="ugyfel" Type="Self.ugyfel" Multiplicity="1" />
+    <End Role="rendeles" Type="Self.rendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ugyfel">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rendeles">
+        <PropertyRef Name="ugyfel_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="jarmukolcsonzoModelStoreContainer">
+    <EntitySet Name="jarmu" EntityType="Self.jarmu" Schema="jarmukolcsonzo" store:Type="Tables" />
+    <EntitySet Name="jarmukategoria" EntityType="Self.jarmukategoria" Schema="jarmukolcsonzo" store:Type="Tables" />
+    <EntitySet Name="rendeles" EntityType="Self.rendeles" Schema="jarmukolcsonzo" store:Type="Tables" />
+    <EntitySet Name="ugyfel" EntityType="Self.ugyfel" Schema="jarmukolcsonzo" store:Type="Tables" />
+    <AssociationSet Name="jarmu_ibfk_1" Association="Self.jarmu_ibfk_1">
+      <End Role="jarmukategoria" EntitySet="jarmukategoria" />
+      <End Role="jarmu" EntitySet="jarmu" />
+    </AssociationSet>
+    <AssociationSet Name="rendeles_ibfk_1" Association="Self.rendeles_ibfk_1">
+      <End Role="jarmu" EntitySet="jarmu" />
+      <End Role="rendeles" EntitySet="rendeles" />
+    </AssociationSet>
+    <AssociationSet Name="rendeles_ibfk_2" Association="Self.rendeles_ibfk_2">
+      <End Role="ugyfel" EntitySet="ugyfel" />
+      <End Role="rendeles" EntitySet="rendeles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

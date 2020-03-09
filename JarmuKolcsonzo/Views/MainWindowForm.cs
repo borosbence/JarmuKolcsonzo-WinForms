@@ -124,5 +124,12 @@ namespace JarmuKolcsonzo.Views
             childForm.MdiParent = this;
             childForm.Show();
         }
+
+        private void rendelesekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form childForm = new RendelesListaForm();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
     }
 }

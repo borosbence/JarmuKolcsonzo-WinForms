@@ -109,6 +109,24 @@ namespace JarmuKolcsonzo.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ilyen rendszámmal nem létezik jármű!.
+        /// </summary>
+        internal static string NemJarmu {
+            get {
+                return ResourceManager.GetString("NemJarmu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ilyen névvel nem létezik ügyfél!.
+        /// </summary>
+        internal static string NemUgyfel {
+            get {
+                return ResourceManager.GetString("NemUgyfel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap newToolStripButton {

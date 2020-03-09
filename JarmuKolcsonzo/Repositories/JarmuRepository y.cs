@@ -106,6 +106,11 @@ namespace JarmuKolcsonzo.Repositories
             }
         }
 
+        public jarmu GetJarmuByLicensePlate(string rendszam)
+        {
+            return db.jarmu.AsNoTracking().SingleOrDefault(x => x.rendszam == rendszam);
+        }
+
         public bool Exists(jarmu jarmu)
         {
             return db.jarmu.Any(x => x.Id == jarmu.Id);

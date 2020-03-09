@@ -111,6 +111,10 @@ namespace JarmuKolcsonzo.Repositories
             }
         }
 
+        public ugyfel GetUgyfelByName(string nev)
+        {
+            return db.ugyfel.AsNoTracking().SingleOrDefault(x => (x.vezeteknev + " " + x.keresztnev) == nev);
+        }
         public bool Exists(ugyfel uf)
         {
             return db.ugyfel.Any(x => x.id == uf.id);

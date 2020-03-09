@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="jarmukolcsonzoModelStoreContainer" CdmEntityContainer="JKContext">
+    <EntitySetMapping Name="jarmu">
+      <EntityTypeMapping TypeName="jarmukolcsonzoModel.jarmu">
+        <MappingFragment StoreEntitySet="jarmu">
+          <ScalarProperty Name="beszerzesDatum" ColumnName="beszerzesDatum" />
+          <ScalarProperty Name="muszakiDatum" ColumnName="muszakiDatum" />
+          <ScalarProperty Name="szervizDatum" ColumnName="szervizDatum" />
+          <ScalarProperty Name="szervizben" ColumnName="szervizben" />
+          <ScalarProperty Name="elerheto" ColumnName="elerheto" />
+          <ScalarProperty Name="fogyasztas" ColumnName="fogyasztas" />
+          <ScalarProperty Name="ferohely" ColumnName="ferohely" />
+          <ScalarProperty Name="modell" ColumnName="modell" />
+          <ScalarProperty Name="tipus" ColumnName="tipus" />
+          <ScalarProperty Name="kategoriaId" ColumnName="kategoriaId" />
+          <ScalarProperty Name="rendszam" ColumnName="rendszam" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jarmukategoria">
+      <EntityTypeMapping TypeName="jarmukolcsonzoModel.jarmukategoria">
+        <MappingFragment StoreEntitySet="jarmukategoria">
+          <ScalarProperty Name="kategoriaNev" ColumnName="kategoriaNev" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ugyfel">
+      <EntityTypeMapping TypeName="jarmukolcsonzoModel.ugyfel">
+        <MappingFragment StoreEntitySet="ugyfel">
+          <ScalarProperty Name="pont" ColumnName="pont" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefonszam" ColumnName="telefonszam" />
+          <ScalarProperty Name="irszam" ColumnName="irszam" />
+          <ScalarProperty Name="cim" ColumnName="cim" />
+          <ScalarProperty Name="varos" ColumnName="varos" />
+          <ScalarProperty Name="keresztnev" ColumnName="keresztnev" />
+          <ScalarProperty Name="vezeteknev" ColumnName="vezeteknev" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rendeles">
+      <EntityTypeMapping TypeName="jarmukolcsonzoModel.rendeles">
+        <MappingFragment StoreEntitySet="rendeles">
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="jarmu_id" ColumnName="jarmu_id" />
+          <ScalarProperty Name="ugyfel_id" ColumnName="ugyfel_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

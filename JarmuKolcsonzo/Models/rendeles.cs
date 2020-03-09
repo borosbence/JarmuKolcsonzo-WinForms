@@ -24,7 +24,7 @@ public partial class rendeles
 
     public int jarmu_id { get; set; }
 
-    public Nullable<System.DateTime> datum { get; set; }
+    public System.DateTime datum { get; set; }
 
 
 

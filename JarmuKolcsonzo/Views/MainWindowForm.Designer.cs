@@ -70,6 +70,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.rendelesekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -83,7 +84,8 @@
             this.viewMenu,
             this.windowsMenu,
             this.jarmuvekToolStripMenuItem,
-            this.UgyfelektoolStripMenuItem});
+            this.UgyfelektoolStripMenuItem,
+            this.rendelesekToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
@@ -411,6 +413,13 @@
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
+            // rendelesekToolStripMenuItem
+            // 
+            this.rendelesekToolStripMenuItem.Name = "rendelesekToolStripMenuItem";
+            this.rendelesekToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.rendelesekToolStripMenuItem.Text = "Rendelések";
+            this.rendelesekToolStripMenuItem.Click += new System.EventHandler(this.rendelesekToolStripMenuItem_Click);
+            // 
             // MainWindowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,6 +485,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripMenuItem rendelesekToolStripMenuItem;
     }
 }
 

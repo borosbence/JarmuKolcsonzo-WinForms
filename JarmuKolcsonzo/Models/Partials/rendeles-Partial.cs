@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace JarmuKolcsonzo.Models
+{
+    public partial class rendeles
+    {
+        public rendeles(
+            DateTime datum)
+        {
+            this.datum = datum;
+        }
+
+        public rendeles()
+        {
+
+        }
+    }
+}

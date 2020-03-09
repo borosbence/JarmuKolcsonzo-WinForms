@@ -177,7 +177,7 @@
           <Property Name="varos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cim" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="irszam" Type="Int32" Nullable="false" />
-          <Property Name="telefonszam" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="telefonszam" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="pont" Type="Int32" Nullable="false" />
           <NavigationProperty Name="rendeles" Relationship="jarmukolcsonzoModel.rendeles_ibfk_2" FromRole="ugyfel" ToRole="rendeles" />
@@ -189,7 +189,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ugyfel_id" Type="Int32" Nullable="false" />
           <Property Name="jarmu_id" Type="Int32" Nullable="false" />
-          <Property Name="datum" Type="DateTime" />
+          <Property Name="datum" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="jarmu" Relationship="jarmukolcsonzoModel.rendeles_ibfk_1" FromRole="rendeles" ToRole="jarmu" />
           <NavigationProperty Name="ugyfel" Relationship="jarmukolcsonzoModel.rendeles_ibfk_2" FromRole="rendeles" ToRole="ugyfel" />
         </EntityType>

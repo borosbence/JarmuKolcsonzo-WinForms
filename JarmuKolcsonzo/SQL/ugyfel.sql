@@ -35,7 +35,7 @@ CREATE TABLE `ugyfel` (
   `varos` varchar(50) NOT NULL,
   `cim` varchar(100) NOT NULL,
   `irszam` int(5) NOT NULL,
-  `telefonszam` varchar(10) NOT NULL,
+  `telefonszam` varchar(12) NOT NULL,
   `email` varchar(50) NOT NULL,
   `pont` int(3) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
