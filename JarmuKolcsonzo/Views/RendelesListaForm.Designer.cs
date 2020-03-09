@@ -45,6 +45,10 @@
             this.keresestoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.KeresestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.szerkesztesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.torlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mentestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.rendelesIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ugyfelIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ugyfelNevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,9 +59,6 @@
             this.jarmuRendszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jarmuFerohelyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rendelesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.szerkesztesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.torlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendelesVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -166,6 +167,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UjtoolStripButton,
             this.TorlestoolStripButton,
+            this.mentestoolStripButton,
             this.toolStripSeparator1,
             this.keresestoolStripTextBox,
             this.KeresestoolStripButton});
@@ -201,6 +203,7 @@
             // 
             // keresestoolStripTextBox
             // 
+            this.keresestoolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keresestoolStripTextBox.Name = "keresestoolStripTextBox";
             this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 25);
             // 
@@ -234,71 +237,10 @@
             this.dataGridView1.DataSource = this.rendelesVMBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 28);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(775, 376);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
-            // 
-            // rendelesIdDataGridViewTextBoxColumn
-            // 
-            this.rendelesIdDataGridViewTextBoxColumn.DataPropertyName = "rendelesId";
-            this.rendelesIdDataGridViewTextBoxColumn.HeaderText = "rendelesId";
-            this.rendelesIdDataGridViewTextBoxColumn.Name = "rendelesIdDataGridViewTextBoxColumn";
-            // 
-            // ugyfelIdDataGridViewTextBoxColumn
-            // 
-            this.ugyfelIdDataGridViewTextBoxColumn.DataPropertyName = "ugyfelId";
-            this.ugyfelIdDataGridViewTextBoxColumn.HeaderText = "ugyfelId";
-            this.ugyfelIdDataGridViewTextBoxColumn.Name = "ugyfelIdDataGridViewTextBoxColumn";
-            this.ugyfelIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // ugyfelNevDataGridViewTextBoxColumn
-            // 
-            this.ugyfelNevDataGridViewTextBoxColumn.DataPropertyName = "ugyfelNev";
-            this.ugyfelNevDataGridViewTextBoxColumn.HeaderText = "ugyfelNev";
-            this.ugyfelNevDataGridViewTextBoxColumn.Name = "ugyfelNevDataGridViewTextBoxColumn";
-            // 
-            // ugyfelTelefonszamDataGridViewTextBoxColumn
-            // 
-            this.ugyfelTelefonszamDataGridViewTextBoxColumn.DataPropertyName = "ugyfelTelefonszam";
-            this.ugyfelTelefonszamDataGridViewTextBoxColumn.HeaderText = "ugyfelTelefonszam";
-            this.ugyfelTelefonszamDataGridViewTextBoxColumn.Name = "ugyfelTelefonszamDataGridViewTextBoxColumn";
-            // 
-            // ugyfelEmailDataGridViewTextBoxColumn
-            // 
-            this.ugyfelEmailDataGridViewTextBoxColumn.DataPropertyName = "ugyfelEmail";
-            this.ugyfelEmailDataGridViewTextBoxColumn.HeaderText = "ugyfelEmail";
-            this.ugyfelEmailDataGridViewTextBoxColumn.Name = "ugyfelEmailDataGridViewTextBoxColumn";
-            // 
-            // ugyfelPontDataGridViewTextBoxColumn
-            // 
-            this.ugyfelPontDataGridViewTextBoxColumn.DataPropertyName = "ugyfelPont";
-            this.ugyfelPontDataGridViewTextBoxColumn.HeaderText = "ugyfelPont";
-            this.ugyfelPontDataGridViewTextBoxColumn.Name = "ugyfelPontDataGridViewTextBoxColumn";
-            // 
-            // jarmuIdDataGridViewTextBoxColumn
-            // 
-            this.jarmuIdDataGridViewTextBoxColumn.DataPropertyName = "jarmuId";
-            this.jarmuIdDataGridViewTextBoxColumn.HeaderText = "jarmuId";
-            this.jarmuIdDataGridViewTextBoxColumn.Name = "jarmuIdDataGridViewTextBoxColumn";
-            this.jarmuIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // jarmuRendszamDataGridViewTextBoxColumn
-            // 
-            this.jarmuRendszamDataGridViewTextBoxColumn.DataPropertyName = "jarmuRendszam";
-            this.jarmuRendszamDataGridViewTextBoxColumn.HeaderText = "jarmuRendszam";
-            this.jarmuRendszamDataGridViewTextBoxColumn.Name = "jarmuRendszamDataGridViewTextBoxColumn";
-            // 
-            // jarmuFerohelyDataGridViewTextBoxColumn
-            // 
-            this.jarmuFerohelyDataGridViewTextBoxColumn.DataPropertyName = "jarmuFerohely";
-            this.jarmuFerohelyDataGridViewTextBoxColumn.HeaderText = "jarmuFerohely";
-            this.jarmuFerohelyDataGridViewTextBoxColumn.Name = "jarmuFerohelyDataGridViewTextBoxColumn";
-            // 
-            // rendelesDatumDataGridViewTextBoxColumn
-            // 
-            this.rendelesDatumDataGridViewTextBoxColumn.DataPropertyName = "rendelesDatum";
-            this.rendelesDatumDataGridViewTextBoxColumn.HeaderText = "rendelesDatum";
-            this.rendelesDatumDataGridViewTextBoxColumn.Name = "rendelesDatumDataGridViewTextBoxColumn";
             // 
             // contextMenuStrip1
             // 
@@ -321,6 +263,87 @@
             this.torlesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.torlesToolStripMenuItem.Text = "Törlés";
             this.torlesToolStripMenuItem.Click += new System.EventHandler(this.torlesToolStripMenuItem_Click);
+            // 
+            // mentestoolStripButton
+            // 
+            this.mentestoolStripButton.Image = global::JarmuKolcsonzo.Properties.Resources.saveToolStripButton;
+            this.mentestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mentestoolStripButton.Name = "mentestoolStripButton";
+            this.mentestoolStripButton.Size = new System.Drawing.Size(66, 22);
+            this.mentestoolStripButton.Text = "Mentés";
+            this.mentestoolStripButton.Click += new System.EventHandler(this.mentestoolStripButton_Click);
+            // 
+            // rendelesIdDataGridViewTextBoxColumn
+            // 
+            this.rendelesIdDataGridViewTextBoxColumn.DataPropertyName = "rendelesId";
+            this.rendelesIdDataGridViewTextBoxColumn.HeaderText = "rendelesId";
+            this.rendelesIdDataGridViewTextBoxColumn.Name = "rendelesIdDataGridViewTextBoxColumn";
+            this.rendelesIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ugyfelIdDataGridViewTextBoxColumn
+            // 
+            this.ugyfelIdDataGridViewTextBoxColumn.DataPropertyName = "ugyfelId";
+            this.ugyfelIdDataGridViewTextBoxColumn.HeaderText = "ugyfelId";
+            this.ugyfelIdDataGridViewTextBoxColumn.Name = "ugyfelIdDataGridViewTextBoxColumn";
+            this.ugyfelIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ugyfelIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ugyfelNevDataGridViewTextBoxColumn
+            // 
+            this.ugyfelNevDataGridViewTextBoxColumn.DataPropertyName = "ugyfelNev";
+            this.ugyfelNevDataGridViewTextBoxColumn.HeaderText = "ugyfelNev";
+            this.ugyfelNevDataGridViewTextBoxColumn.Name = "ugyfelNevDataGridViewTextBoxColumn";
+            this.ugyfelNevDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ugyfelTelefonszamDataGridViewTextBoxColumn
+            // 
+            this.ugyfelTelefonszamDataGridViewTextBoxColumn.DataPropertyName = "ugyfelTelefonszam";
+            this.ugyfelTelefonszamDataGridViewTextBoxColumn.HeaderText = "ugyfelTelefonszam";
+            this.ugyfelTelefonszamDataGridViewTextBoxColumn.Name = "ugyfelTelefonszamDataGridViewTextBoxColumn";
+            this.ugyfelTelefonszamDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ugyfelEmailDataGridViewTextBoxColumn
+            // 
+            this.ugyfelEmailDataGridViewTextBoxColumn.DataPropertyName = "ugyfelEmail";
+            this.ugyfelEmailDataGridViewTextBoxColumn.HeaderText = "ugyfelEmail";
+            this.ugyfelEmailDataGridViewTextBoxColumn.Name = "ugyfelEmailDataGridViewTextBoxColumn";
+            this.ugyfelEmailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ugyfelPontDataGridViewTextBoxColumn
+            // 
+            this.ugyfelPontDataGridViewTextBoxColumn.DataPropertyName = "ugyfelPont";
+            this.ugyfelPontDataGridViewTextBoxColumn.HeaderText = "ugyfelPont";
+            this.ugyfelPontDataGridViewTextBoxColumn.Name = "ugyfelPontDataGridViewTextBoxColumn";
+            this.ugyfelPontDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // jarmuIdDataGridViewTextBoxColumn
+            // 
+            this.jarmuIdDataGridViewTextBoxColumn.DataPropertyName = "jarmuId";
+            this.jarmuIdDataGridViewTextBoxColumn.HeaderText = "jarmuId";
+            this.jarmuIdDataGridViewTextBoxColumn.Name = "jarmuIdDataGridViewTextBoxColumn";
+            this.jarmuIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jarmuIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // jarmuRendszamDataGridViewTextBoxColumn
+            // 
+            this.jarmuRendszamDataGridViewTextBoxColumn.DataPropertyName = "jarmuRendszam";
+            this.jarmuRendszamDataGridViewTextBoxColumn.HeaderText = "jarmuRendszam";
+            this.jarmuRendszamDataGridViewTextBoxColumn.Name = "jarmuRendszamDataGridViewTextBoxColumn";
+            this.jarmuRendszamDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // jarmuFerohelyDataGridViewTextBoxColumn
+            // 
+            this.jarmuFerohelyDataGridViewTextBoxColumn.DataPropertyName = "jarmuFerohely";
+            this.jarmuFerohelyDataGridViewTextBoxColumn.HeaderText = "jarmuFerohely";
+            this.jarmuFerohelyDataGridViewTextBoxColumn.Name = "jarmuFerohelyDataGridViewTextBoxColumn";
+            this.jarmuFerohelyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rendelesDatumDataGridViewTextBoxColumn
+            // 
+            this.rendelesDatumDataGridViewTextBoxColumn.DataPropertyName = "rendelesDatum";
+            this.rendelesDatumDataGridViewTextBoxColumn.HeaderText = "rendelesDatum";
+            this.rendelesDatumDataGridViewTextBoxColumn.Name = "rendelesDatumDataGridViewTextBoxColumn";
+            this.rendelesDatumDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // rendelesVMBindingSource
             // 
@@ -382,5 +405,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem szerkesztesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem torlesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton mentestoolStripButton;
     }
 }

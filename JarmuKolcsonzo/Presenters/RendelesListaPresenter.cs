@@ -82,5 +82,10 @@ namespace JarmuKolcsonzo.Presenters
                 repo.Update(rendelesVM);
             }
         }
+
+        public void Save()
+        {
+            repo.Save();
+        }
     }
 }

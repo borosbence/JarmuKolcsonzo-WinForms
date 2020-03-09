@@ -59,6 +59,9 @@ namespace JarmuKolcsonzo.Repositories
                     case "email":
                         query = ascending ? query.OrderBy(x => x.ugyfel.email) : query.OrderByDescending(x => x.ugyfel.email);
                         break;
+                    case "pont":
+                        query = ascending ? query.OrderBy(x => x.ugyfel.pont) : query.OrderByDescending(x => x.ugyfel.pont);
+                        break;
                     case "rendszam":
                         query = ascending ? query.OrderBy(x => x.jarmu.rendszam) : query.OrderByDescending(x => x.jarmu.rendszam);
                         break;
@@ -144,6 +147,11 @@ namespace JarmuKolcsonzo.Repositories
                 rendeles.datum = rendelesVM.rendelesDatum;
                 db.Entry(rendeles).State = EntityState.Modified;
             }
+        }
+
+        public void Save()
+        {
+            db.SaveChanges();
         }
 
         public bool Exists(rendelesVM rendelesVM)

@@ -99,31 +99,27 @@ namespace JarmuKolcsonzo.Views
             switch (e.ColumnIndex)
             {
                 case 1:
-                    sortBy = "vezeteknev";
-                    break;
-                case 2:
-                    sortBy = "keresztnev";
+                    sortBy = "ugyfelnev";
                     break;
                 case 3:
-                    sortBy = "varos";
-                    break;
-                case 4:
-                    sortBy = "cim";
-                    break;
-                case 5:
-                    sortBy = "irszam";
-                    break;
-                case 6:
                     sortBy = "telefonszam";
                     break;
-                case 7:
+                case 4:
                     sortBy = "email";
                     break;
-                case 8:
+                case 5:
                     sortBy = "pont";
                     break;
+                case 7:
+                    sortBy = "rendszam";
+                    break;
+                case 8:
+                    sortBy = "ferohely";
+                    break;
+                case 9:
+                    sortBy = "datum";
+                    break;
                 default:
-                    sortBy = "Id";
                     break;
             }
 
@@ -200,6 +196,11 @@ namespace JarmuKolcsonzo.Views
         private void torlesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DelDGRow();
+        }
+
+        private void mentestoolStripButton_Click(object sender, EventArgs e)
+        {
+            presenter.Save();
         }
     }
 }
