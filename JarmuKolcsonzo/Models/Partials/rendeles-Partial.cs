@@ -9,8 +9,12 @@ namespace JarmuKolcsonzo.Models
     public partial class rendeles
     {
         public rendeles(
+            int ugyfelId,
+            int jarmuId,
             DateTime datum)
         {
+            this.ugyfel_id = ugyfelId;
+            this.jarmu_id = jarmuId;
             this.datum = datum.Date;
         }
 

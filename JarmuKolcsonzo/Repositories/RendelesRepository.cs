@@ -14,8 +14,6 @@ namespace JarmuKolcsonzo.Repositories
     {
         private JKContext db = new JKContext();
         private int _totalItems;
-        private UgyfelRepository ugyfelRepo;
-        private JarmuRepository jarmuRepo;
 
         public BindingList<rendelesVM> GetAllRendelesVM(
             int page = 0,
@@ -111,18 +109,7 @@ namespace JarmuKolcsonzo.Repositories
 
         public void Insert(rendelesVM rendelesVM)
         {
-            var rendeles = new rendeles(rendelesVM.rendelesDatum);
-
-            using (ugyfelRepo = new UgyfelRepository())
-            {
-                var ugyfel = ugyfelRepo.GetUgyfelByName(rendelesVM.ugyfelNev);
-                rendeles.ugyfel_id = ugyfel.id;
-            }
-            using(jarmuRepo = new JarmuRepository())
-            {
-                var jarmu = jarmuRepo.GetJarmuByLicensePlate(rendelesVM.jarmuRendszam);
-                rendeles.jarmu_id = jarmu.Id;
-            }
+            var rendeles = new rendeles(rendelesVM.ugyfelId, rendelesVM.jarmuId, rendelesVM.rendelesDatum);
 
             db.rendeles.Add(rendeles);
             db.SaveChanges();

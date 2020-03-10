@@ -33,6 +33,22 @@ namespace JarmuKolcsonzo.Presenters
 
         public void Add(rendelesVM rendelesVM)
         {
+            using (ugyfelRepo = new UgyfelRepository())
+            {
+                var ugyfel = ugyfelRepo.GetUgyfelByName(rendelesVM.ugyfelNev);
+                rendelesVM.ugyfelId = ugyfel.id;
+                rendelesVM.ugyfelEmail = ugyfel.email;
+                rendelesVM.ugyfelTelefonszam = ugyfel.telefonszam;
+                rendelesVM.ugyfelPont = ugyfel.pont;
+            }
+            using (jarmuRepo = new JarmuRepository())
+            {
+                var jarmu = jarmuRepo.GetJarmuByLicensePlate(rendelesVM.jarmuRendszam);
+                rendelesVM.jarmuId = jarmu.Id;
+                rendelesVM.jarmuId = jarmu.Id;
+                rendelesVM.jarmuFerohely = jarmu.ferohely;
+            }
+
             view.bindingList.Add(rendelesVM);
             // hozzáadás ehhez a contexthez is
             repo.Insert(rendelesVM);
