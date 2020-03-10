@@ -30,7 +30,7 @@ namespace JarmuKolcsonzo.Views
                 var rendelesVM = new rendelesVM(
                     UgyfelNevTextBox.Text,
                     JarmuRendszamTextBox.Text,
-                    RendelesDatumdateTimePicker.Value);
+                    RendelesdateTimePicker.Value);
                 if (formId > 0)
                 {
                     rendelesVM.rendelesId = formId;
@@ -46,7 +46,8 @@ namespace JarmuKolcsonzo.Views
                 PontLabel.Text = value.ugyfelPont.ToString();
                 JarmuRendszamTextBox.Text = value.jarmuRendszam;
                 LabelFerohely.Text = value.jarmuFerohely.ToString();
-                RendelesDatumdateTimePicker.Value = rendelesVM.rendelesDatum;
+                RendelesdateTimePicker.Value = value.rendelesDatum;
+
             }
         }
         public string errorUgyfelNev

@@ -116,13 +116,11 @@ namespace JarmuKolcsonzo.Repositories
             using (ugyfelRepo = new UgyfelRepository())
             {
                 var ugyfel = ugyfelRepo.GetUgyfelByName(rendelesVM.ugyfelNev);
-                //rendeles.ugyfel = ugyfel;
                 rendeles.ugyfel_id = ugyfel.id;
             }
             using(jarmuRepo = new JarmuRepository())
             {
                 var jarmu = jarmuRepo.GetJarmuByLicensePlate(rendelesVM.jarmuRendszam);
-                //rendeles.jarmu = jarmu;
                 rendeles.jarmu_id = jarmu.Id;
             }
 

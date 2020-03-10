@@ -56,6 +56,10 @@ namespace JarmuKolcsonzo.Presenters
                 if (ugyfel != null)
                 {
                     rendelesVM.ugyfelId = ugyfel.id;
+                    // rendelesVM.ugyfelNev = ugyfel.vezeteknev + " " + ugyfel.keresztnev;
+                    rendelesVM.ugyfelEmail = ugyfel.email;
+                    rendelesVM.ugyfelTelefonszam = ugyfel.telefonszam;
+                    rendelesVM.ugyfelPont = ugyfel.pont;
                 }
                 else
                 {
@@ -69,6 +73,7 @@ namespace JarmuKolcsonzo.Presenters
                 if (jarmu != null)
                 {
                     rendelesVM.jarmuId = jarmu.Id;
+                    rendelesVM.jarmuFerohely = jarmu.ferohely;
                 }
                 else
                 {

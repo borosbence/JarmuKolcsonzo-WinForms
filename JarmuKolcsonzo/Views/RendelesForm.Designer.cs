@@ -50,9 +50,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.RendelesDatumdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.errorP_Nev = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorP_Rendszam = new System.Windows.Forms.ErrorProvider(this.components);
+            this.RendelesdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -265,7 +265,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel3.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.RendelesDatumdateTimePicker, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.RendelesdateTimePicker, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -283,13 +283,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Rendszám";
             // 
-            // RendelesDatumdateTimePicker
-            // 
-            this.RendelesDatumdateTimePicker.Location = new System.Drawing.Point(146, 3);
-            this.RendelesDatumdateTimePicker.Name = "RendelesDatumdateTimePicker";
-            this.RendelesDatumdateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.RendelesDatumdateTimePicker.TabIndex = 1;
-            // 
             // errorP_Nev
             // 
             this.errorP_Nev.ContainerControl = this;
@@ -298,11 +291,18 @@
             // 
             this.errorP_Rendszam.ContainerControl = this;
             // 
+            // RendelesdateTimePicker
+            // 
+            this.RendelesdateTimePicker.Location = new System.Drawing.Point(146, 3);
+            this.RendelesdateTimePicker.Name = "RendelesdateTimePicker";
+            this.RendelesdateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.RendelesdateTimePicker.TabIndex = 11;
+            // 
             // RendelesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 351);
+            this.ClientSize = new System.Drawing.Size(462, 349);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -348,8 +348,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker RendelesDatumdateTimePicker;
         private System.Windows.Forms.ErrorProvider errorP_Nev;
         private System.Windows.Forms.ErrorProvider errorP_Rendszam;
+        private System.Windows.Forms.DateTimePicker RendelesdateTimePicker;
     }
 }

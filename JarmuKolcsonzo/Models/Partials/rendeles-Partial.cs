@@ -11,7 +11,7 @@ namespace JarmuKolcsonzo.Models
         public rendeles(
             DateTime datum)
         {
-            this.datum = datum;
+            this.datum = datum.Date;
         }
 
         public rendeles()

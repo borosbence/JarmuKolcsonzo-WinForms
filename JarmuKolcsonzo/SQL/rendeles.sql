@@ -32,7 +32,7 @@ CREATE TABLE `rendeles` (
   `id` int(11) NOT NULL,
   `ugyfel_id` int(11) NOT NULL,
   `jarmu_id` int(11) NOT NULL,
-  `datum` datetime NOT NULL DEFAULT current_timestamp()
+  `datum` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -40,10 +40,10 @@ CREATE TABLE `rendeles` (
 --
 
 INSERT INTO `rendeles` (`id`, `ugyfel_id`, `jarmu_id`, `datum`) VALUES
-(1, 1, 3, '2020-03-09 22:26:21'),
-(5, 1, 2, '2020-03-09 22:36:40'),
-(11, 1, 1, '2020-03-09 22:42:43'),
-(13, 1, 4, '2020-03-09 22:45:15');
+(1, 1, 3, '2020-03-09'),
+(5, 1, 2, '2020-03-09'),
+(11, 1, 1, '2020-03-09'),
+(13, 1, 4, '2020-03-09');
 
 --
 -- Indexek a kiírt táblákhoz

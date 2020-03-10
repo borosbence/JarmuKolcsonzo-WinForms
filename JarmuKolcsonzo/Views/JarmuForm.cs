@@ -65,9 +65,9 @@ namespace JarmuKolcsonzo.Views
                 SzervizdateTimePicker.Value = value.szervizDatum.Value > new DateTime(0001, 01, 01, 0, 00, 00) ?
                     value.szervizDatum.Value : new DateTime(1900, 1, 1);
                 MuszakidateTimePicker.Value = value.muszakiDatum.Value > new DateTime(0001, 01, 01, 0, 00, 00) ?
-                    value.szervizDatum.Value : new DateTime(1900, 1, 1);
+                    value.muszakiDatum.Value : new DateTime(1900, 1, 1);
                 BeszerzesdateTimePicker.Value = value.beszerzesDatum.Value > new DateTime(0001, 01, 01, 0, 00, 00) ?
-                    value.szervizDatum.Value : new DateTime(1900, 1, 1);
+                    value.beszerzesDatum.Value : new DateTime(1900, 1, 1);
             }
         }
 
