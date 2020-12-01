@@ -13,7 +13,7 @@ namespace JarmuKolcsonzo.ViewInterfaces
         jarmu jarmu { get; set; }
         BindingList<jarmu_tipus> jarmuTipusList { get; set; }
         string errorRendszam { get; set; }
-        string errorFerohely { get; set; }
+        string errorDij { get; set; }
 
     }
 }

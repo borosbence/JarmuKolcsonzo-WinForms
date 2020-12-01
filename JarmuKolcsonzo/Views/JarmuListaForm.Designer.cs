@@ -50,15 +50,12 @@
             this.SzerkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TorlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rendszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipusidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dijDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.elerhetoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jarmutipusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rendelesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -134,6 +131,7 @@
             // 
             // keresestoolStripTextBox
             // 
+            this.keresestoolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keresestoolStripTextBox.Name = "keresestoolStripTextBox";
             this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 25);
             // 
@@ -232,14 +230,11 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
             this.rendszamDataGridViewTextBoxColumn,
             this.tipusidDataGridViewTextBoxColumn,
             this.dijDataGridViewTextBoxColumn,
             this.elerhetoDataGridViewCheckBoxColumn,
-            this.dataGridViewTextBoxColumn2,
-            this.jarmutipusDataGridViewTextBoxColumn,
-            this.rendelesDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn2});
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.DataSource = this.jarmuBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 28);
@@ -280,16 +275,6 @@
             this.panel1.Size = new System.Drawing.Size(800, 43);
             this.panel1.TabIndex = 3;
             // 
-            // jarmuBindingSource
-            // 
-            this.jarmuBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmu);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
             // rendszamDataGridViewTextBoxColumn
             // 
             this.rendszamDataGridViewTextBoxColumn.DataPropertyName = "rendszam";
@@ -320,17 +305,9 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "szerviz_datum";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // jarmutipusDataGridViewTextBoxColumn
+            // jarmuBindingSource
             // 
-            this.jarmutipusDataGridViewTextBoxColumn.DataPropertyName = "jarmu_tipus";
-            this.jarmutipusDataGridViewTextBoxColumn.HeaderText = "jarmu_tipus";
-            this.jarmutipusDataGridViewTextBoxColumn.Name = "jarmutipusDataGridViewTextBoxColumn";
-            // 
-            // rendelesDataGridViewTextBoxColumn
-            // 
-            this.rendelesDataGridViewTextBoxColumn.DataPropertyName = "rendeles";
-            this.rendelesDataGridViewTextBoxColumn.HeaderText = "rendeles";
-            this.rendelesDataGridViewTextBoxColumn.Name = "rendelesDataGridViewTextBoxColumn";
+            this.jarmuBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmu);
             // 
             // JarmuListaForm
             // 
@@ -377,14 +354,11 @@
         private System.Windows.Forms.ToolStripMenuItem TorlesToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton FrissitestoolStripDropDownButton;
         private System.Windows.Forms.ToolStripMenuItem refKatToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource jarmuBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn rendszamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipusidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dijDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn elerhetoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jarmutipusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rendelesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource jarmuBindingSource;
     }
 }

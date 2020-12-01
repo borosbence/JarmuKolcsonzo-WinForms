@@ -31,7 +31,7 @@ namespace JarmuKolcsonzo.Presenters
         public void Save(jarmu jarmu)
         {
             view.errorRendszam = null;
-            view.errorFerohely = null;
+            view.errorDij = null;
 
             bool helyes = true;
             if (string.IsNullOrEmpty(jarmu.rendszam))
@@ -41,7 +41,7 @@ namespace JarmuKolcsonzo.Presenters
             }
             if (jarmu.dij < 1)
             {
-                view.errorFerohely = Resources.KotelezoMezo;
+                view.errorDij = Resources.KotelezoMezo;
                 helyes = false;
             }
 
