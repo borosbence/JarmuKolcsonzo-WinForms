@@ -16,7 +16,7 @@ namespace JarmuKolcsonzo.ViewModels
         public int ugyfelPont { get; set; }
         public int jarmuId { get; set; }
         public string jarmuRendszam { get; set; }
-        public int? jarmuFerohely { get; set; }
+        public int? jarmuDij { get; set; }
         public DateTime rendelesDatum { get; set; }
 
         public rendelesVM(
@@ -36,7 +36,7 @@ namespace JarmuKolcsonzo.ViewModels
             ugyfelPont = pont;
             this.jarmuId = jarmuId;
             jarmuRendszam = rendszam;
-            jarmuFerohely = ferohely;
+            jarmuDij = ferohely;
             rendelesDatum = datum;
         }
 

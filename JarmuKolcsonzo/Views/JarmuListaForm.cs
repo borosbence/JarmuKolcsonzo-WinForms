@@ -45,9 +45,9 @@ namespace JarmuKolcsonzo.Views
             get => (BindingList<jarmu>)dataGridView1.DataSource;
             set => dataGridView1.DataSource = value;
         }
-        public BindingList<jarmukategoria> jarmukategoriaList
+        public BindingList<jarmu_tipus> jarmuTipusList
         {
-            get => (BindingList<jarmukategoria>)jkCol.DataSource;
+            get => (BindingList<jarmu_tipus>)jkCol.DataSource;
             set
             {
                 jkCol.DataSource = value;
@@ -72,11 +72,11 @@ namespace JarmuKolcsonzo.Views
             presenter.LoadData();
 
             // Kategória colbox feltöltése
-            jkCol.DataPropertyName = "kategoriaId";
-            jkCol.DisplayMember = "kategoriaNev";
-            jkCol.Name = "kategoriaId";
-            jkCol.HeaderText = "Kategória";
-            jkCol.ValueMember = "Id";
+            jkCol.DataPropertyName = "tipus_id";
+            jkCol.DisplayMember = "megnevezes";
+            jkCol.Name = "Tipus";
+            jkCol.HeaderText = "Tipus";
+            jkCol.ValueMember = "id";
             //jkCol.ValueType = typeof(jarmukategoria);
 
             dataGridView1.Columns.RemoveAt(2);

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.Models
 {
-    public partial class jarmukategoria
+    public partial class jarmu_tipus
     {
-        public jarmukategoria(string nev)
+        public jarmu_tipus(string nev, int ferohely)
         {
             this.jarmu = new HashSet<jarmu>();
-            this.kategoriaNev = nev;
+            this.megnevezes = nev;
+            this.ferohely = ferohely;
         }
     }
 }

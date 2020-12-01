@@ -27,9 +27,9 @@ namespace JarmuKolcsonzo.Presenters
             //view.jarmukategoriaList = jkrepo.GetAllJarmuKategoria();
             view.totalItems = repo.Count();
 
-            using (var jkrepo = new JarmuKategoriaRepository())
+            using (var jkrepo = new JarmuTipusRepository())
             {
-                view.jarmukategoriaList = jkrepo.GetAllJarmuKategoria();
+                view.jarmuTipusList = jkrepo.GetAllJarmuTipus();
             }
         }
 
@@ -44,9 +44,9 @@ namespace JarmuKolcsonzo.Presenters
         {
             var jk = view.bindingList.ElementAt(index);
             view.bindingList.RemoveAt(index);
-            if (jk.Id > 0)
+            if (jk.id > 0)
             {
-                repo.Delete(jk.Id);
+                repo.Delete(jk.id);
             }
         }
 

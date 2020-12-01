@@ -22,9 +22,9 @@ namespace JarmuKolcsonzo.Presenters
 
         public void LoadData()
         {
-            using (var jkRepo = new JarmuKategoriaRepository())
+            using (var jkRepo = new JarmuTipusRepository())
             {
-                view.jarmukategoriaList = jkRepo.GetAllJarmuKategoria();
+                view.jarmuTipusList = jkRepo.GetAllJarmuTipus();
             }
         }
 
@@ -39,7 +39,7 @@ namespace JarmuKolcsonzo.Presenters
                 view.errorRendszam = Resources.KotelezoMezo;
                 helyes = false;
             }
-            if (jarmu.ferohely < 1)
+            if (jarmu.dij < 1)
             {
                 view.errorFerohely = Resources.KotelezoMezo;
                 helyes = false;

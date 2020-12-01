@@ -49,7 +49,7 @@
             this.MuszakidateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.BeszerzesdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ModelltextBox = new System.Windows.Forms.TextBox();
-            this.FerohelynumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.DijnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.FogyasztasnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.KategoriacomboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
             this.errorP_Rendszam = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorP_Ferohely = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FerohelynumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DijnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FogyasztasnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP_Rendszam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP_Ferohely)).BeginInit();
@@ -87,7 +87,7 @@
             this.tableLayoutPanel1.Controls.Add(this.MuszakidateTimePicker, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.BeszerzesdateTimePicker, 1, 10);
             this.tableLayoutPanel1.Controls.Add(this.ModelltextBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.FerohelynumericUpDown, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.DijnumericUpDown, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.FogyasztasnumericUpDown, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.KategoriacomboBox1, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 24);
@@ -268,10 +268,10 @@
             // 
             // FerohelynumericUpDown
             // 
-            this.FerohelynumericUpDown.Location = new System.Drawing.Point(175, 123);
-            this.FerohelynumericUpDown.Name = "FerohelynumericUpDown";
-            this.FerohelynumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.FerohelynumericUpDown.TabIndex = 5;
+            this.DijnumericUpDown.Location = new System.Drawing.Point(175, 123);
+            this.DijnumericUpDown.Name = "FerohelynumericUpDown";
+            this.DijnumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.DijnumericUpDown.TabIndex = 5;
             // 
             // FogyasztasnumericUpDown
             // 
@@ -329,7 +329,7 @@
             this.Text = "JarmuSzerk";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FerohelynumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DijnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FogyasztasnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP_Rendszam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP_Ferohely)).EndInit();
@@ -361,7 +361,7 @@
         private System.Windows.Forms.DateTimePicker MuszakidateTimePicker;
         private System.Windows.Forms.DateTimePicker BeszerzesdateTimePicker;
         private System.Windows.Forms.TextBox ModelltextBox;
-        private System.Windows.Forms.NumericUpDown FerohelynumericUpDown;
+        private System.Windows.Forms.NumericUpDown DijnumericUpDown;
         private System.Windows.Forms.NumericUpDown FogyasztasnumericUpDown;
         private System.Windows.Forms.ComboBox KategoriacomboBox1;
         private System.Windows.Forms.ErrorProvider errorP_Rendszam;

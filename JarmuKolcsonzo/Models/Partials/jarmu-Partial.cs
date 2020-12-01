@@ -10,28 +10,16 @@ namespace JarmuKolcsonzo.Models
     {
         public jarmu(
             string rendszam,
-            int kategoriaId,
-            string tipus,
-            string modell,
-            int ferohely,
-            double fogyasztas,
+            int tipusId,
+            int dij,
             bool elerheto,
-            bool szervizben,
-            DateTime szervizDatum,
-            DateTime muszakiDatum,
-            DateTime beszerzesDatum)
+            DateTime szervizDatum)
         {
             this.rendszam = rendszam;
-            this.kategoriaId = kategoriaId;
-            this.tipus = tipus;
-            this.modell = modell;
-            this.ferohely = ferohely;
-            this.fogyasztas = fogyasztas;
+            this.tipus_id = tipusId;
+            this.dij = dij;
             this.elerheto = elerheto;
-            this.szervizben = szervizben;
-            this.szervizDatum = szervizDatum;
-            this.muszakiDatum = muszakiDatum;
-            this.beszerzesDatum = beszerzesDatum;
+            this.szerviz_datum = szervizDatum;
         }
     }
 }

@@ -21,25 +21,13 @@ namespace JarmuKolcsonzo.Repositories
             string sortBy = null,
             bool ascending = true)
         {
-            var query = db.jarmu.OrderBy(x => x.Id).AsQueryable();
+            var query = db.jarmu.OrderBy(x => x.id).AsQueryable();
 
             // Keresés
             if (!string.IsNullOrWhiteSpace(search))
             {
                 search = search.ToLower();
-
-                double fogyasztas;
-                double.TryParse(search, out fogyasztas);
-                if (fogyasztas > 0)
-                {
-                    query = query.Where(x => x.fogyasztas.Value.Equals(fogyasztas));
-                }
-                else
-                {
-                    query = query.Where(x => x.rendszam.ToLower().Contains(search) ||
-                                         x.tipus.ToLower().Contains(search) ||
-                                         x.modell.ToLower().Contains(search));
-                }
+                query = query.Where(x => x.rendszam.ToLower().Contains(search));
             }
 
             // Sorbarendezés
@@ -48,19 +36,13 @@ namespace JarmuKolcsonzo.Repositories
                 switch (sortBy)
                 {
                     default:
-                        query = ascending ? query.OrderBy(x => x.Id) : query.OrderByDescending(x => x.Id);
-                        break;
-                    case "kategoriaId":
-                        query = ascending ? query.OrderBy(x => x.kategoriaId) : query.OrderByDescending(x => x.kategoriaId);
-                        break;
-                    case "rendszam":
                         query = ascending ? query.OrderBy(x => x.rendszam) : query.OrderByDescending(x => x.rendszam);
                         break;
                     case "tipus":
-                        query = ascending ? query.OrderBy(x => x.tipus) : query.OrderByDescending(x => x.tipus);
+                        query = ascending ? query.OrderBy(x => x.jarmu_tipus.megnevezes) : query.OrderByDescending(x => x.jarmu_tipus);
                         break;
-                    case "modell":
-                        query = ascending ? query.OrderBy(x => x.modell) : query.OrderByDescending(x => x.modell);
+                    case "dij":
+                        query = ascending ? query.OrderBy(x => x.dij) : query.OrderByDescending(x => x.dij);
                         break;
                 }
             }
@@ -99,7 +81,7 @@ namespace JarmuKolcsonzo.Repositories
 
         public void Update(jarmu param)
         {
-            var jarmu = db.jarmu.Find(param.Id);
+            var jarmu = db.jarmu.Find(param.id);
             if (jarmu != null)
             {
                 db.Entry(jarmu).CurrentValues.SetValues(param);
@@ -113,7 +95,7 @@ namespace JarmuKolcsonzo.Repositories
 
         public bool Exists(jarmu jarmu)
         {
-            return db.jarmu.Any(x => x.Id == jarmu.Id);
+            return db.jarmu.Any(x => x.id == jarmu.id);
         }
 
         public void Save()

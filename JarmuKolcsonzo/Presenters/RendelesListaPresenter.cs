@@ -44,9 +44,8 @@ namespace JarmuKolcsonzo.Presenters
             using (jarmuRepo = new JarmuRepository())
             {
                 var jarmu = jarmuRepo.GetJarmuByLicensePlate(rendelesVM.jarmuRendszam);
-                rendelesVM.jarmuId = jarmu.Id;
-                rendelesVM.jarmuId = jarmu.Id;
-                rendelesVM.jarmuFerohely = jarmu.ferohely;
+                rendelesVM.jarmuId = jarmu.id;
+                rendelesVM.jarmuDij = jarmu.dij;
             }
 
             view.bindingList.Add(rendelesVM);
@@ -88,8 +87,8 @@ namespace JarmuKolcsonzo.Presenters
                 var jarmu = jarmuRepo.GetJarmuByLicensePlate(rendelesVM.jarmuRendszam);
                 if (jarmu != null)
                 {
-                    rendelesVM.jarmuId = jarmu.Id;
-                    rendelesVM.jarmuFerohely = jarmu.ferohely;
+                    rendelesVM.jarmuId = jarmu.id;
+                    rendelesVM.jarmuDij = jarmu.dij;
                 }
                 else
                 {

@@ -10,6 +10,6 @@ namespace JarmuKolcsonzo.ViewInterfaces
 {
     interface IJarmuListaView : IDataGridList<jarmu>
     {
-        BindingList<jarmukategoria> jarmukategoriaList { get; set; }
+        BindingList<jarmu_tipus> jarmuTipusList { get; set; }
     }
 }

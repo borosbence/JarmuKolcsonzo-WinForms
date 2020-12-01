@@ -45,7 +45,7 @@ namespace JarmuKolcsonzo.Views
                 EmailLabel.Text = value.ugyfelEmail;
                 PontLabel.Text = value.ugyfelPont.ToString();
                 JarmuRendszamTextBox.Text = value.jarmuRendszam;
-                LabelFerohely.Text = value.jarmuFerohely.ToString();
+                LabelFerohely.Text = value.jarmuDij.ToString();
                 RendelesdateTimePicker.Value = value.rendelesDatum;
 
             }

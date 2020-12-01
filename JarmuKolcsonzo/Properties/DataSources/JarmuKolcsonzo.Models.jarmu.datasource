@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="jarmu" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>JarmuKolcsonzo.Models.jarmu, JarmuKolcsonzo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>JarmuKolcsonzo.Models.jarmu, JarmuKolcsonzo, Version=1.0.2020.70, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

@@ -24,62 +24,48 @@ namespace JarmuKolcsonzo.Views
             presenter.LoadData();
         }
 
-        public jarmu jarmu 
+        public jarmu jarmu
         {
             get
             {
-                var kategoria = (jarmukategoria)KategoriacomboBox1.SelectedItem;
-                var kategoriaId = kategoria.Id;
-                var ferohely = Convert.ToInt32(FerohelynumericUpDown.Value);
+                var kategoria = (jarmu_tipus)KategoriacomboBox1.SelectedItem;
+                var kategoriaId = kategoria.id;
+                var ferohely = Convert.ToInt32(DijnumericUpDown.Value);
                 var fogyasztas = Convert.ToDouble(FogyasztasnumericUpDown.Value);
                 var jarmu = new jarmu(
                     RendszamtextBox.Text,
                     kategoriaId,
-                    TipustextBox.Text,
-                    ModelltextBox.Text,
                     ferohely,
-                    fogyasztas,
                     ElerhetocheckBox.Checked,
-                    SzervizcheckBox.Checked,
-                    SzervizdateTimePicker.Value,
-                    MuszakidateTimePicker.Value,
-                    BeszerzesdateTimePicker.Value);
+                    SzervizdateTimePicker.Value);
                 if (formId > 0)
                 {
-                    jarmu.Id = formId;
+                    jarmu.id = formId;
                 }
                 //jarmu.jarmukategoria = kategoria;
                 return jarmu;
             }
             set
             {
-                formId = value.Id;
+                formId = value.id;
                 RendszamtextBox.Text = value.rendszam;
-                KategoriacomboBox1.SelectedValue = value.kategoriaId;
-                TipustextBox.Text = value.tipus;
-                ModelltextBox.Text = value.modell;
-                FerohelynumericUpDown.Value = value.ferohely.Value;
-                FogyasztasnumericUpDown.Value = Convert.ToDecimal(value.fogyasztas.Value);
+                KategoriacomboBox1.SelectedValue = value.tipus_id;
+                DijnumericUpDown.Value = value.dij;
                 ElerhetocheckBox.Checked = value.elerheto;
-                SzervizcheckBox.Checked = value.szervizben;
-                SzervizdateTimePicker.Value = value.szervizDatum.Value > new DateTime(0001, 01, 01, 0, 00, 00) ?
-                    value.szervizDatum.Value : new DateTime(1900, 1, 1);
-                MuszakidateTimePicker.Value = value.muszakiDatum.Value > new DateTime(0001, 01, 01, 0, 00, 00) ?
-                    value.muszakiDatum.Value : new DateTime(1900, 1, 1);
-                BeszerzesdateTimePicker.Value = value.beszerzesDatum.Value > new DateTime(0001, 01, 01, 0, 00, 00) ?
-                    value.beszerzesDatum.Value : new DateTime(1900, 1, 1);
+                SzervizdateTimePicker.Value = value.szerviz_datum.Value > new DateTime(0001, 01, 01, 0, 00, 00) ?
+                    value.szerviz_datum.Value : new DateTime(1900, 1, 1);
             }
         }
 
-        public BindingList<jarmukategoria> jarmukategoriaList
+        public BindingList<jarmu_tipus> jarmuTipusList
         {
-            get => (BindingList<jarmukategoria>)KategoriacomboBox1.DataSource;
+            get => (BindingList<jarmu_tipus>)KategoriacomboBox1.DataSource;
             set
             {
                 KategoriacomboBox1.DataSource = value;
-                KategoriacomboBox1.DisplayMember = "kategoriaNev";
-                KategoriacomboBox1.Name = "kategoriaId";
-                KategoriacomboBox1.ValueMember = "Id";
+                KategoriacomboBox1.DisplayMember = "megnevezes";
+                KategoriacomboBox1.Name = "tipus_id";
+                KategoriacomboBox1.ValueMember = "id";
             }
         }
 
@@ -88,10 +74,10 @@ namespace JarmuKolcsonzo.Views
             get => errorP_Rendszam.GetError(RendszamtextBox);
             set => errorP_Rendszam.SetError(RendszamtextBox, value);
         }
-        public string errorFerohely 
+        public string errorFerohely
         {
-            get => errorP_Ferohely.GetError(FerohelynumericUpDown);
-            set => errorP_Ferohely.SetError(FerohelynumericUpDown, value);
+            get => errorP_Ferohely.GetError(DijnumericUpDown);
+            set => errorP_Ferohely.SetError(DijnumericUpDown, value);
         }
 
         private void button1_Click(object sender, EventArgs e)

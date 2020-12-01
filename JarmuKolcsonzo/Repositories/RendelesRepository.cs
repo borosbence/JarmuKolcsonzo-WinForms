@@ -63,8 +63,8 @@ namespace JarmuKolcsonzo.Repositories
                     case "rendszam":
                         query = ascending ? query.OrderBy(x => x.jarmu.rendszam) : query.OrderByDescending(x => x.jarmu.rendszam);
                         break;
-                    case "ferohely":
-                        query = ascending ? query.OrderBy(x => x.jarmu.ferohely) : query.OrderByDescending(x => x.jarmu.ferohely);
+                    case "dij":
+                        query = ascending ? query.OrderBy(x => x.jarmu.dij) : query.OrderByDescending(x => x.jarmu.dij);
                         break;
                     case "datum":
                         query = ascending ? query.OrderBy(x => x.datum) : query.OrderByDescending(x => x.datum);
@@ -94,7 +94,7 @@ namespace JarmuKolcsonzo.Repositories
                     teljesnev, rendeles.ugyfel.telefonszam,
                     rendeles.ugyfel.email, rendeles.ugyfel.pont,
                     rendeles.jarmu_id,
-                    rendeles.jarmu.rendszam, rendeles.jarmu.ferohely,
+                    rendeles.jarmu.rendszam, rendeles.jarmu.dij,
                     rendeles.datum);
                 rendelesVMList.Add(rendelesVM);
             }
