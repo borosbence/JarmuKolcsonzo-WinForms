@@ -31,9 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuTipusListaForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.megnevezesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ferohelyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SzerkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TorlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jarmutipusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.mentestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.UjtoolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -49,15 +52,12 @@
             this.LastButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.megnevezesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ferohelyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jarmutipusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jarmutipusBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmutipusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -80,6 +80,18 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
+            // megnevezesDataGridViewTextBoxColumn
+            // 
+            this.megnevezesDataGridViewTextBoxColumn.DataPropertyName = "megnevezes";
+            this.megnevezesDataGridViewTextBoxColumn.HeaderText = "megnevezes";
+            this.megnevezesDataGridViewTextBoxColumn.Name = "megnevezesDataGridViewTextBoxColumn";
+            // 
+            // ferohelyDataGridViewTextBoxColumn
+            // 
+            this.ferohelyDataGridViewTextBoxColumn.DataPropertyName = "ferohely";
+            this.ferohelyDataGridViewTextBoxColumn.HeaderText = "ferohely";
+            this.ferohelyDataGridViewTextBoxColumn.Name = "ferohelyDataGridViewTextBoxColumn";
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -101,6 +113,10 @@
             this.TorlesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.TorlesToolStripMenuItem.Text = "Törlés";
             this.TorlesToolStripMenuItem.Click += new System.EventHandler(this.TorlesToolStripMenuItem_Click);
+            // 
+            // jarmutipusBindingSource
+            // 
+            this.jarmutipusBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmu_tipus);
             // 
             // toolStrip1
             // 
@@ -256,22 +272,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "0/0";
             // 
-            // megnevezesDataGridViewTextBoxColumn
-            // 
-            this.megnevezesDataGridViewTextBoxColumn.DataPropertyName = "megnevezes";
-            this.megnevezesDataGridViewTextBoxColumn.HeaderText = "megnevezes";
-            this.megnevezesDataGridViewTextBoxColumn.Name = "megnevezesDataGridViewTextBoxColumn";
-            // 
-            // ferohelyDataGridViewTextBoxColumn
-            // 
-            this.ferohelyDataGridViewTextBoxColumn.DataPropertyName = "ferohely";
-            this.ferohelyDataGridViewTextBoxColumn.HeaderText = "ferohely";
-            this.ferohelyDataGridViewTextBoxColumn.Name = "ferohelyDataGridViewTextBoxColumn";
-            // 
-            // jarmutipusBindingSource
-            // 
-            this.jarmutipusBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.jarmu_tipus);
-            // 
             // JarmuTipusListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,12 +285,12 @@
             this.Load += new System.EventHandler(this.JarmuKategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.jarmutipusBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmutipusBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

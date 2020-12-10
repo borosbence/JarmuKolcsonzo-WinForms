@@ -25,18 +25,22 @@ namespace JarmuKolcsonzo.Presenters
             view.bindingList = repo.GetAllJarmu(
                     view.pageNumber, view.itemsPerPage, view.search,view.sortBy,view.ascending);
             //view.jarmukategoriaList = jkrepo.GetAllJarmuKategoria();
-            view.totalItems = repo.Count();
+            view.totalItems = repo.TotalItems;
 
             using (var jkrepo = new JarmuTipusRepository())
             {
-                view.jarmuTipusList = jkrepo.GetAllJarmuTipus();
+                view.jarmuTipusList = jkrepo.GetAllJarmuTipus(itemsPerPage: int.MaxValue);
             }
         }
 
         public void Add(jarmu jarmu)
         {
+            if (repo.ExistsRendszam(jarmu.rendszam))
+            {
+                throw new Exception("Már létezik ilyen rendszámmal jármű!");
+                return;
+            }
             view.bindingList.Add(jarmu);
-            // hozzáadás ehhez a contexthez is
             repo.Insert(jarmu);
         }
 

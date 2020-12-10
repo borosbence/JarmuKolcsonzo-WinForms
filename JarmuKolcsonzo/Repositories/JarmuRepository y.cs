@@ -39,10 +39,16 @@ namespace JarmuKolcsonzo.Repositories
                         query = ascending ? query.OrderBy(x => x.rendszam) : query.OrderByDescending(x => x.rendszam);
                         break;
                     case "tipus":
-                        query = ascending ? query.OrderBy(x => x.jarmu_tipus.megnevezes) : query.OrderByDescending(x => x.jarmu_tipus);
+                        query = ascending ? query.OrderBy(x => x.jarmu_tipus.megnevezes) : query.OrderByDescending(x => x.jarmu_tipus.megnevezes);
                         break;
                     case "dij":
                         query = ascending ? query.OrderBy(x => x.dij) : query.OrderByDescending(x => x.dij);
+                        break;
+                    case "elerheto":
+                        query = ascending ? query.OrderBy(x => x.elerheto) : query.OrderByDescending(x => x.elerheto);
+                        break;
+                    case "szervizDatum":
+                        query = ascending ? query.OrderBy(x => x.szerviz_datum) : query.OrderByDescending(x => x.szerviz_datum);
                         break;
                 }
             }
@@ -59,17 +65,13 @@ namespace JarmuKolcsonzo.Repositories
             return new BindingList<jarmu>(query.ToList());
         }
 
-        public int Count()
+        public int TotalItems
         {
-            return _totalItems;
+            get { return _totalItems; }
         }
 
         public void Insert(jarmu jarmu)
         {
-            if (db.jarmu.Any(x => x.rendszam == jarmu.rendszam))
-            {
-                throw new Exception("Már létezik ilyen rendszámmal jármű!");
-            }
             db.jarmu.Add(jarmu);
         }
 
@@ -96,6 +98,11 @@ namespace JarmuKolcsonzo.Repositories
         public bool Exists(jarmu jarmu)
         {
             return db.jarmu.Any(x => x.id == jarmu.id);
+        }
+
+        public bool ExistsRendszam(string rendszam)
+        {
+            return db.jarmu.Any(x => x.rendszam == rendszam);
         }
 
         public void Save()

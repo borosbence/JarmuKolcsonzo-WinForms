@@ -18,7 +18,7 @@ namespace JarmuKolcsonzo.Views
     {
         private JarmuListaPresenter presenter;
         // Combobox létrehozása
-        private DataGridViewComboBoxColumn jkCol;
+        private DataGridViewComboBoxColumn tipusCol;
         // Oldaltördelés
         private int pageCount;
         private int sortIndex;
@@ -27,7 +27,7 @@ namespace JarmuKolcsonzo.Views
         {
             InitializeComponent();
             presenter = new JarmuListaPresenter(this);
-            jkCol = new DataGridViewComboBoxColumn();
+            tipusCol = new DataGridViewComboBoxColumn();
             Init();
         }
 
@@ -35,7 +35,6 @@ namespace JarmuKolcsonzo.Views
         {
             pageNumber = 1;
             itemsPerPage = 25;
-            sortBy = "Id";
             sortIndex = 0;
             ascending = true;
         }
@@ -47,10 +46,10 @@ namespace JarmuKolcsonzo.Views
         }
         public BindingList<jarmu_tipus> jarmuTipusList
         {
-            get => (BindingList<jarmu_tipus>)jkCol.DataSource;
+            get => (BindingList<jarmu_tipus>)tipusCol.DataSource;
             set
             {
-                jkCol.DataSource = value;
+                tipusCol.DataSource = value;
             }
         }
         public int pageNumber { get; set; }
@@ -72,15 +71,15 @@ namespace JarmuKolcsonzo.Views
             presenter.LoadData();
 
             // Kategória colbox feltöltése
-            jkCol.DataPropertyName = "tipus_id";
-            jkCol.DisplayMember = "megnevezes";
-            jkCol.Name = "Tipus";
-            jkCol.HeaderText = "Tipus";
-            jkCol.ValueMember = "id";
-            //jkCol.ValueType = typeof(jarmukategoria);
+            tipusCol.DataPropertyName = "tipus_id";
+            tipusCol.DisplayMember = "megnevezes";
+            tipusCol.Name = "Típus";
+            tipusCol.HeaderText = "Típus";
+            tipusCol.ValueMember = "id";
+            //tipusCol.ValueType = typeof(jarmukategoria);
 
-            dataGridView1.Columns.RemoveAt(2);
-            dataGridView1.Columns.Insert(2, jkCol);
+            dataGridView1.Columns.RemoveAt(1);
+            dataGridView1.Columns.Insert(1, tipusCol);
         }
 
         private void mentestoolStripButton1_Click(object sender, EventArgs e)
@@ -131,20 +130,22 @@ namespace JarmuKolcsonzo.Views
             }
             switch (e.ColumnIndex)
             {
-                case 1:
+                case 0:
                     sortBy = "rendszam";
                     break;
-                case 2:
-                    sortBy = "kategoriaId";
-                    break;
-                case 4:
+                case 1:
                     sortBy = "tipus";
                     break;
-                case 5:
-                    sortBy = "modell";
+                case 2:
+                    sortBy = "dij";
+                    break;
+                case 3:
+                    sortBy = "elerheto";
+                    break;
+                case 4:
+                    sortBy = "szervizDatum";
                     break;
                 default:
-                    sortBy = "Id";
                     break;
             }
 
