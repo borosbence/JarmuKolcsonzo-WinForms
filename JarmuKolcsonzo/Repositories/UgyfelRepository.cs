@@ -14,9 +14,9 @@ namespace JarmuKolcsonzo.Repositories
         private JKContext db = new JKContext();
         private int _totalItems;
 
-        public BindingList<ugyfel> GetAllUgyfel(
-            int page = 0,
-            int itemsPerPage = 0,
+        public BindingList<ugyfel> GetAll(
+            int page = 1,
+            int itemsPerPage = 20,
             string search = null,
             string sortBy = null,
             bool ascending = true)
@@ -30,13 +30,14 @@ namespace JarmuKolcsonzo.Repositories
                 int irszam;
                 int.TryParse(search, out irszam);
 
-                query = query.Where(x => x.vezeteknev.ToLower().Contains(search) ||
-                                        x.keresztnev.ToLower().Contains(search) ||
-                                        x.varos.ToLower().Contains(search) ||
-                                        x.cim.ToLower().Contains(search) ||
-                                        x.irszam.Equals(irszam) ||
-                                        x.telefonszam.ToLower().Contains(search) ||
-                                        x.email.ToLower().Contains(search));
+                query = query.Where(x => x.vezeteknev.Contains(search) ||
+                                        x.keresztnev.Contains(search) ||
+                                        x.varos.Contains(search) ||
+                                        x.cim.Contains(search) ||
+                                        x.iranyitoszam.Equals(irszam) ||
+                                        x.telefonszam.Contains(search) ||
+                                        x.email.Contains(search) ||
+                                        x.iranyitoszam.Equals(irszam));
             }
 
             // Sorbarendezés
@@ -44,9 +45,6 @@ namespace JarmuKolcsonzo.Repositories
             {
                 switch (sortBy)
                 {
-                    default:
-                        query = ascending ? query.OrderBy(x => x.id) : query.OrderByDescending(x => x.id);
-                        break;
                     case "vezeteknev":
                         query = ascending ? query.OrderBy(x => x.vezeteknev) : query.OrderByDescending(x => x.vezeteknev);
                         break;
@@ -59,8 +57,8 @@ namespace JarmuKolcsonzo.Repositories
                     case "cim":
                         query = ascending ? query.OrderBy(x => x.cim) : query.OrderByDescending(x => x.cim);
                         break;
-                    case "irszam":
-                        query = ascending ? query.OrderBy(x => x.irszam) : query.OrderByDescending(x => x.irszam);
+                    case "iranyitoszam":
+                        query = ascending ? query.OrderBy(x => x.iranyitoszam) : query.OrderByDescending(x => x.iranyitoszam);
                         break;
                     case "telefonszam":
                         query = ascending ? query.OrderBy(x => x.telefonszam) : query.OrderByDescending(x => x.telefonszam);
@@ -70,6 +68,8 @@ namespace JarmuKolcsonzo.Repositories
                         break;
                     case "pont":
                         query = ascending ? query.OrderBy(x => x.email) : query.OrderByDescending(x => x.email);
+                        break;
+                    default:
                         break;
                 }
             }
@@ -86,14 +86,24 @@ namespace JarmuKolcsonzo.Repositories
             return new BindingList<ugyfel>(query.ToList());
         }
 
-        public int Count()
+        public int TotalItems
         {
-            return _totalItems;
+            get { return _totalItems; }
         }
 
-        public void Insert(ugyfel uf)
+        public ugyfel GetUgyfel(string nev)
         {
-            db.ugyfel.Add(uf);
+            return db.ugyfel.AsNoTracking().SingleOrDefault(x => (x.vezeteknev + " " + x.keresztnev) == nev);
+        }
+
+        public bool Exists(ugyfel uf)
+        {
+            return db.ugyfel.Any(x => x.id == uf.id);
+        }
+
+        public void Insert(ugyfel ugyfel)
+        {
+            db.ugyfel.Add(ugyfel);
         }
 
         public void Delete(int id)
@@ -109,15 +119,6 @@ namespace JarmuKolcsonzo.Repositories
             {
                 db.Entry(uf).CurrentValues.SetValues(param);
             }
-        }
-
-        public ugyfel GetUgyfelByName(string nev)
-        {
-            return db.ugyfel.AsNoTracking().SingleOrDefault(x => (x.vezeteknev + " " + x.keresztnev) == nev);
-        }
-        public bool Exists(ugyfel uf)
-        {
-            return db.ugyfel.Any(x => x.id == uf.id);
         }
 
         public void Save()

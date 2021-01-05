@@ -109,7 +109,7 @@ namespace JarmuKolcsonzo.Repositories
 
         public void Insert(rendelesVM rendelesVM)
         {
-            var rendeles = new rendeles(rendelesVM.ugyfelId, rendelesVM.jarmuId, rendelesVM.rendelesDatum);
+            var rendeles = new rendeles();
 
             db.rendeles.Add(rendeles);
             db.SaveChanges();

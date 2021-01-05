@@ -11,40 +11,28 @@ namespace JarmuKolcsonzo.Presenters
 {
     public class JarmuTipusPresenter
     {
-        IJarmuTipusView view;
-        JarmuTipusRepository repo = new JarmuTipusRepository();
+        private IJarmuTipusView view;
+        private JarmuTipusRepository repo = new JarmuTipusRepository();
 
         public JarmuTipusPresenter(IJarmuTipusView param)
         {
             view = param;
+            repo = new JarmuTipusRepository();
         }
 
-        public void Save(jarmu_tipus tipus)
+        public bool ValidateData()
         {
+            var valid = true;
             view.errorMessage = null;
-
-            if (repo.Exists(tipus))
+            // Ha már van ilyen nevű típus létrehozva
+            if (repo.Exists(view.tipus.megnevezes) &&
+                // Ha új elem, akkor az id úgyis 0
+                view.tipus.id == 0)
             {
-                try
-                {
-                    repo.Update(tipus);
-                }
-                catch (Exception ex)
-                {
-                    view.errorMessage = ex.Message;
-                }
+                valid = false;
+                view.errorMessage = "Már van ilyen típus létrehozva.";
             }
-            else
-            {
-                try
-                {
-                    repo.Insert(tipus);
-                }
-                catch (Exception ex)
-                {
-                    view.errorMessage = ex.Message;
-                }
-            }
+            return valid;
         }
     }
 }

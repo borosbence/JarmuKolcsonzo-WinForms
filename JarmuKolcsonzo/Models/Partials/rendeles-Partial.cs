@@ -11,11 +11,15 @@ namespace JarmuKolcsonzo.Models
         public rendeles(
             int ugyfelId,
             int jarmuId,
-            DateTime datum)
+            DateTime datum,
+            int napok,
+            decimal ar)
         {
-            this.ugyfel_id = ugyfelId;
-            this.jarmu_id = jarmuId;
+            ugyfel_id = ugyfelId;
+            jarmu_id = jarmuId;
             this.datum = datum.Date;
+            napok_szama = napok;
+            this.ar = ar;
         }
 
         public rendeles()

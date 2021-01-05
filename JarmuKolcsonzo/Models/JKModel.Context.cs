@@ -25,9 +25,9 @@ namespace JarmuKolcsonzo.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<rendeles> rendeles { get; set; }
-        public virtual DbSet<ugyfel> ugyfel { get; set; }
         public virtual DbSet<jarmu> jarmu { get; set; }
         public virtual DbSet<jarmu_tipus> jarmu_tipus { get; set; }
+        public virtual DbSet<rendeles> rendeles { get; set; }
+        public virtual DbSet<ugyfel> ugyfel { get; set; }
     }
 }

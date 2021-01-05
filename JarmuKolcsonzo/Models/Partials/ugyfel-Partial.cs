@@ -18,14 +18,15 @@ namespace JarmuKolcsonzo.Models
             string email,
             int pont)
         {
-            this.vezeteknev = vnev;
-            this.keresztnev = knev;
+            vezeteknev = vnev;
+            keresztnev = knev;
             this.varos = varos;
             this.cim = cim;
-            this.irszam = irszam;
+            iranyitoszam = irszam;
             this.telefonszam = telefonszam;
             this.email = email;
             this.pont = pont;
+            this.rendeles = new HashSet<rendeles>();
         }
     }
 }

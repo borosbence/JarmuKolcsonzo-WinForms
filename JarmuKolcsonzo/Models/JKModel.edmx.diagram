@@ -3,13 +3,13 @@
   <edmx:Designer>
     <edmx:Diagrams>
       <edmx:Diagram DiagramId="001c8a8cb5ab45ed803365c6ac906a5d" Name="Diagram1">
-        <edmx:EntityTypeShape EntityType="jarmukolcsonzoModel.rendeles" Width="1.5" PointX="5.25" PointY="1.125" />
-        <edmx:EntityTypeShape EntityType="jarmukolcsonzoModel.ugyfel" Width="1.5" PointX="3" PointY="4.75" />
-        <edmx:AssociationConnector Association="jarmukolcsonzoModel.rendeles_ibfk_1" />
-        <edmx:EntityTypeShape EntityType="jarmukolcsonzoModel.jarmu" Width="1.5" PointX="3" PointY="0.875" />
+        <edmx:EntityTypeShape EntityType="jarmukolcsonzoModel.jarmu" Width="1.5" PointX="3" PointY="1" />
         <edmx:EntityTypeShape EntityType="jarmukolcsonzoModel.jarmu_tipus" Width="1.5" PointX="0.75" PointY="1.375" />
+        <edmx:EntityTypeShape EntityType="jarmukolcsonzoModel.rendeles" Width="1.5" PointX="5.25" PointY="1" />
+        <edmx:EntityTypeShape EntityType="jarmukolcsonzoModel.ugyfel" Width="1.5" PointX="3" PointY="4.75" />
         <edmx:AssociationConnector Association="jarmukolcsonzoModel.jarmu_ibfk_1" />
         <edmx:AssociationConnector Association="jarmukolcsonzoModel.rendeles_ibfk_2" />
+        <edmx:AssociationConnector Association="jarmukolcsonzoModel.rendeles_ibfk_1" />
       </edmx:Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

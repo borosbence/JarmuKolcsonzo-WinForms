@@ -5,7 +5,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="rendszam" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="rendszam" Type="varchar" MaxLength="7" Nullable="false" />
     <Property Name="tipus_id" Type="int" Nullable="false" />
     <Property Name="dij" Type="int" Nullable="false" />
     <Property Name="elerheto" Type="bool" Nullable="false" />
@@ -26,7 +26,9 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ugyfel_id" Type="int" Nullable="false" />
     <Property Name="jarmu_id" Type="int" Nullable="false" />
-    <Property Name="datum" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="datum" Type="date" Nullable="false" />
+    <Property Name="napok_szama" Type="int" Nullable="false" />
+    <Property Name="ar" Type="decimal" Precision="10" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="ugyfel">
     <Key>
@@ -36,11 +38,11 @@
     <Property Name="vezeteknev" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="keresztnev" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="varos" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="cim" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="irszam" Type="int" Nullable="false" />
+    <Property Name="iranyitoszam" Type="int" Nullable="false" />
+    <Property Name="cim" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="telefonszam" Type="varchar" MaxLength="12" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="pont" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="pont" Type="decimal" Precision="3" Scale="1" Nullable="false" />
   </EntityType>
   <Association Name="jarmu_ibfk_1">
     <End Role="jarmu_tipus" Type="Self.jarmu_tipus" Multiplicity="1" />

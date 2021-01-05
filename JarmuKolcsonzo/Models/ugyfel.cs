@@ -24,11 +24,11 @@ namespace JarmuKolcsonzo.Models
         public string vezeteknev { get; set; }
         public string keresztnev { get; set; }
         public string varos { get; set; }
+        public int iranyitoszam { get; set; }
         public string cim { get; set; }
-        public int irszam { get; set; }
         public string telefonszam { get; set; }
         public string email { get; set; }
-        public int pont { get; set; }
+        public decimal pont { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<rendeles> rendeles { get; set; }

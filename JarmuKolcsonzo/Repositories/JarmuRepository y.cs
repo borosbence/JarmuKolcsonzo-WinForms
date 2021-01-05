@@ -9,33 +9,47 @@ using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.Repositories
 {
-    public class JarmuRepository : IDisposable
+    class JarmuRepository : IDisposable
     {
         private JKContext db = new JKContext();
         private int _totalItems;
 
-        public BindingList<jarmu> GetAllJarmu(
-            int page = 0,
-            int itemsPerPage = 0,
+        public BindingList<jarmu> GetAll(
+            int page = 1,
+            int itemsPerPage = 20,
             string search = null,
             string sortBy = null,
             bool ascending = true)
         {
-            var query = db.jarmu.OrderBy(x => x.id).AsQueryable();
-
+            var query = db.jarmu.OrderBy(x => x.rendszam).AsQueryable();
             // Keresés
             if (!string.IsNullOrWhiteSpace(search))
             {
                 search = search.ToLower();
-                query = query.Where(x => x.rendszam.ToLower().Contains(search));
+                // Ha a keresési kulcsszó szám
+                if (int.TryParse(search, out int dij))
+                {
+                    query = query.Where(x => x.dij == dij);
+                }
+                // TODO: ezt még javítani
+                else if (DateTime.TryParse(search, out DateTime datum))
+                {
+                    query = query.Where(x => x.szerviz_datum.Value.ToString("yyyy. MM. dd.") == search);
+                }
+                // Szöveges keresés
+                else
+                {
+                    query = query.Where(x =>
+                        x.rendszam.Contains(search) ||
+                        x.jarmu_tipus.megnevezes.Contains(search));
+                }
             }
-
             // Sorbarendezés
             if (!string.IsNullOrWhiteSpace(sortBy))
             {
                 switch (sortBy)
                 {
-                    default:
+                    case "rendszam":
                         query = ascending ? query.OrderBy(x => x.rendszam) : query.OrderByDescending(x => x.rendszam);
                         break;
                     case "tipus":
@@ -47,8 +61,10 @@ namespace JarmuKolcsonzo.Repositories
                     case "elerheto":
                         query = ascending ? query.OrderBy(x => x.elerheto) : query.OrderByDescending(x => x.elerheto);
                         break;
-                    case "szervizDatum":
+                    case "szerviz_datum":
                         query = ascending ? query.OrderBy(x => x.szerviz_datum) : query.OrderByDescending(x => x.szerviz_datum);
+                        break;
+                    default:
                         break;
                 }
             }
@@ -70,15 +86,19 @@ namespace JarmuKolcsonzo.Repositories
             get { return _totalItems; }
         }
 
+        public bool Exists(string rendszam)
+        {
+            return db.jarmu.Any(x => x.rendszam.Equals(rendszam));
+        }
+
+        public jarmu GetJarmu(string rendszam)
+        {
+            return db.jarmu.AsNoTracking().SingleOrDefault(x => x.rendszam == rendszam);
+        }
+
         public void Insert(jarmu jarmu)
         {
             db.jarmu.Add(jarmu);
-        }
-
-        public void Delete(int id)
-        {
-            var jarmu = db.jarmu.Find(id);
-            db.jarmu.Remove(jarmu);
         }
 
         public void Update(jarmu param)
@@ -90,19 +110,10 @@ namespace JarmuKolcsonzo.Repositories
             }
         }
 
-        public jarmu GetJarmuByLicensePlate(string rendszam)
+        public void Delete(int id)
         {
-            return db.jarmu.AsNoTracking().SingleOrDefault(x => x.rendszam == rendszam);
-        }
-
-        public bool Exists(jarmu jarmu)
-        {
-            return db.jarmu.Any(x => x.id == jarmu.id);
-        }
-
-        public bool ExistsRendszam(string rendszam)
-        {
-            return db.jarmu.Any(x => x.rendszam == rendszam);
+            var jarmu = db.jarmu.Find(id);
+            db.jarmu.Remove(jarmu);
         }
 
         public void Save()

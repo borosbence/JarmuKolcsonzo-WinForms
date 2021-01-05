@@ -50,7 +50,7 @@ namespace JarmuKolcsonzo.Views
                 VnevtextBox.Text = value.vezeteknev;
                 KnevtextBox.Text = value.keresztnev;
                 VarostextBox.Text = value.varos;
-                IrszamnumericUpDown.Value = value.irszam;
+                IrszamnumericUpDown.Value = value.iranyitoszam;
                 CimtextBox.Text = value.cim;
                 TelefontextBox.Text = value.telefonszam;
                 EmailtextBox.Text = value.email;

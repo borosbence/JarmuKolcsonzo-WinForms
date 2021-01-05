@@ -18,8 +18,10 @@ namespace JarmuKolcsonzo.Models
         public int ugyfel_id { get; set; }
         public int jarmu_id { get; set; }
         public System.DateTime datum { get; set; }
+        public int napok_szama { get; set; }
+        public decimal ar { get; set; }
     
-        public virtual ugyfel ugyfel { get; set; }
         public virtual jarmu jarmu { get; set; }
+        public virtual ugyfel ugyfel { get; set; }
     }
 }

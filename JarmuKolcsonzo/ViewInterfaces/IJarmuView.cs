@@ -11,9 +11,7 @@ namespace JarmuKolcsonzo.ViewInterfaces
     public interface IJarmuView
     {
         jarmu jarmu { get; set; }
-        BindingList<jarmu_tipus> jarmuTipusList { get; set; }
+        BindingList<jarmu_tipus> tipusList { get; set; }
         string errorRendszam { get; set; }
-        string errorDij { get; set; }
-
     }
 }

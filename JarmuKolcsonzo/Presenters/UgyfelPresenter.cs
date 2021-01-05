@@ -26,7 +26,6 @@ namespace JarmuKolcsonzo.Presenters
             view.errorVnev = null;
             view.errorKnev = null;
             view.errorVaros = null;
-            view.errorIrszam = null;
             view.errorCim = null;
             view.errorTelefon = null;
             view.errorEmail = null;
@@ -45,11 +44,6 @@ namespace JarmuKolcsonzo.Presenters
             if (string.IsNullOrEmpty(uf.varos))
             {
                 view.errorVaros = Resources.KotelezoMezo;
-                helyes = false;
-            }
-            if (uf.irszam < 1)
-            {
-                view.errorIrszam = Resources.KotelezoMezo;
                 helyes = false;
             }
             if (string.IsNullOrEmpty(uf.cim))

@@ -14,10 +14,8 @@ namespace JarmuKolcsonzo.ViewInterfaces
         string errorVnev { get; set; }
         string errorKnev { get; set; }
         string errorVaros { get; set; }
-        string errorIrszam { get; set; }
         string errorCim { get; set; }
         string errorTelefon{ get; set; }
         string errorEmail { get; set; }
-
     }
 }

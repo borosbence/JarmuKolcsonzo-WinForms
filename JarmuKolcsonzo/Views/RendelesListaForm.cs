@@ -17,8 +17,9 @@ namespace JarmuKolcsonzo.Views
     {
         private RendelesListaPresenter presenter;
         // Oldaltördelés
-        private int pageCount;
-        private int sortIndex;
+        private int sortIndex; // melyik oszlop szerint van rendezve
+        private int pageCount; // összesen hány oldal van
+        private int _totalItems; // összes db
         public RendelesListaForm()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace JarmuKolcsonzo.Views
 
         public void Init()
         {
-            pageNumber = 1;
+            page = 1;
             itemsPerPage = 20;
             sortBy = "Id";
             sortIndex = 0;
@@ -40,18 +41,20 @@ namespace JarmuKolcsonzo.Views
             get => (BindingList<rendelesVM>)dataGridView1.DataSource;
             set => dataGridView1.DataSource = value;
         }
-        public int pageNumber { get; set; }
+        public int page { get; set; }
         public int itemsPerPage { get; set; }
         public string search { get => keresestoolStripTextBox.Text; }
         public string sortBy { get; set; }
         public bool ascending { get; set; }
         public int totalItems
         {
+            get { return _totalItems; }
             set
             {
+                _totalItems = value;
                 pageCount = (value - 1) / itemsPerPage + 1;
-                label1.Text = pageNumber.ToString() + "/" + pageCount.ToString();
-                OsszesLabel.Text = "Összesen: " + value.ToString();
+                //PageLabel.Text = page + "/" + pageCount;
+                // TotalItemsLabel.Text = "Összesen: " + value;
             }
         }
 
@@ -62,31 +65,31 @@ namespace JarmuKolcsonzo.Views
 
         private void FirstButton_Click(object sender, EventArgs e)
         {
-            pageNumber = 1;
+            page = 1;
             presenter.LoadData();
         }
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-            if (pageNumber != 1)
+            if (page != 1)
             {
-                pageNumber--;
+                page--;
                 presenter.LoadData();
             }
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (pageNumber != pageCount)
+            if (page != pageCount)
             {
-                pageNumber++;
+                page++;
                 presenter.LoadData();
             }
         }
 
         private void LastButton_Click(object sender, EventArgs e)
         {
-            pageNumber = pageCount;
+            page = pageCount;
             presenter.LoadData();
         }
 

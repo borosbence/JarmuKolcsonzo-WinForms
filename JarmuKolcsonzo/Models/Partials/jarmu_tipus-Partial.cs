@@ -10,8 +10,8 @@ namespace JarmuKolcsonzo.Models
     {
         public jarmu_tipus(string nev, int ferohely)
         {
-            this.jarmu = new HashSet<jarmu>();
-            this.megnevezes = nev;
+            jarmu = new HashSet<jarmu>();
+            megnevezes = nev;
             this.ferohely = ferohely;
         }
     }

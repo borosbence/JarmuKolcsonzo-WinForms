@@ -11,11 +11,11 @@ namespace JarmuKolcsonzo.ViewInterfaces
     interface IDataGridList<G>
     {
         BindingList<G> bindingList { get; set; }
-        int pageNumber { get; set; }
+        int page { get; set; }
         int itemsPerPage { get; set; }
         string search { get; }
         string sortBy { get; set; }
         bool ascending { get; set; }
-        int totalItems { set;}
+        int totalItems { get; set; }
     }
 }

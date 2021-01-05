@@ -15,6 +15,7 @@ namespace JarmuKolcsonzo.Views
         public MainForm()
         {
             InitializeComponent();
+            toolStripStatusLabel.Text = Environment.UserName;
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)

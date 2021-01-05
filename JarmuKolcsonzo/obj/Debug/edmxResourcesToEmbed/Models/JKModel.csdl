@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="jarmukolcsonzoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="JKContext" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="rendeles" EntityType="jarmukolcsonzoModel.rendeles" />
-    <EntitySet Name="ugyfel" EntityType="jarmukolcsonzoModel.ugyfel" />
-    <AssociationSet Name="rendeles_ibfk_1" Association="jarmukolcsonzoModel.rendeles_ibfk_1">
-      <End Role="ugyfel" EntitySet="ugyfel" />
-      <End Role="rendeles" EntitySet="rendeles" />
-    </AssociationSet>
     <EntitySet Name="jarmu" EntityType="jarmukolcsonzoModel.jarmu" />
     <EntitySet Name="jarmu_tipus" EntityType="jarmukolcsonzoModel.jarmu_tipus" />
+    <EntitySet Name="rendeles" EntityType="jarmukolcsonzoModel.rendeles" />
+    <EntitySet Name="ugyfel" EntityType="jarmukolcsonzoModel.ugyfel" />
     <AssociationSet Name="jarmu_ibfk_1" Association="jarmukolcsonzoModel.jarmu_ibfk_1">
       <End Role="jarmu_tipus" EntitySet="jarmu_tipus" />
       <End Role="jarmu" EntitySet="jarmu" />
@@ -17,51 +13,17 @@
       <End Role="jarmu" EntitySet="jarmu" />
       <End Role="rendeles" EntitySet="rendeles" />
     </AssociationSet>
+    <AssociationSet Name="rendeles_ibfk_1" Association="jarmukolcsonzoModel.rendeles_ibfk_1">
+      <End Role="ugyfel" EntitySet="ugyfel" />
+      <End Role="rendeles" EntitySet="rendeles" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="rendeles">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ugyfel_id" Type="Int32" Nullable="false" />
-    <Property Name="jarmu_id" Type="Int32" Nullable="false" />
-    <Property Name="datum" Type="DateTime" Nullable="false" />
-    <NavigationProperty Name="ugyfel" Relationship="jarmukolcsonzoModel.rendeles_ibfk_1" FromRole="rendeles" ToRole="ugyfel" />
-    <NavigationProperty Name="jarmu" Relationship="jarmukolcsonzoModel.rendeles_ibfk_2" FromRole="rendeles" ToRole="jarmu" />
-  </EntityType>
-  <EntityType Name="ugyfel">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="vezeteknev" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="keresztnev" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="varos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="cim" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="irszam" Type="Int32" Nullable="false" />
-    <Property Name="telefonszam" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="pont" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="rendeles" Relationship="jarmukolcsonzoModel.rendeles_ibfk_1" FromRole="ugyfel" ToRole="rendeles" />
-  </EntityType>
-  <Association Name="rendeles_ibfk_1">
-    <End Type="jarmukolcsonzoModel.ugyfel" Role="ugyfel" Multiplicity="1" />
-    <End Type="jarmukolcsonzoModel.rendeles" Role="rendeles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ugyfel">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="rendeles">
-        <PropertyRef Name="ugyfel_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="jarmu">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="rendszam" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="rendszam" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
     <Property Name="tipus_id" Type="Int32" Nullable="false" />
     <Property Name="dij" Type="Int32" Nullable="false" />
     <Property Name="elerheto" Type="Boolean" Nullable="false" />
@@ -77,6 +39,34 @@
     <Property Name="megnevezes" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ferohely" Type="Int32" Nullable="false" />
     <NavigationProperty Name="jarmu" Relationship="jarmukolcsonzoModel.jarmu_ibfk_1" FromRole="jarmu_tipus" ToRole="jarmu" />
+  </EntityType>
+  <EntityType Name="rendeles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ugyfel_id" Type="Int32" Nullable="false" />
+    <Property Name="jarmu_id" Type="Int32" Nullable="false" />
+    <Property Name="datum" Type="DateTime" Nullable="false" />
+    <Property Name="napok_szama" Type="Int32" Nullable="false" />
+    <Property Name="ar" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="jarmu" Relationship="jarmukolcsonzoModel.rendeles_ibfk_2" FromRole="rendeles" ToRole="jarmu" />
+    <NavigationProperty Name="ugyfel" Relationship="jarmukolcsonzoModel.rendeles_ibfk_1" FromRole="rendeles" ToRole="ugyfel" />
+  </EntityType>
+  <EntityType Name="ugyfel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vezeteknev" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="keresztnev" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="varos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="iranyitoszam" Type="Int32" Nullable="false" />
+    <Property Name="cim" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="telefonszam" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pont" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="rendeles" Relationship="jarmukolcsonzoModel.rendeles_ibfk_1" FromRole="ugyfel" ToRole="rendeles" />
   </EntityType>
   <Association Name="jarmu_ibfk_1">
     <End Type="jarmukolcsonzoModel.jarmu_tipus" Role="jarmu_tipus" Multiplicity="1" />
@@ -99,6 +89,18 @@
       </Principal>
       <Dependent Role="rendeles">
         <PropertyRef Name="jarmu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rendeles_ibfk_1">
+    <End Type="jarmukolcsonzoModel.ugyfel" Role="ugyfel" Multiplicity="1" />
+    <End Type="jarmukolcsonzoModel.rendeles" Role="rendeles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ugyfel">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rendeles">
+        <PropertyRef Name="ugyfel_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

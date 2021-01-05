@@ -27,7 +27,7 @@ namespace JarmuKolcsonzo.Presenters
         public void LoadData()
         {
             view.bindingList = repo.GetAllRendelesVM(
-                view.pageNumber, view.itemsPerPage, view.search, view.sortBy, view.ascending);
+                view.page, view.itemsPerPage, view.search, view.sortBy, view.ascending);
             view.totalItems = repo.Count();
         }
 
@@ -35,7 +35,7 @@ namespace JarmuKolcsonzo.Presenters
         {
             using (ugyfelRepo = new UgyfelRepository())
             {
-                var ugyfel = ugyfelRepo.GetUgyfelByName(rendelesVM.ugyfelNev);
+                var ugyfel = ugyfelRepo.GetUgyfel(rendelesVM.ugyfelNev);
                 rendelesVM.ugyfelId = ugyfel.id;
                 rendelesVM.ugyfelEmail = ugyfel.email;
                 rendelesVM.ugyfelTelefonszam = ugyfel.telefonszam;
@@ -43,7 +43,7 @@ namespace JarmuKolcsonzo.Presenters
             }
             using (jarmuRepo = new JarmuRepository())
             {
-                var jarmu = jarmuRepo.GetJarmuByLicensePlate(rendelesVM.jarmuRendszam);
+                var jarmu = jarmuRepo.GetJarmu(rendelesVM.jarmuRendszam);
                 rendelesVM.jarmuId = jarmu.id;
                 rendelesVM.jarmuDij = jarmu.dij;
             }
@@ -67,7 +67,7 @@ namespace JarmuKolcsonzo.Presenters
         {
             using (ugyfelRepo = new UgyfelRepository())
             {
-                var ugyfel = ugyfelRepo.GetUgyfelByName(rendelesVM.ugyfelNev);
+                var ugyfel = ugyfelRepo.GetUgyfel(rendelesVM.ugyfelNev);
                 if (ugyfel != null)
                 {
                     rendelesVM.ugyfelId = ugyfel.id;
@@ -84,7 +84,7 @@ namespace JarmuKolcsonzo.Presenters
 
             using (jarmuRepo = new JarmuRepository())
             {
-                var jarmu = jarmuRepo.GetJarmuByLicensePlate(rendelesVM.jarmuRendszam);
+                var jarmu = jarmuRepo.GetJarmu(rendelesVM.jarmuRendszam);
                 if (jarmu != null)
                 {
                     rendelesVM.jarmuId = jarmu.id;

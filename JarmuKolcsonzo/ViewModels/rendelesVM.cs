@@ -13,7 +13,7 @@ namespace JarmuKolcsonzo.ViewModels
         public string ugyfelNev { get; set; }
         public string ugyfelTelefonszam { get; set; }
         public string ugyfelEmail { get; set; }
-        public int ugyfelPont { get; set; }
+        public decimal ugyfelPont { get; set; }
         public int jarmuId { get; set; }
         public string jarmuRendszam { get; set; }
         public int? jarmuDij { get; set; }
@@ -23,7 +23,7 @@ namespace JarmuKolcsonzo.ViewModels
             int id,
             int ugyfelId,
             string nev, string telefonszam,
-            string email, int pont,
+            string email, decimal pont,
             int jarmuId,
             string rendszam, int? ferohely, 
             DateTime datum)

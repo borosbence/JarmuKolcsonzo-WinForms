@@ -13,13 +13,14 @@ namespace JarmuKolcsonzo.Models
             int tipusId,
             int dij,
             bool elerheto,
-            DateTime szervizDatum)
+            DateTime? szervizDatum)
         {
             this.rendszam = rendszam;
-            this.tipus_id = tipusId;
+            tipus_id = tipusId;
             this.dij = dij;
             this.elerheto = elerheto;
-            this.szerviz_datum = szervizDatum;
+            szerviz_datum = szervizDatum;
+            this.rendeles = new HashSet<rendeles>();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace JarmuKolcsonzo.Presenters
     public class RendelesPresenter
     {
         IRendelesView view;
-        RendelesRepository repo = new RendelesRepository();
+        private RendelesRepository repo = new RendelesRepository();
         private UgyfelRepository ugyfelRepo = new UgyfelRepository();
         private JarmuRepository jarmuRepo = new JarmuRepository();
 
@@ -36,11 +36,11 @@ namespace JarmuKolcsonzo.Presenters
             {
                 view.errorJarmuRendszam = Resources.KotelezoMezo;
             }
-            if (ugyfelRepo.GetUgyfelByName(rendelesVM.ugyfelNev) == null)
+            if (ugyfelRepo.GetUgyfel(rendelesVM.ugyfelNev) == null)
             {
                 view.errorUgyfelNev = Resources.NemUgyfel;
             }
-            if (jarmuRepo.GetJarmuByLicensePlate(rendelesVM.jarmuRendszam) == null)
+            if (jarmuRepo.GetJarmu(rendelesVM.jarmuRendszam) == null)
             {
                 view.errorJarmuRendszam = Resources.NemJarmu;
             }

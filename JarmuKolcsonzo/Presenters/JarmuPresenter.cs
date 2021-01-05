@@ -1,6 +1,4 @@
-﻿using JarmuKolcsonzo.Models;
-using JarmuKolcsonzo.Properties;
-using JarmuKolcsonzo.Repositories;
+﻿using JarmuKolcsonzo.Repositories;
 using JarmuKolcsonzo.ViewInterfaces;
 using System;
 using System.Collections.Generic;
@@ -12,65 +10,34 @@ namespace JarmuKolcsonzo.Presenters
 {
     public class JarmuPresenter
     {
-        IJarmuView view;
-        JarmuRepository repo = new JarmuRepository();
-
+        private IJarmuView view;
+        private JarmuRepository repo;
+        private JarmuTipusRepository tipusRepo;
         public JarmuPresenter(IJarmuView param)
         {
             view = param;
+            repo = new JarmuRepository();
+            tipusRepo = new JarmuTipusRepository();
         }
 
         public void LoadData()
         {
-            using (var jkRepo = new JarmuTipusRepository())
-            {
-                view.jarmuTipusList = jkRepo.GetAllJarmuTipus();
-            }
+            view.tipusList = tipusRepo.GetAll(itemsPerPage: int.MaxValue);
         }
 
-        public void Save(jarmu jarmu)
+        public bool ValidateData()
         {
+            var valid = true;
             view.errorRendszam = null;
-            view.errorDij = null;
-
-            bool helyes = true;
-            if (string.IsNullOrEmpty(jarmu.rendszam))
+            // Ha már van ilyen nevű rendszám létrehozva
+            if (repo.Exists(view.jarmu.rendszam) &&
+                // Ha új elem, akkor az id úgyis 0
+                view.jarmu.id == 0)
             {
-                view.errorRendszam = Resources.KotelezoMezo;
-                helyes = false;
+                valid = false;
+                view.errorRendszam = "Már van ilyen rendszámú jármű létrehozva.";
             }
-            if (jarmu.dij < 1)
-            {
-                view.errorDij = Resources.KotelezoMezo;
-                helyes = false;
-            }
-
-            // Repo ellenőrzés
-            if (helyes)
-            {
-                if (repo.Exists(jarmu))
-                {
-                    try
-                    {
-                        repo.Update(jarmu);
-                    }
-                    catch (Exception ex)
-                    {
-                        view.errorRendszam = ex.Message;
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        repo.Insert(jarmu);
-                    }
-                    catch (Exception ex)
-                    {
-                        view.errorRendszam = ex.Message;
-                    }
-                }
-            }
+            return valid;
         }
     }
 }

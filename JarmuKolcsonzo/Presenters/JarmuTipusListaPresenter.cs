@@ -14,6 +14,7 @@ namespace JarmuKolcsonzo.Presenters
     {
         private IDataGridList<jarmu_tipus> view;
         private JarmuTipusRepository repo;
+
         public JarmuTipusListaPresenter(IDataGridList<jarmu_tipus> param)
         {
             view = param;
@@ -22,22 +23,21 @@ namespace JarmuKolcsonzo.Presenters
 
         public void LoadData()
         {
-            view.bindingList = repo.GetAllJarmuTipus(
-                view.pageNumber, view.itemsPerPage, view.search, view.sortBy, view.ascending);
-            view.totalItems = repo.Count();
+            view.bindingList = repo.GetAll(
+                view.page, view.itemsPerPage, view.search, view.sortBy, view.ascending);
+            view.totalItems = repo.TotalItems;
         }
 
         public void Add(jarmu_tipus tipus)
         {
-            if (view.bindingList.Any(x => x.megnevezes == tipus.megnevezes))
-            {
-                //throw new Exception("Már létezik ilyen névvel kategória!");
-            }
-            else
-            {
-                view.bindingList.Add(tipus);
-                repo.Insert(tipus);
-            }
+            view.bindingList.Insert(0, tipus);
+            repo.Insert(tipus);
+            view.totalItems++;
+        }
+
+        public void Modify(jarmu_tipus tipus)
+        {
+            repo.Update(tipus);
         }
 
         public void Remove(int index)
@@ -47,12 +47,8 @@ namespace JarmuKolcsonzo.Presenters
             if (tipus.id > 0)
             {
                 repo.Delete(tipus.id);
+                view.totalItems--;
             }
-        }
-
-        public void Modify(jarmu_tipus tipus)
-        {
-            repo.Update(tipus);
         }
 
         public void Save()

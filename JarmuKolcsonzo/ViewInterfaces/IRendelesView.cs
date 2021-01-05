@@ -12,7 +12,6 @@ namespace JarmuKolcsonzo.ViewInterfaces
     {
         rendelesVM rendelesVM { get; set; }
         string errorUgyfelNev { get; set; }
-
         string errorJarmuRendszam { get; set; }
     }
 }

@@ -16,21 +16,26 @@ namespace JarmuKolcsonzo.Views
     public partial class JarmuTipusForm : Form, IJarmuTipusView
     {
         private int Id;
-        JarmuTipusPresenter presenter;
+        private JarmuTipusPresenter presenter;
         public JarmuTipusForm()
         {
             InitializeComponent();
             presenter = new JarmuTipusPresenter(this);
         }
 
-        public jarmu_tipus jarmuTipus {
+        public string errorMessage
+        {
+            get => errorPMegnevezes.GetError(MegnevezesTextBox);
+            set => errorPMegnevezes.SetError(MegnevezesTextBox, value);
+        }
+
+        public jarmu_tipus tipus {
             get
             {
-                var tipus = new jarmu_tipus(MegnevezesTextBox.Text, (int)FerohelyNumericUpDown.Value);
-                if (Id > 0)
-                {
-                    tipus.id = Id;
-                }
+                int ferohely = Convert.ToInt32(FerohelyNumericUpDown.Value);
+                var tipus = new jarmu_tipus(MegnevezesTextBox.Text, ferohely);
+                // Ha nem új elem, hanem módosítás történik
+                tipus.id = Id > 0 ? Id : 0;
                 return tipus;
             }
             set
@@ -41,16 +46,9 @@ namespace JarmuKolcsonzo.Views
             }
         }
 
-        public string errorMessage
-        {
-            get => errorProvider1.GetError(MegnevezesTextBox);
-            set => errorProvider1.SetError(MegnevezesTextBox, value);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            presenter.Save(this.jarmuTipus);
-            if (string.IsNullOrEmpty(errorMessage))
+            if (presenter.ValidateData())
             {
                 this.DialogResult = DialogResult.OK;
             }

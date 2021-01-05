@@ -9,7 +9,7 @@ namespace JarmuKolcsonzo.ViewInterfaces
 {
     public interface IJarmuTipusView
     {
-        jarmu_tipus jarmuTipus { get; set; }
+        jarmu_tipus tipus { get; set; }
         string errorMessage { get; set; }
     }
 }

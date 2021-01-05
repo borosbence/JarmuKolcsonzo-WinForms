@@ -95,7 +95,7 @@
     <Compile Include="Models\Partials\rendeles-Partial.cs" />
     <Compile Include="Models\Partials\ugyfel-Partial.cs" />
     <Compile Include="Models\Partials\jarmu-Partial.cs" />
-    <Compile Include="Models\Partials\jarmukategoria-Partial.cs" />
+    <Compile Include="Models\Partials\jarmu_tipus-Partial.cs" />
     <Compile Include="Models\rendeles.cs">
       <DependentUpon>JKModel.tt</DependentUpon>
     </Compile>
@@ -235,9 +235,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SQL\jarmu.csv" />
-    <None Include="SQL\tipus.csv" />
-    <None Include="SQL\ugyfel.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -254,6 +251,7 @@
       <DependentUpon>JKModel.edmx</DependentUpon>
       <LastGenOutput>JKModel.cs</LastGenOutput>
     </Content>
+    <Content Include="SQL\jarmukolcsonzo.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
