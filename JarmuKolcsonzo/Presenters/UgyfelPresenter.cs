@@ -13,92 +13,66 @@ namespace JarmuKolcsonzo.Presenters
 {
     public class UgyfelPresenter
     {
-        IUgyfelView view;
-        UgyfelRepository repo = new UgyfelRepository();
-
+        private IUgyfelView view;
         public UgyfelPresenter(IUgyfelView param)
         {
             view = param;
         }
 
-        public void Save(ugyfel uf)
+        public bool ValidateData()
         {
+            var valid = true;
             view.errorVnev = null;
             view.errorKnev = null;
             view.errorVaros = null;
             view.errorCim = null;
             view.errorTelefon = null;
             view.errorEmail = null;
-
-            bool helyes = true;
-            if (string.IsNullOrEmpty(uf.vezeteknev))
+            
+            if (string.IsNullOrEmpty(view.ugyfel.vezeteknev))
             {
                 view.errorVnev = Resources.KotelezoMezo;
-                helyes = false;
+                valid = false;
             }
-            if (string.IsNullOrEmpty(uf.keresztnev))
+            if (string.IsNullOrEmpty(view.ugyfel.keresztnev))
             {
                 view.errorKnev = Resources.KotelezoMezo;
-                helyes = false;
+                valid = false;
             }
-            if (string.IsNullOrEmpty(uf.varos))
+            if (string.IsNullOrEmpty(view.ugyfel.varos))
             {
                 view.errorVaros = Resources.KotelezoMezo;
-                helyes = false;
+                valid = false;
             }
-            if (string.IsNullOrEmpty(uf.cim))
+            if (string.IsNullOrEmpty(view.ugyfel.cim))
             {
                 view.errorCim = Resources.KotelezoMezo;
-                helyes = false;
+                valid = false;
             }
-            if (string.IsNullOrEmpty(uf.telefonszam))
+            if (string.IsNullOrEmpty(view.ugyfel.telefonszam))
             {
                 view.errorTelefon = Resources.KotelezoMezo;
-                helyes = false;
+                valid = false;
             }
-            if (string.IsNullOrEmpty(uf.email))
+            if (string.IsNullOrEmpty(view.ugyfel.email))
             {
                 view.errorEmail = Resources.KotelezoMezo;
-                helyes = false;
+                valid = false;
             }
             else
             {
                 try
                 {
-                    new MailAddress(uf.email);
+                    new MailAddress(view.ugyfel.email);
                 }
-                catch (Exception)
+                catch
                 {
+                    valid = false;
                     view.errorEmail = Resources.NemEmail;
                 }
             }
 
-            // Repo ellenőrzés
-            if (helyes)
-            {
-                if (repo.Exists(uf))
-                {
-                    try
-                    {
-                        repo.Update(uf);
-                    }
-                    catch (Exception ex)
-                    {
-                        view.errorVnev = ex.Message;
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        repo.Insert(uf);
-                    }
-                    catch (Exception ex)
-                    {
-                        view.errorVnev = ex.Message;
-                    }
-                }
-            }
+            return valid;
         }
     }
 }

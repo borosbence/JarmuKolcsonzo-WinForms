@@ -613,7 +613,7 @@ CREATE TABLE `ugyfel` (
   `cim` varchar(250) NOT NULL,
   `telefonszam` varchar(12) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `pont` decimal(3,1) NOT NULL DEFAULT 0.0
+  `pont` decimal(3,2) NOT NULL DEFAULT 0.0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

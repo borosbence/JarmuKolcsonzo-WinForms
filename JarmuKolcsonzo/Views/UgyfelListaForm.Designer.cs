@@ -340,8 +340,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox keresestoolStripTextBox;
         private System.Windows.Forms.ToolStripButton KeresestoolStripButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn irszamDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton UjtoolStripButton;
         private System.Windows.Forms.ToolStripButton TorlestoolStripButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

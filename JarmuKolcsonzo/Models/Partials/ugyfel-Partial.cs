@@ -16,7 +16,7 @@ namespace JarmuKolcsonzo.Models
             string cim,
             string telefonszam,
             string email,
-            int pont)
+            decimal pont)
         {
             vezeteknev = vnev;
             keresztnev = knev;

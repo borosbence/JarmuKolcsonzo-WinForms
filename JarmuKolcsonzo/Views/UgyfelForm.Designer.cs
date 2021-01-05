@@ -32,6 +32,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TelefonMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.VnevtextBox = new System.Windows.Forms.TextBox();
             this.VarostextBox = new System.Windows.Forms.TextBox();
-            this.TelefontextBox = new System.Windows.Forms.TextBox();
             this.EmailtextBox = new System.Windows.Forms.TextBox();
             this.PontnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.KnevtextBox = new System.Windows.Forms.TextBox();
@@ -92,6 +92,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.tableLayoutPanel1.Controls.Add(this.TelefonMaskedTextBox, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -100,7 +101,6 @@
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.VnevtextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.VarostextBox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.TelefontextBox, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.EmailtextBox, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.PontnumericUpDown, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.KnevtextBox, 1, 1);
@@ -121,6 +121,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21137F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(432, 336);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // TelefonMaskedTextBox
+            // 
+            this.TelefonMaskedTextBox.Location = new System.Drawing.Point(147, 223);
+            this.TelefonMaskedTextBox.Mask = "+36000000000";
+            this.TelefonMaskedTextBox.Name = "TelefonMaskedTextBox";
+            this.TelefonMaskedTextBox.Size = new System.Drawing.Size(194, 20);
+            this.TelefonMaskedTextBox.TabIndex = 5;
             // 
             // label1
             // 
@@ -190,13 +198,6 @@
             this.VarostextBox.Size = new System.Drawing.Size(200, 20);
             this.VarostextBox.TabIndex = 1;
             // 
-            // TelefontextBox
-            // 
-            this.TelefontextBox.Location = new System.Drawing.Point(147, 223);
-            this.TelefontextBox.Name = "TelefontextBox";
-            this.TelefontextBox.Size = new System.Drawing.Size(200, 20);
-            this.TelefontextBox.TabIndex = 7;
-            // 
             // EmailtextBox
             // 
             this.EmailtextBox.Location = new System.Drawing.Point(147, 260);
@@ -206,9 +207,10 @@
             // 
             // PontnumericUpDown
             // 
+            this.PontnumericUpDown.DecimalPlaces = 2;
             this.PontnumericUpDown.Location = new System.Drawing.Point(147, 297);
             this.PontnumericUpDown.Maximum = new decimal(new int[] {
-            99999,
+            50,
             0,
             0,
             0});
@@ -245,13 +247,18 @@
             // 
             this.IrszamnumericUpDown.Location = new System.Drawing.Point(147, 114);
             this.IrszamnumericUpDown.Maximum = new decimal(new int[] {
-            99999,
+            9999,
             0,
             0,
             0});
             this.IrszamnumericUpDown.Name = "IrszamnumericUpDown";
             this.IrszamnumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.IrszamnumericUpDown.TabIndex = 5;
+            this.IrszamnumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // CimtextBox
             // 
@@ -305,7 +312,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UgyfelForm";
-            this.Text = "UgyfelForm";
+            this.Text = "Ügyfél";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PontnumericUpDown)).EndInit();
@@ -338,8 +345,6 @@
         private System.Windows.Forms.TextBox VarostextBox;
         private System.Windows.Forms.TextBox CimtextBox;
         private System.Windows.Forms.NumericUpDown IrszamnumericUpDown;
-        private System.Windows.Forms.TextBox TelefontextBox;
-        private System.Windows.Forms.TextBox EmailtextBox;
         private System.Windows.Forms.NumericUpDown PontnumericUpDown;
         private System.Windows.Forms.TextBox KnevtextBox;
         private System.Windows.Forms.ErrorProvider errorP_Vnev;
@@ -349,5 +354,7 @@
         private System.Windows.Forms.ErrorProvider errorP_Cim;
         private System.Windows.Forms.ErrorProvider errorP_Telefon;
         private System.Windows.Forms.ErrorProvider errorP_Email;
+        private System.Windows.Forms.MaskedTextBox TelefonMaskedTextBox;
+        private System.Windows.Forms.TextBox EmailtextBox;
     }
 }

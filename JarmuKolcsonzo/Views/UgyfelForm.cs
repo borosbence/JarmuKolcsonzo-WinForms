@@ -15,7 +15,7 @@ namespace JarmuKolcsonzo.Views
 {
     public partial class UgyfelForm : Form, IUgyfelView
     {
-        private int formId;
+        private int Id;
         private UgyfelPresenter presenter;
         public UgyfelForm()
         {
@@ -28,31 +28,31 @@ namespace JarmuKolcsonzo.Views
             get
             {
                 var irszam = Convert.ToInt32(IrszamnumericUpDown.Value);
-                var pont = Convert.ToInt32(PontnumericUpDown.Value);
-                var uf = new ugyfel(
+                var pont = Convert.ToDecimal(PontnumericUpDown.Value);
+                var ugyfel = new ugyfel(
                     VnevtextBox.Text,
                     KnevtextBox.Text,
                     VarostextBox.Text,
                     irszam,
                     CimtextBox.Text,
-                    TelefontextBox.Text,
+                    TelefonMaskedTextBox.Text,
                     EmailtextBox.Text,
                     pont);
-                if (formId > 0)
+                if (Id > 0)
                 {
-                    uf.id = formId;
+                    ugyfel.id = Id;
                 }
-                return uf;
+                return ugyfel;
             }
             set
             {
-                formId = value.id;
+                Id = value.id;
                 VnevtextBox.Text = value.vezeteknev;
                 KnevtextBox.Text = value.keresztnev;
                 VarostextBox.Text = value.varos;
                 IrszamnumericUpDown.Value = value.iranyitoszam;
                 CimtextBox.Text = value.cim;
-                TelefontextBox.Text = value.telefonszam;
+                TelefonMaskedTextBox.Text = value.telefonszam;
                 EmailtextBox.Text = value.email;
                 PontnumericUpDown.Value = value.pont;
             }
@@ -84,8 +84,8 @@ namespace JarmuKolcsonzo.Views
         }
         public string errorTelefon
         {
-            get => errorP_Knev.GetError(TelefontextBox);
-            set => errorP_Knev.SetError(TelefontextBox, value);
+            get => errorP_Knev.GetError(TelefonMaskedTextBox);
+            set => errorP_Knev.SetError(TelefonMaskedTextBox, value);
         }
         public string errorEmail
         {
@@ -95,14 +95,7 @@ namespace JarmuKolcsonzo.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            presenter.Save(this.ugyfel);
-            if (string.IsNullOrEmpty(errorVnev) &&
-                string.IsNullOrEmpty(errorKnev) &&
-                string.IsNullOrEmpty(errorVaros) &&
-                string.IsNullOrEmpty(errorIrszam) &&
-                string.IsNullOrEmpty(errorCim) &&
-                string.IsNullOrEmpty(errorTelefon) &&
-                string.IsNullOrEmpty(errorEmail))
+            if (presenter.ValidateData())
             {
                 this.DialogResult = DialogResult.OK;
             }
