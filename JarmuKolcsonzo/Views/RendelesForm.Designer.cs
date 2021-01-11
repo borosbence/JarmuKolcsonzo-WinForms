@@ -505,7 +505,7 @@ namespace JarmuKolcsonzo.Views
         private System.Windows.Forms.Label TipusLabel;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown ArNumericUpDown;
-        private System.Windows.Forms.Button CancelButton;
+        private new System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label PontLabel;
     }
 }

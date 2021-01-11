@@ -115,7 +115,7 @@
     <Compile Include="Repositories\JarmuTipusRepository.cs" />
     <Compile Include="Repositories\RendelesRepository.cs" />
     <Compile Include="Repositories\UgyfelRepository.cs" />
-    <Compile Include="Repositories\JarmuRepository y.cs" />
+    <Compile Include="Repositories\JarmuRepository.cs" />
     <Compile Include="ViewInterfaces\IDataGridList.cs" />
     <Compile Include="ViewInterfaces\IRendelesView.cs" />
     <Compile Include="ViewInterfaces\IUgyfelView.cs" />
