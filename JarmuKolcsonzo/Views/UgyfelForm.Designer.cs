@@ -70,7 +70,7 @@
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(278, 355);
+            this.button2.Location = new System.Drawing.Point(12, 354);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -79,7 +79,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(113, 354);
+            this.button1.Location = new System.Drawing.Point(284, 352);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -119,12 +119,12 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21137F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21137F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21137F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(432, 336);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(347, 336);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // TelefonMaskedTextBox
             // 
-            this.TelefonMaskedTextBox.Location = new System.Drawing.Point(147, 223);
+            this.TelefonMaskedTextBox.Location = new System.Drawing.Point(118, 223);
             this.TelefonMaskedTextBox.Mask = "+36000000000";
             this.TelefonMaskedTextBox.Name = "TelefonMaskedTextBox";
             this.TelefonMaskedTextBox.Size = new System.Drawing.Size(194, 20);
@@ -186,21 +186,21 @@
             // 
             // VnevtextBox
             // 
-            this.VnevtextBox.Location = new System.Drawing.Point(147, 3);
+            this.VnevtextBox.Location = new System.Drawing.Point(118, 3);
             this.VnevtextBox.Name = "VnevtextBox";
             this.VnevtextBox.Size = new System.Drawing.Size(200, 20);
             this.VnevtextBox.TabIndex = 1;
             // 
             // VarostextBox
             // 
-            this.VarostextBox.Location = new System.Drawing.Point(147, 77);
+            this.VarostextBox.Location = new System.Drawing.Point(118, 77);
             this.VarostextBox.Name = "VarostextBox";
             this.VarostextBox.Size = new System.Drawing.Size(200, 20);
             this.VarostextBox.TabIndex = 1;
             // 
             // EmailtextBox
             // 
-            this.EmailtextBox.Location = new System.Drawing.Point(147, 260);
+            this.EmailtextBox.Location = new System.Drawing.Point(118, 260);
             this.EmailtextBox.Name = "EmailtextBox";
             this.EmailtextBox.Size = new System.Drawing.Size(200, 20);
             this.EmailtextBox.TabIndex = 8;
@@ -208,7 +208,7 @@
             // PontnumericUpDown
             // 
             this.PontnumericUpDown.DecimalPlaces = 2;
-            this.PontnumericUpDown.Location = new System.Drawing.Point(147, 297);
+            this.PontnumericUpDown.Location = new System.Drawing.Point(118, 297);
             this.PontnumericUpDown.Maximum = new decimal(new int[] {
             50,
             0,
@@ -220,7 +220,7 @@
             // 
             // KnevtextBox
             // 
-            this.KnevtextBox.Location = new System.Drawing.Point(147, 40);
+            this.KnevtextBox.Location = new System.Drawing.Point(118, 40);
             this.KnevtextBox.Name = "KnevtextBox";
             this.KnevtextBox.Size = new System.Drawing.Size(200, 20);
             this.KnevtextBox.TabIndex = 10;
@@ -245,7 +245,7 @@
             // 
             // IrszamnumericUpDown
             // 
-            this.IrszamnumericUpDown.Location = new System.Drawing.Point(147, 114);
+            this.IrszamnumericUpDown.Location = new System.Drawing.Point(118, 114);
             this.IrszamnumericUpDown.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -262,7 +262,7 @@
             // 
             // CimtextBox
             // 
-            this.CimtextBox.Location = new System.Drawing.Point(147, 151);
+            this.CimtextBox.Location = new System.Drawing.Point(118, 151);
             this.CimtextBox.Multiline = true;
             this.CimtextBox.Name = "CimtextBox";
             this.CimtextBox.Size = new System.Drawing.Size(200, 66);
@@ -307,7 +307,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 387);
+            this.ClientSize = new System.Drawing.Size(373, 387);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);

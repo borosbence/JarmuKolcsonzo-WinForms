@@ -15,8 +15,8 @@ namespace JarmuKolcsonzo.Repositories
         private int _totalItems;
 
         public BindingList<jarmu> GetAll(
-            int page = 1,
-            int itemsPerPage = 20,
+            int page = 0,
+            int itemsPerPage = 0,
             string search = null,
             string sortBy = null,
             bool ascending = true)
@@ -25,25 +25,18 @@ namespace JarmuKolcsonzo.Repositories
             // Keresés
             if (!string.IsNullOrWhiteSpace(search))
             {
-                search = search.ToLower();
                 // Ha a keresési kulcsszó szám
-                if (int.TryParse(search, out int dij))
-                {
-                    query = query.Where(x => x.dij == dij);
-                }
-                // TODO: ezt még javítani
-                else if (DateTime.TryParse(search, out DateTime datum))
-                {
-                    query = query.Where(x => x.szerviz_datum.Value.ToString("yyyy. MM. dd.") == search);
-                }
-                // Szöveges keresés
-                else
-                {
-                    query = query.Where(x =>
-                        x.rendszam.Contains(search) ||
-                        x.jarmu_tipus.megnevezes.Contains(search));
-                }
+                int.TryParse(search, out int dij);
+                // Ha dátum
+                DateTime.TryParse(search, out DateTime datum);
+
+                query = query.Where(x =>
+                    x.rendszam.Contains(search) ||
+                    x.dij.Equals(dij) ||
+                    x.szerviz_datum.Value.Equals(datum) ||
+                    x.jarmu_tipus.megnevezes.Contains(search));
             }
+
             // Sorbarendezés
             if (!string.IsNullOrWhiteSpace(sortBy))
             {

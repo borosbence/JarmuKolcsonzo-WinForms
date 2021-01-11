@@ -48,6 +48,7 @@
             this.FirstButton = new System.Windows.Forms.Button();
             this.TotalItemsLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ugyfelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vezeteknevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keresztnevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.varosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +57,6 @@
             this.telefonszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ugyfelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -113,6 +113,7 @@
             // 
             // keresestoolStripTextBox
             // 
+            this.keresestoolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keresestoolStripTextBox.Name = "keresestoolStripTextBox";
             this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 25);
             // 
@@ -259,6 +260,10 @@
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
+            // ugyfelBindingSource
+            // 
+            this.ugyfelBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.ugyfel);
+            // 
             // vezeteknevDataGridViewTextBoxColumn
             // 
             this.vezeteknevDataGridViewTextBoxColumn.DataPropertyName = "vezeteknev";
@@ -307,10 +312,6 @@
             this.pontDataGridViewTextBoxColumn.HeaderText = "Pont";
             this.pontDataGridViewTextBoxColumn.Name = "pontDataGridViewTextBoxColumn";
             // 
-            // ugyfelBindingSource
-            // 
-            this.ugyfelBindingSource.DataSource = typeof(JarmuKolcsonzo.Models.ugyfel);
-            // 
             // UgyfelListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,7 +321,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "UgyfelListaForm";
-            this.Text = "UgyfelekForm";
+            this.Text = "Ügyféllista";
             this.Load += new System.EventHandler(this.UgyfelekForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -353,6 +354,7 @@
         private System.Windows.Forms.Button FirstButton;
         private System.Windows.Forms.Label TotalItemsLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource ugyfelBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn vezeteknevDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn keresztnevDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn varosDataGridViewTextBoxColumn;
@@ -361,6 +363,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonszamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pontDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource ugyfelBindingSource;
     }
 }

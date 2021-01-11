@@ -134,7 +134,6 @@
             // 
             // keresestoolStripTextBox
             // 
-            this.keresestoolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keresestoolStripTextBox.Name = "keresestoolStripTextBox";
             this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 25);
             // 
@@ -259,6 +258,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(760, 371);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
             // megnevezesDataGridViewTextBoxColumn
             // 

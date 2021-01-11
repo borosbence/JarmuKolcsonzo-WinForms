@@ -15,8 +15,8 @@ namespace JarmuKolcsonzo.Repositories
         private int _totalItems;
 
         public BindingList<ugyfel> GetAll(
-            int page = 1,
-            int itemsPerPage = 20,
+            int page = 0,
+            int itemsPerPage = 0,
             string search = null,
             string sortBy = null,
             bool ascending = true)
@@ -27,17 +27,16 @@ namespace JarmuKolcsonzo.Repositories
             if (!string.IsNullOrWhiteSpace(search))
             {
                 search = search.ToLower();
-                int irszam;
-                int.TryParse(search, out irszam);
+                int.TryParse(search, out int irszam);
 
-                query = query.Where(x => x.vezeteknev.Contains(search) ||
-                                        x.keresztnev.Contains(search) ||
-                                        x.varos.Contains(search) ||
-                                        x.cim.Contains(search) ||
-                                        x.iranyitoszam.Equals(irszam) ||
-                                        x.telefonszam.Contains(search) ||
-                                        x.email.Contains(search) ||
-                                        x.iranyitoszam.Equals(irszam));
+                query = query.Where(x => 
+                    x.vezeteknev.Contains(search) ||
+                    x.keresztnev.Contains(search) ||
+                    x.varos.Contains(search) ||
+                    x.cim.Contains(search) ||
+                    x.iranyitoszam.Equals(irszam) ||
+                    x.telefonszam.Contains(search) ||
+                    x.email.Contains(search));
             }
 
             // Sorbarendezés

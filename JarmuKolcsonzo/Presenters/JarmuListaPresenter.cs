@@ -27,7 +27,7 @@ namespace JarmuKolcsonzo.Presenters
             view.bindingList = repo.GetAll(
                     view.page, view.itemsPerPage, view.search,view.sortBy,view.ascending);
             view.totalItems = repo.TotalItems;
-            view.tipusList = tipusrepo.GetAll(itemsPerPage: int.MaxValue);
+            view.tipusList = tipusrepo.GetAll();
         }
 
         public void Add(jarmu jarmu)

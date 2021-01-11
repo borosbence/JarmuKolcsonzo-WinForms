@@ -13,8 +13,7 @@ namespace JarmuKolcsonzo.Presenters
 {
     public class RendelesPresenter
     {
-        IRendelesView view;
-        private RendelesRepository repo = new RendelesRepository();
+        private IRendelesView view;
         private UgyfelRepository ugyfelRepo = new UgyfelRepository();
         private JarmuRepository jarmuRepo = new JarmuRepository();
 
@@ -23,27 +22,41 @@ namespace JarmuKolcsonzo.Presenters
             view = param;
         }
 
-        public void Save(rendelesVM rendelesVM)
+        public void LoadData()
+        {
+            view.ugyfelList = ugyfelRepo.GetAll().Select(x => x.TeljesNev).ToArray();
+            view.jarmuList = jarmuRepo.GetAll().Where(x => x.elerheto == true).Select(x => x.rendszam).ToArray();
+        }
+
+        public bool ValidateData()
         {
             view.errorUgyfelNev = null;
             view.errorJarmuRendszam = null;
+            bool valid = true;
 
-            if (string.IsNullOrEmpty(rendelesVM.ugyfelNev))
+            if (string.IsNullOrEmpty(view.rendelesVM.ugyfelNev))
             {
                 view.errorUgyfelNev = Resources.KotelezoMezo;
+                valid = false;
             }
-            if (string.IsNullOrEmpty(rendelesVM.jarmuRendszam))
-            {
-                view.errorJarmuRendszam = Resources.KotelezoMezo;
-            }
-            if (ugyfelRepo.GetUgyfel(rendelesVM.ugyfelNev) == null)
+            else if (ugyfelRepo.GetUgyfel(view.rendelesVM.ugyfelNev) == null)
             {
                 view.errorUgyfelNev = Resources.NemUgyfel;
+                valid = false;
             }
-            if (jarmuRepo.GetJarmu(rendelesVM.jarmuRendszam) == null)
+
+            if (string.IsNullOrEmpty(view.rendelesVM.jarmuRendszam))
+            {
+                view.errorJarmuRendszam = Resources.KotelezoMezo;
+                valid = false;
+            }
+            else if (jarmuRepo.GetJarmu(view.rendelesVM.jarmuRendszam) == null)
             {
                 view.errorJarmuRendszam = Resources.NemJarmu;
+                valid = false;
             }
+
+            return valid;
         }
     }
 }

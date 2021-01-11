@@ -1,4 +1,5 @@
-﻿using JarmuKolcsonzo.Presenters;
+﻿using JarmuKolcsonzo.Models;
+using JarmuKolcsonzo.Presenters;
 using JarmuKolcsonzo.ViewInterfaces;
 using JarmuKolcsonzo.ViewModels;
 using System;
@@ -15,57 +16,65 @@ namespace JarmuKolcsonzo.Views
 {
     public partial class RendelesForm : Form, IRendelesView
     {
-        private int formId;
+        private int Id;
         private RendelesPresenter presenter;
+
         public RendelesForm()
         {
             InitializeComponent();
             presenter = new RendelesPresenter(this);
+            presenter.LoadData();
+            Init();
+        }
+
+        private void Init()
+        {
+            if (Id > 0)
+            {
+                TelefonszamLabel.Text = null;
+                EmailLabel.Text = null;
+                TipusLabel.Text = null;
+                FerohelyLabel.Text = null;
+            }
         }
 
         public rendelesVM rendelesVM 
         {
-            get
-            {
-                var rendelesVM = new rendelesVM(
-                    UgyfelNevTextBox.Text,
-                    JarmuRendszamTextBox.Text,
-                    RendelesdateTimePicker.Value);
-                if (formId > 0)
-                {
-                    rendelesVM.rendelesId = formId;
-                }
-                return rendelesVM;
-            }
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException(); 
+        }
+
+        public string errorUgyfelNev {  set => errorPUgyfel.SetError(NevTextBox,value); }
+        public string errorJarmuRendszam { set => errorPJarmu.SetError(RendszamTextBox, value); }
+        public string ugyfelTelefonszam { set => TelefonszamLabel.Text = value; }
+        public string ugyfelEmail { set => EmailLabel.Text = value; }
+        public string jarmuTipus { set => TipusLabel.Text = value; }
+        public int jarmuFerohely { set => FerohelyLabel.Text = value.ToString(); }
+        public int jarmuDij { set => DijLabel.Text = value.ToString(); }
+
+        public string[] ugyfelList
+        {
             set
             {
-                formId = value.rendelesId;
-                UgyfelNevTextBox.Text = value.ugyfelNev;
-                TelefonLabel.Text = value.ugyfelTelefonszam;
-                EmailLabel.Text = value.ugyfelEmail;
-                PontLabel.Text = value.ugyfelPont.ToString();
-                JarmuRendszamTextBox.Text = value.jarmuRendszam;
-                LabelFerohely.Text = value.jarmuDij.ToString();
-                RendelesdateTimePicker.Value = value.rendelesDatum;
-
+                var src = new AutoCompleteStringCollection();
+                src.AddRange(value);
+                NevTextBox.AutoCompleteCustomSource = src;
             }
         }
-        public string errorUgyfelNev
+
+        public string[] jarmuList
         {
-            get => errorP_Nev.GetError(UgyfelNevTextBox);
-            set => errorP_Nev.SetError(UgyfelNevTextBox, value);
-        }
-        public string errorJarmuRendszam 
-        {
-            get => errorP_Rendszam.GetError(JarmuRendszamTextBox);
-            set => errorP_Rendszam.SetError(JarmuRendszamTextBox, value);
+            set
+            {
+                var src = new AutoCompleteStringCollection();
+                src.AddRange(value);
+                RendszamTextBox.AutoCompleteCustomSource = src;
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OKButton_Click(object sender, EventArgs e)
         {
-            presenter.Save(this.rendelesVM);
-            if (string.IsNullOrEmpty(errorJarmuRendszam) &&
-                string.IsNullOrEmpty(errorUgyfelNev))
+            if (presenter.ValidateData())
             {
                 this.DialogResult = DialogResult.OK;
             }

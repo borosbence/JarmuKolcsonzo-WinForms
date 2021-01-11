@@ -15,8 +15,8 @@ namespace JarmuKolcsonzo.Repositories
         private int _totalItems;
 
         public BindingList<jarmu_tipus> GetAll(
-            int page = 1,
-            int itemsPerPage = 20,
+            int page = 0,
+            int itemsPerPage = 0,
             string search = null,
             string sortBy = null,
             bool ascending = true)
@@ -26,7 +26,6 @@ namespace JarmuKolcsonzo.Repositories
             // Keresés
             if (!string.IsNullOrWhiteSpace(search))
             {
-                search = search.ToLower();
                 query = query.Where(x => x.megnevezes.Contains(search));
             }
 
@@ -70,10 +69,6 @@ namespace JarmuKolcsonzo.Repositories
 
         public void Insert(jarmu_tipus tipus)
         {
-            if (Exists(tipus.megnevezes))
-            {
-                throw new Exception("Már létezik ilyen névvel kategória!");
-            }
             db.jarmu_tipus.Add(tipus);
         }
 
@@ -89,7 +84,10 @@ namespace JarmuKolcsonzo.Repositories
         public void Delete(int id)
         {
             var tipus = db.jarmu_tipus.Find(id);
-            db.jarmu_tipus.Remove(tipus);
+            if (tipus != null)
+            {
+                db.jarmu_tipus.Remove(tipus);
+            }
         }
 
         public void Save()

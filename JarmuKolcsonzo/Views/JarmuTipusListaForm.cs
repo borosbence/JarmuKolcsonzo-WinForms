@@ -92,6 +92,19 @@ namespace JarmuKolcsonzo.Views
             presenter.LoadData();
         }
 
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            switch (e.ColumnIndex)
+            {
+                case 1:
+                    MessageBox.Show("Kérem adjon meg szám értéket.", "Hiba",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void FirstButton_Click(object sender, EventArgs e)
         {
             page = 1;
@@ -120,19 +133,6 @@ namespace JarmuKolcsonzo.Views
         {
             page = pageCount;
             presenter.LoadData();
-        }
-
-        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            switch (e.ColumnIndex)
-            {
-                case 1:
-                    MessageBox.Show("Kérem adjon meg szám értéket.", "Hiba",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                default:
-                    break;
-            }
         }
 
         private void UjtoolStripButton_Click(object sender, EventArgs e)

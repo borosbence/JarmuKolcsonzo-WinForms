@@ -16,8 +16,6 @@ namespace JarmuKolcsonzo.Presenters
     {
         private IDataGridList<rendelesVM> view;
         private RendelesRepository repo = new RendelesRepository();
-        private UgyfelRepository ugyfelRepo;
-        private JarmuRepository jarmuRepo;
 
         public RendelesListaPresenter(IDataGridList<rendelesVM> param)
         {
@@ -26,31 +24,25 @@ namespace JarmuKolcsonzo.Presenters
 
         public void LoadData()
         {
-            view.bindingList = repo.GetAllRendelesVM(
+            view.bindingList = repo.GetAll(
                 view.page, view.itemsPerPage, view.search, view.sortBy, view.ascending);
-            view.totalItems = repo.Count();
+            view.totalItems = repo.TotalItems;
         }
 
         public void Add(rendelesVM rendelesVM)
         {
-            using (ugyfelRepo = new UgyfelRepository())
-            {
-                var ugyfel = ugyfelRepo.GetUgyfel(rendelesVM.ugyfelNev);
-                rendelesVM.ugyfelId = ugyfel.id;
-                rendelesVM.ugyfelEmail = ugyfel.email;
-                rendelesVM.ugyfelTelefonszam = ugyfel.telefonszam;
-                rendelesVM.ugyfelPont = ugyfel.pont;
-            }
-            using (jarmuRepo = new JarmuRepository())
-            {
-                var jarmu = jarmuRepo.GetJarmu(rendelesVM.jarmuRendszam);
-                rendelesVM.jarmuId = jarmu.id;
-                rendelesVM.jarmuDij = jarmu.dij;
-            }
-
-            view.bindingList.Add(rendelesVM);
-            // hozzáadás ehhez a contexthez is
+            view.bindingList.Insert(0, rendelesVM);
             repo.Insert(rendelesVM);
+            view.totalItems++;
+        }
+
+        public void Modify(rendelesVM rendelesVM)
+        {
+            if (rendelesVM.jarmuId != 0 && rendelesVM.ugyfelId != 0)
+            {
+                //view.bindingList[index] = rendelesVM;
+                repo.Update(rendelesVM);
+            }
         }
 
         public void Remove(int index)
@@ -60,46 +52,7 @@ namespace JarmuKolcsonzo.Presenters
             if (rendeles.rendelesId > 0)
             {
                 repo.Delete(rendeles.rendelesId);
-            }
-        }
-
-        public void Modify(int index, rendelesVM rendelesVM)
-        {
-            using (ugyfelRepo = new UgyfelRepository())
-            {
-                var ugyfel = ugyfelRepo.GetUgyfel(rendelesVM.ugyfelNev);
-                if (ugyfel != null)
-                {
-                    rendelesVM.ugyfelId = ugyfel.id;
-                    // rendelesVM.ugyfelNev = ugyfel.vezeteknev + " " + ugyfel.keresztnev;
-                    rendelesVM.ugyfelEmail = ugyfel.email;
-                    rendelesVM.ugyfelTelefonszam = ugyfel.telefonszam;
-                    rendelesVM.ugyfelPont = ugyfel.pont;
-                }
-                else
-                {
-                    throw new Exception(Resources.NemUgyfel);
-                }
-            }
-
-            using (jarmuRepo = new JarmuRepository())
-            {
-                var jarmu = jarmuRepo.GetJarmu(rendelesVM.jarmuRendszam);
-                if (jarmu != null)
-                {
-                    rendelesVM.jarmuId = jarmu.id;
-                    rendelesVM.jarmuDij = jarmu.dij;
-                }
-                else
-                {
-                    throw new Exception(Resources.NemJarmu);
-                }
-            }
-
-            if (rendelesVM.jarmuId != 0 && rendelesVM.ugyfelId != 0)
-            {
-                view.bindingList[index] = rendelesVM;
-                repo.Update(rendelesVM);
+                view.totalItems--;
             }
         }
 

@@ -15,7 +15,7 @@ namespace JarmuKolcsonzo.Repositories
         private JKContext db = new JKContext();
         private int _totalItems;
 
-        public BindingList<rendelesVM> GetAllRendelesVM(
+        public BindingList<rendelesVM> GetAll(
             int page = 0,
             int itemsPerPage = 0,
             string search = null,
@@ -27,15 +27,15 @@ namespace JarmuKolcsonzo.Repositories
             // Keresés
             if (!string.IsNullOrWhiteSpace(search))
             {
-                search = search.ToLower();
-                int ferohely;
-                int.TryParse(search, out ferohely);
+                int.TryParse(search, out int ar);
+                DateTime.TryParse(search, out DateTime datum);
 
-                query = query.Where(x => x.ugyfel.vezeteknev.ToLower().Contains(search) ||
-                                        x.ugyfel.keresztnev.ToLower().Contains(search) ||
-                                        x.ugyfel.telefonszam.ToLower().Contains(search) ||
-                                        x.ugyfel.email.ToLower().Contains(search) ||
-                                        x.jarmu.rendszam.ToLower().Contains(search));
+                query = query.Where(x => 
+                    x.ugyfel.vezeteknev.Contains(search) ||
+                    x.ugyfel.keresztnev.Contains(search) ||
+                    x.jarmu.rendszam.Contains(search) ||
+                    x.ar.Equals(ar) ||
+                    x.datum.Equals(datum));
             }
 
             // Sorbarendezés
@@ -43,7 +43,7 @@ namespace JarmuKolcsonzo.Repositories
             {
                 switch (sortBy)
                 {
-                    default:
+                    case "id":
                         query = ascending ? query.OrderBy(x => x.id) : query.OrderByDescending(x => x.id);
                         break;
                     case "ugyfelnev":
@@ -51,27 +51,22 @@ namespace JarmuKolcsonzo.Repositories
                             query.OrderBy(x => x.ugyfel.vezeteknev).ThenBy(x => x.ugyfel.keresztnev) :
                             query.OrderByDescending(x => x.ugyfel.vezeteknev).ThenBy(x => x.ugyfel.keresztnev);
                         break;
-                    case "telefonszam":
-                        query = ascending ? query.OrderBy(x => x.ugyfel.telefonszam) : query.OrderByDescending(x => x.ugyfel.telefonszam);
-                        break;
-                    case "email":
-                        query = ascending ? query.OrderBy(x => x.ugyfel.email) : query.OrderByDescending(x => x.ugyfel.email);
-                        break;
                     case "pont":
                         query = ascending ? query.OrderBy(x => x.ugyfel.pont) : query.OrderByDescending(x => x.ugyfel.pont);
                         break;
                     case "rendszam":
                         query = ascending ? query.OrderBy(x => x.jarmu.rendszam) : query.OrderByDescending(x => x.jarmu.rendszam);
                         break;
-                    case "dij":
-                        query = ascending ? query.OrderBy(x => x.jarmu.dij) : query.OrderByDescending(x => x.jarmu.dij);
-                        break;
                     case "datum":
                         query = ascending ? query.OrderBy(x => x.datum) : query.OrderByDescending(x => x.datum);
                         break;
+                    case "ar":
+                        query = ascending ? query.OrderBy(x => x.jarmu.dij) : query.OrderByDescending(x => x.jarmu.dij);
+                        break;
+                    default:
+                        break;
                 }
             }
-
 
             // Összes találat kiszámítása
             _totalItems = query.Count();
@@ -87,39 +82,36 @@ namespace JarmuKolcsonzo.Repositories
             var rendelesVMList = new List<rendelesVM>();
             foreach (var rendeles in dblist)
             {
-                var teljesnev = rendeles.ugyfel.vezeteknev + " " + rendeles.ugyfel.keresztnev;
                 var rendelesVM = new rendelesVM(
-                    rendeles.id,
+                    rendeles.id, rendeles.datum, 
+                    rendeles.napok_szama, rendeles.ar,
                     rendeles.ugyfel_id,
-                    teljesnev, rendeles.ugyfel.telefonszam,
-                    rendeles.ugyfel.email, rendeles.ugyfel.pont,
-                    rendeles.jarmu_id,
-                    rendeles.jarmu.rendszam, rendeles.jarmu.dij,
-                    rendeles.datum);
+                    rendeles.ugyfel.TeljesNev, rendeles.ugyfel.pont,
+                    rendeles.jarmu_id, rendeles.jarmu.rendszam);
                 rendelesVMList.Add(rendelesVM);
             }
 
             return new BindingList<rendelesVM>(rendelesVMList);
         }
 
-        public int Count()
+        public int TotalItems
         {
-            return _totalItems;
+            get { return _totalItems; }
         }
 
         public void Insert(rendelesVM rendelesVM)
         {
             var rendeles = new rendeles();
-
             db.rendeles.Add(rendeles);
-            db.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var rendeles = db.rendeles.Find(id);
-            db.rendeles.Remove(rendeles);
-            db.SaveChanges();
+            if (rendeles != null)
+            {
+                db.rendeles.Remove(rendeles);
+            }
         }
 
         public void Update(rendelesVM rendelesVM)
@@ -127,9 +119,11 @@ namespace JarmuKolcsonzo.Repositories
             var rendeles = db.rendeles.Find(rendelesVM.rendelesId);
             if (rendeles != null)
             {
+                rendeles.datum = rendelesVM.rendelesDatum;
+                rendeles.napok_szama = rendelesVM.rendelesNapok;
+                rendeles.ar = rendelesVM.rendelesAr;
                 rendeles.jarmu_id = rendelesVM.jarmuId;
                 rendeles.ugyfel_id = rendelesVM.ugyfelId;
-                rendeles.datum = rendelesVM.rendelesDatum;
                 db.Entry(rendeles).State = EntityState.Modified;
             }
         }

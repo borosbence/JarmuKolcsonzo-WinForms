@@ -9,42 +9,35 @@ namespace JarmuKolcsonzo.ViewModels
     public class rendelesVM
     {
         public int rendelesId { get; set; }
+        public DateTime rendelesDatum { get; set; }
+        public int rendelesNapok { get; set; }
+        public decimal rendelesAr { get; set; }
         public int ugyfelId { get; set; }
         public string ugyfelNev { get; set; }
-        public string ugyfelTelefonszam { get; set; }
-        public string ugyfelEmail { get; set; }
         public decimal ugyfelPont { get; set; }
         public int jarmuId { get; set; }
         public string jarmuRendszam { get; set; }
-        public int? jarmuDij { get; set; }
-        public DateTime rendelesDatum { get; set; }
 
         public rendelesVM(
-            int id,
+            int rendelesId, DateTime rendelesDatum, 
+            int rendelesNapok, decimal rendelesAr,
             int ugyfelId,
-            string nev, string telefonszam,
-            string email, decimal pont,
-            int jarmuId,
-            string rendszam, int? ferohely, 
-            DateTime datum)
+            string ugyfelNev, decimal ugyfelPont,
+            int jarmuId, string jarmuRendszam)
         {
-            rendelesId = id;
+            this.rendelesId = rendelesId;
+            this.rendelesDatum = rendelesDatum;
+            this.rendelesNapok = rendelesNapok;
+            this.rendelesAr = rendelesAr;
+            
             this.ugyfelId = ugyfelId;
-            ugyfelNev = nev;
-            ugyfelTelefonszam = telefonszam;
-            ugyfelEmail = email;
-            ugyfelPont = pont;
+            this.ugyfelNev = ugyfelNev;
+            this.ugyfelPont = ugyfelPont;
+
             this.jarmuId = jarmuId;
-            jarmuRendszam = rendszam;
-            jarmuDij = ferohely;
-            rendelesDatum = datum;
+            this.jarmuRendszam = jarmuRendszam;
         }
 
-        public rendelesVM(string nev, string rendszam, DateTime datum)
-        {
-            ugyfelNev = nev;
-            jarmuRendszam = rendszam;
-            rendelesDatum = datum;
-        }
+        public DateTime HatarIdo => rendelesDatum.AddDays(rendelesNapok);
     }
 }

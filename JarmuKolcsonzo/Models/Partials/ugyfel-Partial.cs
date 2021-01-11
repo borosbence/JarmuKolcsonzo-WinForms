@@ -28,5 +28,7 @@ namespace JarmuKolcsonzo.Models
             this.pont = pont;
             this.rendeles = new HashSet<rendeles>();
         }
+
+        public string TeljesNev { get => keresztnev + " " + vezeteknev; }
     }
 }

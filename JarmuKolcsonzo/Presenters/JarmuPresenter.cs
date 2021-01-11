@@ -22,7 +22,7 @@ namespace JarmuKolcsonzo.Presenters
 
         public void LoadData()
         {
-            view.tipusList = tipusRepo.GetAll(itemsPerPage: int.MaxValue);
+            view.tipusList = tipusRepo.GetAll();
         }
 
         public bool ValidateData()

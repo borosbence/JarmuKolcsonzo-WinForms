@@ -30,137 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RendelesListaForm));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.OsszesLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.PrevButton = new System.Windows.Forms.Button();
-            this.FirstButton = new System.Windows.Forms.Button();
-            this.LastButton = new System.Windows.Forms.Button();
-            this.NextButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.UjtoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.TorlestoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.mentestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.keresestoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.KeresestoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.szerkesztesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.torlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mentestoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.rendelesIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ugyfelIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ugyfelNevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ugyfelTelefonszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ugyfelEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ugyfelPontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jarmuIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jarmuRendszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jarmuFerohelyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rendelesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.LastButton = new System.Windows.Forms.Button();
+            this.NextButton = new System.Windows.Forms.Button();
+            this.PageLabel = new System.Windows.Forms.Label();
+            this.PrevButton = new System.Windows.Forms.Button();
+            this.FirstButton = new System.Windows.Forms.Button();
+            this.TotalItemsLabel = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.rendelesVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.rendelesIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ugyfelNevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ugyfelPontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jarmuRendszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rendelesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hatarIdoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rendelesArDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rendelesVMBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.OsszesLabel);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 407);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 43);
-            this.panel1.TabIndex = 10;
-            // 
-            // OsszesLabel
-            // 
-            this.OsszesLabel.AutoSize = true;
-            this.OsszesLabel.Location = new System.Drawing.Point(12, 12);
-            this.OsszesLabel.Name = "OsszesLabel";
-            this.OsszesLabel.Size = new System.Drawing.Size(59, 13);
-            this.OsszesLabel.TabIndex = 3;
-            this.OsszesLabel.Text = "Összesen: ";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.PrevButton, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.FirstButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.LastButton, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.NextButton, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(209, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(386, 42);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // PrevButton
-            // 
-            this.PrevButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PrevButton.Location = new System.Drawing.Point(86, 9);
-            this.PrevButton.Name = "PrevButton";
-            this.PrevButton.Size = new System.Drawing.Size(58, 23);
-            this.PrevButton.TabIndex = 1;
-            this.PrevButton.Text = "<";
-            this.PrevButton.UseVisualStyleBackColor = true;
-            this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
-            // 
-            // FirstButton
-            // 
-            this.FirstButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.FirstButton.Location = new System.Drawing.Point(9, 9);
-            this.FirstButton.Name = "FirstButton";
-            this.FirstButton.Size = new System.Drawing.Size(58, 23);
-            this.FirstButton.TabIndex = 0;
-            this.FirstButton.Text = "<<";
-            this.FirstButton.UseVisualStyleBackColor = true;
-            this.FirstButton.Click += new System.EventHandler(this.FirstButton_Click);
-            // 
-            // LastButton
-            // 
-            this.LastButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LastButton.Location = new System.Drawing.Point(318, 9);
-            this.LastButton.Name = "LastButton";
-            this.LastButton.Size = new System.Drawing.Size(58, 23);
-            this.LastButton.TabIndex = 3;
-            this.LastButton.Text = ">>";
-            this.LastButton.UseVisualStyleBackColor = true;
-            this.LastButton.Click += new System.EventHandler(this.LastButton_Click);
-            // 
-            // NextButton
-            // 
-            this.NextButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.NextButton.Location = new System.Drawing.Point(240, 9);
-            this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(58, 23);
-            this.NextButton.TabIndex = 2;
-            this.NextButton.Text = ">";
-            this.NextButton.UseVisualStyleBackColor = true;
-            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(180, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "0/0";
             // 
             // toolStrip1
             // 
@@ -196,6 +97,15 @@
             this.TorlestoolStripButton.Text = "Törlés";
             this.TorlestoolStripButton.Click += new System.EventHandler(this.TorlestoolStripButton_Click);
             // 
+            // mentestoolStripButton
+            // 
+            this.mentestoolStripButton.Image = global::JarmuKolcsonzo.Properties.Resources.saveToolStripButton;
+            this.mentestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mentestoolStripButton.Name = "mentestoolStripButton";
+            this.mentestoolStripButton.Size = new System.Drawing.Size(66, 22);
+            this.mentestoolStripButton.Text = "Mentés";
+            this.mentestoolStripButton.Click += new System.EventHandler(this.MentestoolStripButton_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -214,33 +124,6 @@
             this.KeresestoolStripButton.Name = "KeresestoolStripButton";
             this.KeresestoolStripButton.Size = new System.Drawing.Size(66, 22);
             this.KeresestoolStripButton.Text = "Keresés";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rendelesIdDataGridViewTextBoxColumn,
-            this.ugyfelIdDataGridViewTextBoxColumn,
-            this.ugyfelNevDataGridViewTextBoxColumn,
-            this.ugyfelTelefonszamDataGridViewTextBoxColumn,
-            this.ugyfelEmailDataGridViewTextBoxColumn,
-            this.ugyfelPontDataGridViewTextBoxColumn,
-            this.jarmuIdDataGridViewTextBoxColumn,
-            this.jarmuRendszamDataGridViewTextBoxColumn,
-            this.jarmuFerohelyDataGridViewTextBoxColumn,
-            this.rendelesDatumDataGridViewTextBoxColumn});
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.DataSource = this.rendelesVMBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(775, 376);
-            this.dataGridView1.TabIndex = 8;
-            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // contextMenuStrip1
             // 
@@ -264,110 +147,182 @@
             this.torlesToolStripMenuItem.Text = "Törlés";
             this.torlesToolStripMenuItem.Click += new System.EventHandler(this.torlesToolStripMenuItem_Click);
             // 
-            // mentestoolStripButton
+            // tableLayoutPanel1
             // 
-            this.mentestoolStripButton.Image = global::JarmuKolcsonzo.Properties.Resources.saveToolStripButton;
-            this.mentestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.mentestoolStripButton.Name = "mentestoolStripButton";
-            this.mentestoolStripButton.Size = new System.Drawing.Size(66, 22);
-            this.mentestoolStripButton.Text = "Mentés";
-            this.mentestoolStripButton.Click += new System.EventHandler(this.mentestoolStripButton_Click);
+            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Controls.Add(this.LastButton, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.NextButton, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PageLabel, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PrevButton, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.FirstButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TotalItemsLabel, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(65, 405);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(570, 45);
+            this.tableLayoutPanel1.TabIndex = 11;
             // 
-            // rendelesIdDataGridViewTextBoxColumn
+            // LastButton
             // 
-            this.rendelesIdDataGridViewTextBoxColumn.DataPropertyName = "rendelesId";
-            this.rendelesIdDataGridViewTextBoxColumn.HeaderText = "rendelesId";
-            this.rendelesIdDataGridViewTextBoxColumn.Name = "rendelesIdDataGridViewTextBoxColumn";
-            this.rendelesIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.LastButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LastButton.Location = new System.Drawing.Point(482, 11);
+            this.LastButton.Name = "LastButton";
+            this.LastButton.Size = new System.Drawing.Size(75, 23);
+            this.LastButton.TabIndex = 3;
+            this.LastButton.Text = ">>";
+            this.LastButton.UseVisualStyleBackColor = true;
+            this.LastButton.Click += new System.EventHandler(this.LastButton_Click);
             // 
-            // ugyfelIdDataGridViewTextBoxColumn
+            // NextButton
             // 
-            this.ugyfelIdDataGridViewTextBoxColumn.DataPropertyName = "ugyfelId";
-            this.ugyfelIdDataGridViewTextBoxColumn.HeaderText = "ugyfelId";
-            this.ugyfelIdDataGridViewTextBoxColumn.Name = "ugyfelIdDataGridViewTextBoxColumn";
-            this.ugyfelIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ugyfelIdDataGridViewTextBoxColumn.Visible = false;
+            this.NextButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.NextButton.Location = new System.Drawing.Point(386, 11);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(73, 23);
+            this.NextButton.TabIndex = 2;
+            this.NextButton.Text = ">";
+            this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
-            // ugyfelNevDataGridViewTextBoxColumn
+            // PageLabel
             // 
-            this.ugyfelNevDataGridViewTextBoxColumn.DataPropertyName = "ugyfelNev";
-            this.ugyfelNevDataGridViewTextBoxColumn.HeaderText = "ugyfelNev";
-            this.ugyfelNevDataGridViewTextBoxColumn.Name = "ugyfelNevDataGridViewTextBoxColumn";
-            this.ugyfelNevDataGridViewTextBoxColumn.ReadOnly = true;
+            this.PageLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PageLabel.AutoSize = true;
+            this.PageLabel.Location = new System.Drawing.Point(317, 16);
+            this.PageLabel.Name = "PageLabel";
+            this.PageLabel.Size = new System.Drawing.Size(24, 13);
+            this.PageLabel.TabIndex = 4;
+            this.PageLabel.Text = "1/1";
             // 
-            // ugyfelTelefonszamDataGridViewTextBoxColumn
+            // PrevButton
             // 
-            this.ugyfelTelefonszamDataGridViewTextBoxColumn.DataPropertyName = "ugyfelTelefonszam";
-            this.ugyfelTelefonszamDataGridViewTextBoxColumn.HeaderText = "ugyfelTelefonszam";
-            this.ugyfelTelefonszamDataGridViewTextBoxColumn.Name = "ugyfelTelefonszamDataGridViewTextBoxColumn";
-            this.ugyfelTelefonszamDataGridViewTextBoxColumn.ReadOnly = true;
+            this.PrevButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PrevButton.Location = new System.Drawing.Point(198, 11);
+            this.PrevButton.Name = "PrevButton";
+            this.PrevButton.Size = new System.Drawing.Size(73, 23);
+            this.PrevButton.TabIndex = 1;
+            this.PrevButton.Text = "<";
+            this.PrevButton.UseVisualStyleBackColor = true;
+            this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
             // 
-            // ugyfelEmailDataGridViewTextBoxColumn
+            // FirstButton
             // 
-            this.ugyfelEmailDataGridViewTextBoxColumn.DataPropertyName = "ugyfelEmail";
-            this.ugyfelEmailDataGridViewTextBoxColumn.HeaderText = "ugyfelEmail";
-            this.ugyfelEmailDataGridViewTextBoxColumn.Name = "ugyfelEmailDataGridViewTextBoxColumn";
-            this.ugyfelEmailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.FirstButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.FirstButton.Location = new System.Drawing.Point(104, 11);
+            this.FirstButton.Name = "FirstButton";
+            this.FirstButton.Size = new System.Drawing.Size(73, 23);
+            this.FirstButton.TabIndex = 0;
+            this.FirstButton.Text = "<<";
+            this.FirstButton.UseVisualStyleBackColor = true;
+            this.FirstButton.Click += new System.EventHandler(this.FirstButton_Click);
             // 
-            // ugyfelPontDataGridViewTextBoxColumn
+            // TotalItemsLabel
             // 
-            this.ugyfelPontDataGridViewTextBoxColumn.DataPropertyName = "ugyfelPont";
-            this.ugyfelPontDataGridViewTextBoxColumn.HeaderText = "ugyfelPont";
-            this.ugyfelPontDataGridViewTextBoxColumn.Name = "ugyfelPontDataGridViewTextBoxColumn";
-            this.ugyfelPontDataGridViewTextBoxColumn.ReadOnly = true;
+            this.TotalItemsLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.TotalItemsLabel.AutoSize = true;
+            this.TotalItemsLabel.Location = new System.Drawing.Point(3, 16);
+            this.TotalItemsLabel.Name = "TotalItemsLabel";
+            this.TotalItemsLabel.Size = new System.Drawing.Size(56, 13);
+            this.TotalItemsLabel.TabIndex = 5;
+            this.TotalItemsLabel.Text = "Összesen:";
             // 
-            // jarmuIdDataGridViewTextBoxColumn
+            // dataGridView1
             // 
-            this.jarmuIdDataGridViewTextBoxColumn.DataPropertyName = "jarmuId";
-            this.jarmuIdDataGridViewTextBoxColumn.HeaderText = "jarmuId";
-            this.jarmuIdDataGridViewTextBoxColumn.Name = "jarmuIdDataGridViewTextBoxColumn";
-            this.jarmuIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jarmuIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // jarmuRendszamDataGridViewTextBoxColumn
-            // 
-            this.jarmuRendszamDataGridViewTextBoxColumn.DataPropertyName = "jarmuRendszam";
-            this.jarmuRendszamDataGridViewTextBoxColumn.HeaderText = "jarmuRendszam";
-            this.jarmuRendszamDataGridViewTextBoxColumn.Name = "jarmuRendszamDataGridViewTextBoxColumn";
-            this.jarmuRendszamDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // jarmuFerohelyDataGridViewTextBoxColumn
-            // 
-            this.jarmuFerohelyDataGridViewTextBoxColumn.DataPropertyName = "jarmuFerohely";
-            this.jarmuFerohelyDataGridViewTextBoxColumn.HeaderText = "jarmuFerohely";
-            this.jarmuFerohelyDataGridViewTextBoxColumn.Name = "jarmuFerohelyDataGridViewTextBoxColumn";
-            this.jarmuFerohelyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rendelesDatumDataGridViewTextBoxColumn
-            // 
-            this.rendelesDatumDataGridViewTextBoxColumn.DataPropertyName = "rendelesDatum";
-            this.rendelesDatumDataGridViewTextBoxColumn.HeaderText = "rendelesDatum";
-            this.rendelesDatumDataGridViewTextBoxColumn.Name = "rendelesDatumDataGridViewTextBoxColumn";
-            this.rendelesDatumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rendelesIdDataGridViewTextBoxColumn,
+            this.ugyfelNevDataGridViewTextBoxColumn,
+            this.ugyfelPontDataGridViewTextBoxColumn,
+            this.jarmuRendszamDataGridViewTextBoxColumn,
+            this.rendelesDatumDataGridViewTextBoxColumn,
+            this.hatarIdoDataGridViewTextBoxColumn,
+            this.rendelesArDataGridViewTextBoxColumn});
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView1.DataSource = this.rendelesVMBindingSource;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(760, 371);
+            this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // rendelesVMBindingSource
             // 
             this.rendelesVMBindingSource.DataSource = typeof(JarmuKolcsonzo.ViewModels.rendelesVM);
+            // 
+            // rendelesIdDataGridViewTextBoxColumn
+            // 
+            this.rendelesIdDataGridViewTextBoxColumn.DataPropertyName = "rendelesId";
+            this.rendelesIdDataGridViewTextBoxColumn.HeaderText = "Azonosító";
+            this.rendelesIdDataGridViewTextBoxColumn.Name = "rendelesIdDataGridViewTextBoxColumn";
+            // 
+            // ugyfelNevDataGridViewTextBoxColumn
+            // 
+            this.ugyfelNevDataGridViewTextBoxColumn.DataPropertyName = "ugyfelNev";
+            this.ugyfelNevDataGridViewTextBoxColumn.HeaderText = "Név";
+            this.ugyfelNevDataGridViewTextBoxColumn.Name = "ugyfelNevDataGridViewTextBoxColumn";
+            // 
+            // ugyfelPontDataGridViewTextBoxColumn
+            // 
+            this.ugyfelPontDataGridViewTextBoxColumn.DataPropertyName = "ugyfelPont";
+            this.ugyfelPontDataGridViewTextBoxColumn.HeaderText = "Pont";
+            this.ugyfelPontDataGridViewTextBoxColumn.Name = "ugyfelPontDataGridViewTextBoxColumn";
+            // 
+            // jarmuRendszamDataGridViewTextBoxColumn
+            // 
+            this.jarmuRendszamDataGridViewTextBoxColumn.DataPropertyName = "jarmuRendszam";
+            this.jarmuRendszamDataGridViewTextBoxColumn.HeaderText = "Rendszám";
+            this.jarmuRendszamDataGridViewTextBoxColumn.Name = "jarmuRendszamDataGridViewTextBoxColumn";
+            // 
+            // rendelesDatumDataGridViewTextBoxColumn
+            // 
+            this.rendelesDatumDataGridViewTextBoxColumn.DataPropertyName = "rendelesDatum";
+            this.rendelesDatumDataGridViewTextBoxColumn.HeaderText = "Dátum";
+            this.rendelesDatumDataGridViewTextBoxColumn.Name = "rendelesDatumDataGridViewTextBoxColumn";
+            // 
+            // hatarIdoDataGridViewTextBoxColumn
+            // 
+            this.hatarIdoDataGridViewTextBoxColumn.DataPropertyName = "HatarIdo";
+            this.hatarIdoDataGridViewTextBoxColumn.HeaderText = "Határidő";
+            this.hatarIdoDataGridViewTextBoxColumn.Name = "hatarIdoDataGridViewTextBoxColumn";
+            this.hatarIdoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rendelesArDataGridViewTextBoxColumn
+            // 
+            this.rendelesArDataGridViewTextBoxColumn.DataPropertyName = "rendelesAr";
+            this.rendelesArDataGridViewTextBoxColumn.HeaderText = "Ár";
+            this.rendelesArDataGridViewTextBoxColumn.Name = "rendelesArDataGridViewTextBoxColumn";
             // 
             // RendelesListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.toolStrip1);
             this.Name = "RendelesListaForm";
             this.Text = "RendelesListaForm";
             this.Load += new System.EventHandler(this.RendelesListaForm_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rendelesVMBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -375,36 +330,33 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label OsszesLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button PrevButton;
-        private System.Windows.Forms.Button FirstButton;
-        private System.Windows.Forms.Button LastButton;
-        private System.Windows.Forms.Button NextButton;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton UjtoolStripButton;
         private System.Windows.Forms.ToolStripButton TorlestoolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox keresestoolStripTextBox;
         private System.Windows.Forms.ToolStripButton KeresestoolStripButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rendelesIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelNevDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelTelefonszamDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelEmailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelPontDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jarmuIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jarmuRendszamDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jarmuFerohelyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rendelesDatumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource rendelesVMBindingSource;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem szerkesztesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem torlesToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton mentestoolStripButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button LastButton;
+        private System.Windows.Forms.Button NextButton;
+        private System.Windows.Forms.Label PageLabel;
+        private System.Windows.Forms.Button PrevButton;
+        private System.Windows.Forms.Button FirstButton;
+        private System.Windows.Forms.Label TotalItemsLabel;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelTelefonszamDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelEmailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource rendelesVMBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rendelesIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelNevDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelPontDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jarmuRendszamDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rendelesDatumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hatarIdoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rendelesArDataGridViewTextBoxColumn;
     }
 }
