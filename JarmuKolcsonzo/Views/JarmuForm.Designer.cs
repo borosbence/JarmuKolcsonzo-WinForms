@@ -42,9 +42,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.RendszamtextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.DijmaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.DijNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.errorP_Rendszam)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DijNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -52,7 +53,7 @@
             this.button1.Location = new System.Drawing.Point(379, 218);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 6;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -63,7 +64,7 @@
             this.button2.Location = new System.Drawing.Point(22, 218);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
+            this.button2.TabIndex = 7;
             this.button2.Text = "Mégse";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -77,14 +78,14 @@
             this.TipusComboBox.Location = new System.Drawing.Point(175, 40);
             this.TipusComboBox.Name = "TipusComboBox";
             this.TipusComboBox.Size = new System.Drawing.Size(200, 21);
-            this.TipusComboBox.TabIndex = 6;
+            this.TipusComboBox.TabIndex = 2;
             // 
             // SzervizdateTimePicker
             // 
             this.SzervizdateTimePicker.Location = new System.Drawing.Point(175, 151);
             this.SzervizdateTimePicker.Name = "SzervizdateTimePicker";
             this.SzervizdateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.SzervizdateTimePicker.TabIndex = 3;
+            this.SzervizdateTimePicker.TabIndex = 5;
             // 
             // ElerhetocheckBox
             // 
@@ -92,7 +93,7 @@
             this.ElerhetocheckBox.Location = new System.Drawing.Point(175, 114);
             this.ElerhetocheckBox.Name = "ElerhetocheckBox";
             this.ElerhetocheckBox.Size = new System.Drawing.Size(15, 14);
-            this.ElerhetocheckBox.TabIndex = 2;
+            this.ElerhetocheckBox.TabIndex = 4;
             this.ElerhetocheckBox.UseVisualStyleBackColor = true;
             // 
             // label9
@@ -145,7 +146,7 @@
             this.tableLayoutPanel1.Controls.Add(this.ElerhetocheckBox, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.SzervizdateTimePicker, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.DijmaskedTextBox, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.DijNumericUpDown, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -160,7 +161,7 @@
             // RendszamtextBox
             // 
             this.RendszamtextBox.Location = new System.Drawing.Point(175, 3);
-            this.RendszamtextBox.MaxLength = 6;
+            this.RendszamtextBox.MaxLength = 7;
             this.RendszamtextBox.Name = "RendszamtextBox";
             this.RendszamtextBox.Size = new System.Drawing.Size(200, 20);
             this.RendszamtextBox.TabIndex = 1;
@@ -174,13 +175,23 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Díj";
             // 
-            // DijmaskedTextBox
+            // DijNumericUpDown
             // 
-            this.DijmaskedTextBox.Location = new System.Drawing.Point(175, 77);
-            this.DijmaskedTextBox.Mask = "00 000 Ft";
-            this.DijmaskedTextBox.Name = "DijmaskedTextBox";
-            this.DijmaskedTextBox.Size = new System.Drawing.Size(200, 20);
-            this.DijmaskedTextBox.TabIndex = 2;
+            this.DijNumericUpDown.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.DijNumericUpDown.Location = new System.Drawing.Point(175, 77);
+            this.DijNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.DijNumericUpDown.Name = "DijNumericUpDown";
+            this.DijNumericUpDown.Size = new System.Drawing.Size(200, 20);
+            this.DijNumericUpDown.TabIndex = 3;
+            this.DijNumericUpDown.ThousandsSeparator = true;
             // 
             // JarmuForm
             // 
@@ -195,6 +206,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorP_Rendszam)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DijNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,7 +224,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker SzervizdateTimePicker;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox DijmaskedTextBox;
         private System.Windows.Forms.TextBox RendszamtextBox;
+        private System.Windows.Forms.NumericUpDown DijNumericUpDown;
     }
 }

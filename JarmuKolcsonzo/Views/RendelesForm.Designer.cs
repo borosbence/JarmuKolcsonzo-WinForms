@@ -42,12 +42,14 @@ namespace JarmuKolcsonzo.Views
             this.TelefonszamLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.DijLabel = new System.Windows.Forms.Label();
             this.RendszamTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.FerohelyLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TipusLabel = new System.Windows.Forms.Label();
+            this.DijLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,8 +64,6 @@ namespace JarmuKolcsonzo.Views
             this.OKButton = new System.Windows.Forms.Button();
             this.errorPUgyfel = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPJarmu = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label12 = new System.Windows.Forms.Label();
-            this.TipusLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -116,7 +116,7 @@ namespace JarmuKolcsonzo.Views
             this.PontokLabel.Location = new System.Drawing.Point(111, 135);
             this.PontokLabel.Name = "PontokLabel";
             this.PontokLabel.Size = new System.Drawing.Size(13, 13);
-            this.PontokLabel.TabIndex = 7;
+            this.PontokLabel.TabIndex = 5;
             this.PontokLabel.Text = "0";
             // 
             // EmailLabel
@@ -125,7 +125,7 @@ namespace JarmuKolcsonzo.Views
             this.EmailLabel.Location = new System.Drawing.Point(111, 90);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(93, 13);
-            this.EmailLabel.TabIndex = 6;
+            this.EmailLabel.TabIndex = 5;
             this.EmailLabel.Text = "valami@valami.hu";
             // 
             // label1
@@ -143,7 +143,7 @@ namespace JarmuKolcsonzo.Views
             this.label2.Location = new System.Drawing.Point(3, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Telefonszám";
             // 
             // label3
@@ -152,7 +152,7 @@ namespace JarmuKolcsonzo.Views
             this.label3.Location = new System.Drawing.Point(3, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Email";
             // 
             // label4
@@ -161,7 +161,7 @@ namespace JarmuKolcsonzo.Views
             this.label4.Location = new System.Drawing.Point(3, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 6;
             this.label4.Text = "Pontok";
             // 
             // NevTextBox
@@ -171,7 +171,8 @@ namespace JarmuKolcsonzo.Views
             this.NevTextBox.Location = new System.Drawing.Point(111, 3);
             this.NevTextBox.Name = "NevTextBox";
             this.NevTextBox.Size = new System.Drawing.Size(200, 20);
-            this.NevTextBox.TabIndex = 4;
+            this.NevTextBox.TabIndex = 1;
+            this.NevTextBox.Leave += new System.EventHandler(this.NevTextBox_Leave);
             // 
             // TelefonszamLabel
             // 
@@ -179,7 +180,7 @@ namespace JarmuKolcsonzo.Views
             this.TelefonszamLabel.Location = new System.Drawing.Point(111, 45);
             this.TelefonszamLabel.Name = "TelefonszamLabel";
             this.TelefonszamLabel.Size = new System.Drawing.Size(67, 13);
-            this.TelefonszamLabel.TabIndex = 5;
+            this.TelefonszamLabel.TabIndex = 3;
             this.TelefonszamLabel.Text = "+361234567";
             // 
             // groupBox2
@@ -216,23 +217,15 @@ namespace JarmuKolcsonzo.Views
             this.tableLayoutPanel2.Size = new System.Drawing.Size(324, 181);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // DijLabel
-            // 
-            this.DijLabel.AutoSize = true;
-            this.DijLabel.Location = new System.Drawing.Point(110, 135);
-            this.DijLabel.Name = "DijLabel";
-            this.DijLabel.Size = new System.Drawing.Size(25, 13);
-            this.DijLabel.TabIndex = 7;
-            this.DijLabel.Text = "0 Ft";
-            // 
             // RendszamTextBox
             // 
             this.RendszamTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.RendszamTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.RendszamTextBox.Location = new System.Drawing.Point(110, 3);
+            this.RendszamTextBox.Location = new System.Drawing.Point(111, 3);
             this.RendszamTextBox.Name = "RendszamTextBox";
             this.RendszamTextBox.Size = new System.Drawing.Size(200, 20);
-            this.RendszamTextBox.TabIndex = 5;
+            this.RendszamTextBox.TabIndex = 2;
+            this.RendszamTextBox.Leave += new System.EventHandler(this.RendszamTextBox_Leave);
             // 
             // label5
             // 
@@ -252,6 +245,15 @@ namespace JarmuKolcsonzo.Views
             this.label6.TabIndex = 1;
             this.label6.Text = "Férőhely";
             // 
+            // FerohelyLabel
+            // 
+            this.FerohelyLabel.AutoSize = true;
+            this.FerohelyLabel.Location = new System.Drawing.Point(111, 90);
+            this.FerohelyLabel.Name = "FerohelyLabel";
+            this.FerohelyLabel.Size = new System.Drawing.Size(13, 13);
+            this.FerohelyLabel.TabIndex = 6;
+            this.FerohelyLabel.Text = "1";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -261,14 +263,32 @@ namespace JarmuKolcsonzo.Views
             this.label7.TabIndex = 2;
             this.label7.Text = "Típus";
             // 
-            // FerohelyLabel
+            // label12
             // 
-            this.FerohelyLabel.AutoSize = true;
-            this.FerohelyLabel.Location = new System.Drawing.Point(110, 90);
-            this.FerohelyLabel.Name = "FerohelyLabel";
-            this.FerohelyLabel.Size = new System.Drawing.Size(13, 13);
-            this.FerohelyLabel.TabIndex = 6;
-            this.FerohelyLabel.Text = "1";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 135);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Napi díj";
+            // 
+            // TipusLabel
+            // 
+            this.TipusLabel.AutoSize = true;
+            this.TipusLabel.Location = new System.Drawing.Point(111, 45);
+            this.TipusLabel.Name = "TipusLabel";
+            this.TipusLabel.Size = new System.Drawing.Size(14, 13);
+            this.TipusLabel.TabIndex = 9;
+            this.TipusLabel.Text = "X";
+            // 
+            // DijLabel
+            // 
+            this.DijLabel.AutoSize = true;
+            this.DijLabel.Location = new System.Drawing.Point(111, 135);
+            this.DijLabel.Name = "DijLabel";
+            this.DijLabel.Size = new System.Drawing.Size(25, 13);
+            this.DijLabel.TabIndex = 7;
+            this.DijLabel.Text = "0 Ft";
             // 
             // groupBox3
             // 
@@ -276,7 +296,7 @@ namespace JarmuKolcsonzo.Views
             this.groupBox3.Location = new System.Drawing.Point(348, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(330, 200);
-            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Rendelés adatai";
             // 
@@ -345,7 +365,7 @@ namespace JarmuKolcsonzo.Views
             this.dateTimePicker1.Location = new System.Drawing.Point(111, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // NapokNumericUpDown
             // 
@@ -357,7 +377,7 @@ namespace JarmuKolcsonzo.Views
             0});
             this.NapokNumericUpDown.Name = "NapokNumericUpDown";
             this.NapokNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.NapokNumericUpDown.TabIndex = 5;
+            this.NapokNumericUpDown.TabIndex = 4;
             this.NapokNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -379,7 +399,7 @@ namespace JarmuKolcsonzo.Views
             this.PontokCheckBox.Location = new System.Drawing.Point(111, 138);
             this.PontokCheckBox.Name = "PontokCheckBox";
             this.PontokCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.PontokCheckBox.TabIndex = 7;
+            this.PontokCheckBox.TabIndex = 5;
             this.PontokCheckBox.UseVisualStyleBackColor = true;
             // 
             // CancelButton
@@ -388,7 +408,7 @@ namespace JarmuKolcsonzo.Views
             this.CancelButton.Location = new System.Drawing.Point(351, 319);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 2;
+            this.CancelButton.TabIndex = 7;
             this.CancelButton.Text = "Mégse";
             this.CancelButton.UseVisualStyleBackColor = true;
             // 
@@ -397,7 +417,7 @@ namespace JarmuKolcsonzo.Views
             this.OKButton.Location = new System.Drawing.Point(603, 319);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
-            this.OKButton.TabIndex = 3;
+            this.OKButton.TabIndex = 6;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
@@ -410,24 +430,6 @@ namespace JarmuKolcsonzo.Views
             // 
             this.errorPJarmu.ContainerControl = this;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 135);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "Napi díj";
-            // 
-            // TipusLabel
-            // 
-            this.TipusLabel.AutoSize = true;
-            this.TipusLabel.Location = new System.Drawing.Point(110, 45);
-            this.TipusLabel.Name = "TipusLabel";
-            this.TipusLabel.Size = new System.Drawing.Size(14, 13);
-            this.TipusLabel.TabIndex = 9;
-            this.TipusLabel.Text = "X";
-            // 
             // RendelesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,7 +441,7 @@ namespace JarmuKolcsonzo.Views
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "RendelesForm";
-            this.Text = "RendelesForm";
+            this.Text = "Rendelés";
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

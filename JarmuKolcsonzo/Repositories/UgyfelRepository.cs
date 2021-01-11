@@ -90,9 +90,9 @@ namespace JarmuKolcsonzo.Repositories
             get { return _totalItems; }
         }
 
-        public ugyfel GetUgyfel(string nev)
+        public ugyfel GetUgyfel(string ugyfelNev)
         {
-            return db.ugyfel.AsNoTracking().SingleOrDefault(x => (x.vezeteknev + " " + x.keresztnev) == nev);
+            return db.ugyfel.AsNoTracking().SingleOrDefault(x => (x.keresztnev + " " + x.vezeteknev) == ugyfelNev);
         }
 
         public bool Exists(ugyfel uf)

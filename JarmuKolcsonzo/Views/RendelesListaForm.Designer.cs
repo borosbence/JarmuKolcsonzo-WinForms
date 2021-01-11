@@ -33,7 +33,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.UjtoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.TorlestoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.mentestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.keresestoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.KeresestoolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +47,6 @@
             this.FirstButton = new System.Windows.Forms.Button();
             this.TotalItemsLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.rendelesVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rendelesIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ugyfelNevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ugyfelPontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +54,7 @@
             this.rendelesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hatarIdoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rendelesArDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rendelesVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,7 +67,6 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UjtoolStripButton,
             this.TorlestoolStripButton,
-            this.mentestoolStripButton,
             this.toolStripSeparator1,
             this.keresestoolStripTextBox,
             this.KeresestoolStripButton});
@@ -97,15 +95,6 @@
             this.TorlestoolStripButton.Text = "Törlés";
             this.TorlestoolStripButton.Click += new System.EventHandler(this.TorlestoolStripButton_Click);
             // 
-            // mentestoolStripButton
-            // 
-            this.mentestoolStripButton.Image = global::JarmuKolcsonzo.Properties.Resources.saveToolStripButton;
-            this.mentestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.mentestoolStripButton.Name = "mentestoolStripButton";
-            this.mentestoolStripButton.Size = new System.Drawing.Size(66, 22);
-            this.mentestoolStripButton.Text = "Mentés";
-            this.mentestoolStripButton.Click += new System.EventHandler(this.MentestoolStripButton_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -113,7 +102,6 @@
             // 
             // keresestoolStripTextBox
             // 
-            this.keresestoolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keresestoolStripTextBox.Name = "keresestoolStripTextBox";
             this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 25);
             // 
@@ -259,10 +247,6 @@
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
-            // rendelesVMBindingSource
-            // 
-            this.rendelesVMBindingSource.DataSource = typeof(JarmuKolcsonzo.ViewModels.rendelesVM);
-            // 
             // rendelesIdDataGridViewTextBoxColumn
             // 
             this.rendelesIdDataGridViewTextBoxColumn.DataPropertyName = "rendelesId";
@@ -306,6 +290,10 @@
             this.rendelesArDataGridViewTextBoxColumn.HeaderText = "Ár";
             this.rendelesArDataGridViewTextBoxColumn.Name = "rendelesArDataGridViewTextBoxColumn";
             // 
+            // rendelesVMBindingSource
+            // 
+            this.rendelesVMBindingSource.DataSource = typeof(JarmuKolcsonzo.ViewModels.rendelesVM);
+            // 
             // RendelesListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,7 +327,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem szerkesztesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem torlesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton mentestoolStripButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button LastButton;
         private System.Windows.Forms.Button NextButton;

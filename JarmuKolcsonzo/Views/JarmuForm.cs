@@ -29,7 +29,7 @@ namespace JarmuKolcsonzo.Views
             get
             {
                 var tipusId = Convert.ToInt32(TipusComboBox.SelectedValue);
-                var dij = Convert.ToInt32(DijmaskedTextBox.Text);
+                var dij = Convert.ToInt32(DijNumericUpDown.Value);
                 var jarmu = new jarmu(
                     RendszamtextBox.Text,
                     tipusId,
@@ -44,7 +44,7 @@ namespace JarmuKolcsonzo.Views
                 Id = value.id;
                 RendszamtextBox.Text = value.rendszam;
                 TipusComboBox.SelectedValue = value.tipus_id;
-                DijmaskedTextBox.Text = value.dij.ToString();
+                DijNumericUpDown.Value = value.dij;
                 ElerhetocheckBox.Checked = value.elerheto;
                 SzervizdateTimePicker.Value = value.szerviz_datum.Value > new DateTime(0001, 01, 01) ?
                     value.szerviz_datum.Value : new DateTime(1900, 1, 1);

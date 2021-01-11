@@ -16,7 +16,8 @@ namespace JarmuKolcsonzo.Views
 {
     public partial class RendelesForm : Form, IRendelesView
     {
-        private int Id;
+        private int rendelesId, ugyfelId, jarmuId;
+        private string[] _ugyfelList, _jarmuList;
         private RendelesPresenter presenter;
 
         public RendelesForm()
@@ -29,7 +30,7 @@ namespace JarmuKolcsonzo.Views
 
         private void Init()
         {
-            if (Id > 0)
+            if (rendelesId > 0)
             {
                 TelefonszamLabel.Text = null;
                 EmailLabel.Text = null;
@@ -40,8 +41,32 @@ namespace JarmuKolcsonzo.Views
 
         public rendelesVM rendelesVM 
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException(); 
+            get
+            {
+                int.TryParse(NapokNumericUpDown.Value.ToString(), out int rendelesNapok);
+                decimal.TryParse(ArLabel.Text, out decimal rendelesAr);
+                decimal.TryParse(PontokLabel.Text, out decimal ugyfelPont);
+                var rendelesVM = new rendelesVM(rendelesId,
+                    dateTimePicker1.Value.Date, rendelesNapok, rendelesAr,
+                    ugyfelId, NevTextBox.Text, ugyfelPont,
+                    jarmuId, RendszamTextBox.Text);
+                return rendelesVM;
+
+            }
+            set
+            {
+                rendelesId = value.rendelesId;
+                dateTimePicker1.Value = value.rendelesDatum;
+                NapokNumericUpDown.Value = value.rendelesNapok;
+                ArLabel.Text = value.rendelesAr.ToString();
+
+                NevTextBox.Text = value.ugyfelNev;
+                PontokLabel.Text = value.ugyfelPont.ToString();
+                ugyfelId = presenter.GetUgyfelId(value.ugyfelNev);
+
+                RendszamTextBox.Text = value.jarmuRendszam;
+                jarmuId = presenter.GetJarmuId(value.jarmuRendszam);
+            }
         }
 
         public string errorUgyfelNev {  set => errorPUgyfel.SetError(NevTextBox,value); }
@@ -54,8 +79,13 @@ namespace JarmuKolcsonzo.Views
 
         public string[] ugyfelList
         {
+            get
+            {
+                return _ugyfelList;
+            }
             set
             {
+                _ugyfelList = value;
                 var src = new AutoCompleteStringCollection();
                 src.AddRange(value);
                 NevTextBox.AutoCompleteCustomSource = src;
@@ -64,11 +94,34 @@ namespace JarmuKolcsonzo.Views
 
         public string[] jarmuList
         {
+            get
+            {
+                return _jarmuList;
+            }
             set
             {
+                _jarmuList = value;
                 var src = new AutoCompleteStringCollection();
                 src.AddRange(value);
                 RendszamTextBox.AutoCompleteCustomSource = src;
+            }
+        }
+
+        private void NevTextBox_Leave(object sender, EventArgs e)
+        {
+            var ugyfelnev = NevTextBox.Text;
+            if (ugyfelList.Contains(ugyfelnev))
+            {
+                ugyfelId = presenter.GetUgyfelId(ugyfelnev);
+            }
+        }
+
+        private void RendszamTextBox_Leave(object sender, EventArgs e)
+        {
+            var rendszam = RendszamTextBox.Text;
+            if (jarmuList.Contains(rendszam))
+            {
+                jarmuId = presenter.GetJarmuId(rendszam);
             }
         }
 

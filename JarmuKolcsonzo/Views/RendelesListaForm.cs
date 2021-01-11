@@ -16,7 +16,6 @@ namespace JarmuKolcsonzo.Views
     public partial class RendelesListaForm : Form, IDataGridList<rendelesVM>
     {
         private RendelesListaPresenter presenter;
-        // Oldaltördelés
         private int sortIndex;
         private int pageCount;
         private int _totalItems;
@@ -136,11 +135,6 @@ namespace JarmuKolcsonzo.Views
             NewDGRow();
         }
 
-        private void MentestoolStripButton_Click(object sender, EventArgs e)
-        {
-            presenter.Save();
-        }
-
         private void TorlestoolStripButton_Click(object sender, EventArgs e)
         {
             DelDGRow();
@@ -169,7 +163,7 @@ namespace JarmuKolcsonzo.Views
                 DialogResult dr = szerkForm.ShowDialog(this);
                 if (dr == DialogResult.OK)
                 {
-                    //presenter.Add(szerkForm.rendelesVM);
+                    presenter.Add(szerkForm.rendelesVM);
                     szerkForm.Close();
                 }
             }
@@ -180,14 +174,14 @@ namespace JarmuKolcsonzo.Views
             var rendelesVM = (rendelesVM)dataGridView1.Rows[index].DataBoundItem;
             if (rendelesVM != null)
             {
-                using (var modForm = new RendelesForm())
+                using (var szerkForm = new RendelesForm())
                 {
-                    //modForm.rendelesVM = rendelesVM;
-                    DialogResult dr = modForm.ShowDialog(this);
+                    szerkForm.rendelesVM = rendelesVM;
+                    DialogResult dr = szerkForm.ShowDialog(this);
                     if (dr == DialogResult.OK)
                     {
-                        //presenter.Modify(modForm.rendelesVM);
-                        modForm.Close();
+                        presenter.Modify(index, szerkForm.rendelesVM);
+                        szerkForm.Close();
                     }
                 }
             }

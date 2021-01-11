@@ -19,7 +19,7 @@ namespace JarmuKolcsonzo.ViewInterfaces
         string jarmuTipus { set; }
         int jarmuFerohely { set; }
         int jarmuDij { set; }
-        string[] ugyfelList { set; }
-        string[] jarmuList { set; }
+        string[] ugyfelList { get; set; }
+        string[] jarmuList { get; set; }
     }
 }

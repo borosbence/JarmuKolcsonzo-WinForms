@@ -34,15 +34,17 @@ namespace JarmuKolcsonzo.Presenters
             view.bindingList.Insert(0, rendelesVM);
             repo.Insert(rendelesVM);
             view.totalItems++;
+            repo.Save();
         }
 
-        public void Modify(rendelesVM rendelesVM)
+        public void Modify(int index, rendelesVM rendelesVM)
         {
             if (rendelesVM.jarmuId != 0 && rendelesVM.ugyfelId != 0)
             {
-                //view.bindingList[index] = rendelesVM;
+                view.bindingList[index] = rendelesVM;
                 repo.Update(rendelesVM);
             }
+            repo.Save();
         }
 
         public void Remove(int index)
@@ -54,10 +56,6 @@ namespace JarmuKolcsonzo.Presenters
                 repo.Delete(rendeles.rendelesId);
                 view.totalItems--;
             }
-        }
-
-        public void Save()
-        {
             repo.Save();
         }
     }

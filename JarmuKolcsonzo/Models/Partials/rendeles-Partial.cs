@@ -21,7 +21,6 @@ namespace JarmuKolcsonzo.Models
             napok_szama = napok;
             this.ar = ar;
         }
-
         public rendeles()
         {
 

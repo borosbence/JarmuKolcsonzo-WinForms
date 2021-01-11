@@ -58,5 +58,31 @@ namespace JarmuKolcsonzo.Presenters
 
             return valid;
         }
+
+        public int GetUgyfelId(string ugyfelNev)
+        {
+            var ugyfel = ugyfelRepo.GetUgyfel(ugyfelNev);
+            if (ugyfel != null)
+            {
+                view.ugyfelTelefonszam = ugyfel.telefonszam;
+                view.ugyfelEmail = ugyfel.email;
+                view.rendelesVM.ugyfelPont = ugyfel.pont;
+                return ugyfel.id;
+            }
+            return 0;
+        }
+
+        public int GetJarmuId(string rendszam)
+        {
+            var jarmu = jarmuRepo.GetJarmu(rendszam);
+            if (jarmu != null)
+            {
+                view.jarmuDij = jarmu.dij;
+                view.jarmuTipus = jarmu.jarmu_tipus.megnevezes;
+                view.jarmuFerohely = jarmu.jarmu_tipus.ferohely;
+                return jarmu.id;
+            }
+            return 0;
+        }
     }
 }
