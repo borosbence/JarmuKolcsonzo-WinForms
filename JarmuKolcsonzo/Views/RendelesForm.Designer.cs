@@ -32,7 +32,6 @@ namespace JarmuKolcsonzo.Views
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.PontokLabel = new System.Windows.Forms.Label();
             this.EmailLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,24 +51,26 @@ namespace JarmuKolcsonzo.Views
             this.DijLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.ArNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.NapokNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ArLabel = new System.Windows.Forms.Label();
             this.PontokCheckBox = new System.Windows.Forms.CheckBox();
-            this.CancelButton = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
             this.errorPUgyfel = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPJarmu = new System.Windows.Forms.ErrorProvider(this.components);
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.PontLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ArNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NapokNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPUgyfel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPJarmu)).BeginInit();
@@ -90,7 +91,7 @@ namespace JarmuKolcsonzo.Views
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel1.Controls.Add(this.PontokLabel, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.PontLabel, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.EmailLabel, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -109,15 +110,6 @@ namespace JarmuKolcsonzo.Views
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(324, 181);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // PontokLabel
-            // 
-            this.PontokLabel.AutoSize = true;
-            this.PontokLabel.Location = new System.Drawing.Point(111, 135);
-            this.PontokLabel.Name = "PontokLabel";
-            this.PontokLabel.Size = new System.Drawing.Size(13, 13);
-            this.PontokLabel.TabIndex = 5;
-            this.PontokLabel.Text = "0";
             // 
             // EmailLabel
             // 
@@ -305,13 +297,13 @@ namespace JarmuKolcsonzo.Views
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.tableLayoutPanel3.Controls.Add(this.ArNumericUpDown, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label9, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label11, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.dateTimePicker1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.NapokNumericUpDown, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.ArLabel, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.PontokCheckBox, 1, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
@@ -321,8 +313,27 @@ namespace JarmuKolcsonzo.Views
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(324, 181);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // ArNumericUpDown
+            // 
+            this.ArNumericUpDown.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ArNumericUpDown.Location = new System.Drawing.Point(111, 93);
+            this.ArNumericUpDown.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.ArNumericUpDown.Name = "ArNumericUpDown";
+            this.ArNumericUpDown.Size = new System.Drawing.Size(200, 20);
+            this.ArNumericUpDown.TabIndex = 5;
+            this.ArNumericUpDown.ThousandsSeparator = true;
             // 
             // label8
             // 
@@ -376,22 +387,14 @@ namespace JarmuKolcsonzo.Views
             0,
             0});
             this.NapokNumericUpDown.Name = "NapokNumericUpDown";
-            this.NapokNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.NapokNumericUpDown.Size = new System.Drawing.Size(200, 20);
             this.NapokNumericUpDown.TabIndex = 4;
             this.NapokNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            // 
-            // ArLabel
-            // 
-            this.ArLabel.AutoSize = true;
-            this.ArLabel.Location = new System.Drawing.Point(111, 90);
-            this.ArLabel.Name = "ArLabel";
-            this.ArLabel.Size = new System.Drawing.Size(25, 13);
-            this.ArLabel.TabIndex = 6;
-            this.ArLabel.Text = "0 Ft";
+            this.NapokNumericUpDown.ValueChanged += new System.EventHandler(this.NapokNumericUpDown_ValueChanged);
             // 
             // PontokCheckBox
             // 
@@ -401,16 +404,7 @@ namespace JarmuKolcsonzo.Views
             this.PontokCheckBox.Size = new System.Drawing.Size(15, 14);
             this.PontokCheckBox.TabIndex = 5;
             this.PontokCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // CancelButton
-            // 
-            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(351, 319);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 7;
-            this.CancelButton.Text = "Mégse";
-            this.CancelButton.UseVisualStyleBackColor = true;
+            this.PontokCheckBox.CheckedChanged += new System.EventHandler(this.PontokCheckBox_CheckedChanged);
             // 
             // OKButton
             // 
@@ -430,13 +424,31 @@ namespace JarmuKolcsonzo.Views
             // 
             this.errorPJarmu.ContainerControl = this;
             // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(348, 319);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 7;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            // 
+            // PontLabel
+            // 
+            this.PontLabel.AutoSize = true;
+            this.PontLabel.Location = new System.Drawing.Point(111, 135);
+            this.PontLabel.Name = "PontLabel";
+            this.PontLabel.Size = new System.Drawing.Size(13, 13);
+            this.PontLabel.TabIndex = 5;
+            this.PontLabel.Text = "0";
+            // 
             // RendelesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 436);
-            this.Controls.Add(this.OKButton);
             this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.OKButton);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -451,6 +463,7 @@ namespace JarmuKolcsonzo.Views
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ArNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NapokNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPUgyfel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPJarmu)).EndInit();
@@ -477,7 +490,6 @@ namespace JarmuKolcsonzo.Views
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label PontokLabel;
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.TextBox NevTextBox;
         private System.Windows.Forms.Label TelefonszamLabel;
@@ -487,12 +499,13 @@ namespace JarmuKolcsonzo.Views
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.NumericUpDown NapokNumericUpDown;
         private System.Windows.Forms.CheckBox PontokCheckBox;
-        private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OKButton;
-        private System.Windows.Forms.Label ArLabel;
         private System.Windows.Forms.ErrorProvider errorPUgyfel;
         private System.Windows.Forms.ErrorProvider errorPJarmu;
         private System.Windows.Forms.Label TipusLabel;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown ArNumericUpDown;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Label PontLabel;
     }
 }

@@ -106,6 +106,8 @@ namespace JarmuKolcsonzo.Repositories
                 rendelesVM.rendelesDatum,rendelesVM.rendelesNapok,
                 rendelesVM.rendelesAr);
             db.rendeles.Add(rendeles);
+
+            RentACar(rendelesVM.jarmuId, false);
         }
 
         public void Delete(int id)
@@ -113,6 +115,7 @@ namespace JarmuKolcsonzo.Repositories
             var rendeles = db.rendeles.Find(id);
             if (rendeles != null)
             {
+                RentACar(rendeles.jarmu_id, true);
                 db.rendeles.Remove(rendeles);
             }
         }
@@ -125,8 +128,16 @@ namespace JarmuKolcsonzo.Repositories
                 rendeles.datum = rendelesVM.rendelesDatum;
                 rendeles.napok_szama = rendelesVM.rendelesNapok;
                 rendeles.ar = rendelesVM.rendelesAr;
-                rendeles.jarmu_id = rendelesVM.jarmuId;
+                if (rendeles.jarmu_id != rendelesVM.jarmuId)
+                {
+                    RentACar(rendeles.jarmu_id, true);
+                    RentACar(rendelesVM.jarmuId, false);
+                    rendeles.jarmu_id = rendelesVM.jarmuId;
+                }
+                
                 rendeles.ugyfel_id = rendelesVM.ugyfelId;
+                rendeles.ugyfel.pont = rendelesVM.ugyfelPont;
+
                 db.Entry(rendeles).State = EntityState.Modified;
             }
         }
@@ -139,6 +150,16 @@ namespace JarmuKolcsonzo.Repositories
         public bool Exists(rendelesVM rendelesVM)
         {
             return db.rendeles.Any(x => x.id == rendelesVM.rendelesId);
+        }
+
+        private void RentACar(int id, bool elerheto)
+        {
+            var jarmu = db.jarmu.Find(id);
+            if (jarmu != null)
+            {
+                jarmu.elerheto = elerheto;
+                db.Entry(jarmu).State = EntityState.Modified;
+            }
         }
 
         public void Dispose()

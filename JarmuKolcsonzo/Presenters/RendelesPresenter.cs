@@ -56,6 +56,17 @@ namespace JarmuKolcsonzo.Presenters
                 valid = false;
             }
 
+            // Ha minden jó, akkor növeli az ügyfélpontot, kivéve ha elérte az 50-et.
+            if (valid == true && view.ugyfelPont <= 50)
+            {
+                if (view.PontokFelhasznalva)
+                {
+                    view.ugyfelPont = 0;
+                }
+                var pont = Math.Round(view.rendelesVM.rendelesAr / 10000, 2);
+                view.ugyfelPont = pont;
+            }
+
             return valid;
         }
 
@@ -66,7 +77,7 @@ namespace JarmuKolcsonzo.Presenters
             {
                 view.ugyfelTelefonszam = ugyfel.telefonszam;
                 view.ugyfelEmail = ugyfel.email;
-                view.rendelesVM.ugyfelPont = ugyfel.pont;
+                view.ugyfelPont = ugyfel.pont;
                 return ugyfel.id;
             }
             return 0;
@@ -83,6 +94,21 @@ namespace JarmuKolcsonzo.Presenters
                 return jarmu.id;
             }
             return 0;
+        }
+
+        public void CalculatePrice()
+        {
+            decimal ar = view.jarmuDij * view.rendelesVM.rendelesNapok;
+            if (view.PontokFelhasznalva)
+            {
+                ar = (ar / 100) * (100 - view.ugyfelPont);
+            }
+
+            if (ar >= 1000000)
+            {
+                throw new Exception("Túl magas ár!");
+            }
+            view.rendelesAr = Math.Round(ar,2);
         }
     }
 }

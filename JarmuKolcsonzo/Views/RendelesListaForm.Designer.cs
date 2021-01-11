@@ -102,6 +102,7 @@
             // 
             // keresestoolStripTextBox
             // 
+            this.keresestoolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keresestoolStripTextBox.Name = "keresestoolStripTextBox";
             this.keresestoolStripTextBox.Size = new System.Drawing.Size(200, 25);
             // 
@@ -303,7 +304,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "RendelesListaForm";
-            this.Text = "RendelesListaForm";
+            this.Text = "Rendelések";
             this.Load += new System.EventHandler(this.RendelesListaForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -335,8 +336,6 @@
         private System.Windows.Forms.Button FirstButton;
         private System.Windows.Forms.Label TotalItemsLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelTelefonszamDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelEmailDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource rendelesVMBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn rendelesIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ugyfelNevDataGridViewTextBoxColumn;

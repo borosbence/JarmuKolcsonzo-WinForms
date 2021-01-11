@@ -16,7 +16,8 @@ namespace JarmuKolcsonzo.Views
 {
     public partial class RendelesForm : Form, IRendelesView
     {
-        private int rendelesId, ugyfelId, jarmuId;
+        private int rendelesId, ugyfelId, jarmuId, _jarmuDij;
+        decimal _ugyfelPont;
         private string[] _ugyfelList, _jarmuList;
         private RendelesPresenter presenter;
 
@@ -44,10 +45,9 @@ namespace JarmuKolcsonzo.Views
             get
             {
                 int.TryParse(NapokNumericUpDown.Value.ToString(), out int rendelesNapok);
-                decimal.TryParse(ArLabel.Text, out decimal rendelesAr);
-                decimal.TryParse(PontokLabel.Text, out decimal ugyfelPont);
+                decimal.TryParse(PontLabel.Text, out decimal ugyfelPont);
                 var rendelesVM = new rendelesVM(rendelesId,
-                    dateTimePicker1.Value.Date, rendelesNapok, rendelesAr,
+                    dateTimePicker1.Value.Date, rendelesNapok, ArNumericUpDown.Value,
                     ugyfelId, NevTextBox.Text, ugyfelPont,
                     jarmuId, RendszamTextBox.Text);
                 return rendelesVM;
@@ -58,10 +58,10 @@ namespace JarmuKolcsonzo.Views
                 rendelesId = value.rendelesId;
                 dateTimePicker1.Value = value.rendelesDatum;
                 NapokNumericUpDown.Value = value.rendelesNapok;
-                ArLabel.Text = value.rendelesAr.ToString();
+                ArNumericUpDown.Value = value.rendelesAr;
 
                 NevTextBox.Text = value.ugyfelNev;
-                PontokLabel.Text = value.ugyfelPont.ToString();
+                ugyfelPont = value.ugyfelPont;
                 ugyfelId = presenter.GetUgyfelId(value.ugyfelNev);
 
                 RendszamTextBox.Text = value.jarmuRendszam;
@@ -75,7 +75,26 @@ namespace JarmuKolcsonzo.Views
         public string ugyfelEmail { set => EmailLabel.Text = value; }
         public string jarmuTipus { set => TipusLabel.Text = value; }
         public int jarmuFerohely { set => FerohelyLabel.Text = value.ToString(); }
-        public int jarmuDij { set => DijLabel.Text = value.ToString(); }
+
+        public decimal ugyfelPont
+        {
+            get => _ugyfelPont;
+            set
+            {
+                _ugyfelPont = value;
+                PontLabel.Text = value.ToString();
+            }
+        }
+        public int jarmuDij 
+        {
+            get => _jarmuDij;
+            set 
+            {
+                _jarmuDij = value;
+                DijLabel.Text = value.ToString();
+            }
+        }
+
 
         public string[] ugyfelList
         {
@@ -107,6 +126,28 @@ namespace JarmuKolcsonzo.Views
             }
         }
 
+        private void PontokCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            presenter.CalculatePrice();
+        }
+
+        private void NapokNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                presenter.CalculatePrice();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NapokNumericUpDown.Value--;
+            }
+        }
+
+        public bool PontokFelhasznalva => PontokCheckBox.Checked;
+
+        public decimal rendelesAr { set => ArNumericUpDown.Value = value; }
+
         private void NevTextBox_Leave(object sender, EventArgs e)
         {
             var ugyfelnev = NevTextBox.Text;
@@ -122,6 +163,7 @@ namespace JarmuKolcsonzo.Views
             if (jarmuList.Contains(rendszam))
             {
                 jarmuId = presenter.GetJarmuId(rendszam);
+                presenter.CalculatePrice();
             }
         }
 

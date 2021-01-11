@@ -14,12 +14,15 @@ namespace JarmuKolcsonzo.ViewInterfaces
         rendelesVM rendelesVM { get; set; }
         string errorUgyfelNev { set; }
         string errorJarmuRendszam { set; }
+        decimal rendelesAr { set; }
         string ugyfelTelefonszam { set; }
         string ugyfelEmail { set; }
         string jarmuTipus { set; }
         int jarmuFerohely { set; }
-        int jarmuDij { set; }
+        decimal ugyfelPont { get; set; }
+        int jarmuDij { get; set; }
         string[] ugyfelList { get; set; }
         string[] jarmuList { get; set; }
+        bool PontokFelhasznalva { get; }
     }
 }
