@@ -8,15 +8,8 @@ namespace JarmuKolcsonzo.Models
 {
     public partial class ugyfel
     {
-        public ugyfel(
-            string vnev,
-            string knev,
-            string varos,
-            int irszam,
-            string cim,
-            string telefonszam,
-            string email,
-            decimal pont)
+        public ugyfel( string vnev, string knev, string varos, int irszam, string cim, 
+            string telefonszam, string email, decimal pont)
         {
             vezeteknev = vnev;
             keresztnev = knev;
@@ -26,7 +19,6 @@ namespace JarmuKolcsonzo.Models
             this.telefonszam = telefonszam;
             this.email = email;
             this.pont = pont;
-            this.rendeles = new HashSet<rendeles>();
         }
 
         public string TeljesNev { get => keresztnev + " " + vezeteknev; }

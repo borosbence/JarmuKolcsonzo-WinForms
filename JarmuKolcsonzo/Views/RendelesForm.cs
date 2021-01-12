@@ -95,7 +95,6 @@ namespace JarmuKolcsonzo.Views
             }
         }
 
-
         public string[] ugyfelList
         {
             get

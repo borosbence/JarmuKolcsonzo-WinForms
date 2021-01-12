@@ -15,11 +15,11 @@ namespace JarmuKolcsonzo.Presenters
     class RendelesListaPresenter
     {
         private IDataGridList<rendelesVM> view;
-        private RendelesRepository repo = new RendelesRepository();
-
+        private RendelesRepository repo;
         public RendelesListaPresenter(IDataGridList<rendelesVM> param)
         {
             view = param;
+            repo = new RendelesRepository();
         }
 
         public void LoadData()

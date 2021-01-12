@@ -14,12 +14,13 @@ namespace JarmuKolcsonzo.Presenters
     public class RendelesPresenter
     {
         private IRendelesView view;
-        private UgyfelRepository ugyfelRepo = new UgyfelRepository();
-        private JarmuRepository jarmuRepo = new JarmuRepository();
-
+        private UgyfelRepository ugyfelRepo;
+        private JarmuRepository jarmuRepo;
         public RendelesPresenter(IRendelesView param)
         {
             view = param;
+            ugyfelRepo = new UgyfelRepository();
+            jarmuRepo = new JarmuRepository();
         }
 
         public void LoadData()

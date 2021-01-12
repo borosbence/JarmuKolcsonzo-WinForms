@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JarmuKolcsonzo.Repositories
 {
-    class JarmuRepository : IDisposable
+    class JarmuRepository
     {
         private JKContext db = new JKContext();
         private int _totalItems;
@@ -112,20 +112,6 @@ namespace JarmuKolcsonzo.Repositories
         public void Save()
         {
             db.SaveChanges();
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
         }
     }
 }

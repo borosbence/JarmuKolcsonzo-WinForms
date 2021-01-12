@@ -11,11 +11,11 @@ namespace JarmuKolcsonzo.ViewInterfaces
     public interface IUgyfelView
     {
         ugyfel ugyfel { get; set; }
-        string errorVnev { get; set; }
-        string errorKnev { get; set; }
-        string errorVaros { get; set; }
-        string errorCim { get; set; }
-        string errorTelefon{ get; set; }
-        string errorEmail { get; set; }
+        string errorVnev { set; }
+        string errorKnev { set; }
+        string errorVaros { set; }
+        string errorCim { set; }
+        string errorTelefon{ set; }
+        string errorEmail { set; }
     }
 }

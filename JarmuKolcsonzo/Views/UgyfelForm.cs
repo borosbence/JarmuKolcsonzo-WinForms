@@ -59,37 +59,30 @@ namespace JarmuKolcsonzo.Views
         }
         public string errorVnev 
         {
-            get => errorP_Vnev.GetError(VnevtextBox);
             set => errorP_Vnev.SetError(VnevtextBox, value);
         }
         public string errorKnev 
         {
-            get => errorP_Knev.GetError(KnevtextBox);
             set => errorP_Knev.SetError(KnevtextBox, value);
         }
         public string errorVaros
         {
-            get => errorP_Knev.GetError(VarostextBox);
             set => errorP_Knev.SetError(VarostextBox, value);
         }
         public string errorIrszam
         {
-            get => errorP_Knev.GetError(IrszamnumericUpDown);
             set => errorP_Knev.SetError(IrszamnumericUpDown, value);
         }
         public string errorCim
         {
-            get => errorP_Knev.GetError(CimtextBox);
             set => errorP_Knev.SetError(CimtextBox, value);
         }
         public string errorTelefon
         {
-            get => errorP_Knev.GetError(TelefonMaskedTextBox);
             set => errorP_Knev.SetError(TelefonMaskedTextBox, value);
         }
         public string errorEmail
         {
-            get => errorP_Knev.GetError(EmailtextBox);
             set => errorP_Knev.SetError(EmailtextBox, value);
         }
 

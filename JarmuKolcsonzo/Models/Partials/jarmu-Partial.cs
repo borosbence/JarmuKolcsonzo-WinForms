@@ -8,19 +8,14 @@ namespace JarmuKolcsonzo.Models
 {
     public partial class jarmu
     {
-        public jarmu(
-            string rendszam,
-            int tipusId,
-            int dij,
-            bool elerheto,
-            DateTime? szervizDatum)
+        public jarmu(string rendszam, int tipusId, int dij, 
+            bool elerheto, DateTime? szervizDatum)
         {
             this.rendszam = rendszam;
             tipus_id = tipusId;
             this.dij = dij;
             this.elerheto = elerheto;
             szerviz_datum = szervizDatum;
-            this.rendeles = new HashSet<rendeles>();
         }
     }
 }
