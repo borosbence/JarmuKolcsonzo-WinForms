@@ -32,6 +32,7 @@ namespace JarmuKolcsonzo.Views
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.PontLabel = new System.Windows.Forms.Label();
             this.EmailLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@ namespace JarmuKolcsonzo.Views
             this.errorPUgyfel = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorPJarmu = new System.Windows.Forms.ErrorProvider(this.components);
             this.CancelButton = new System.Windows.Forms.Button();
-            this.PontLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -110,6 +110,15 @@ namespace JarmuKolcsonzo.Views
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(324, 181);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // PontLabel
+            // 
+            this.PontLabel.AutoSize = true;
+            this.PontLabel.Location = new System.Drawing.Point(111, 135);
+            this.PontLabel.Name = "PontLabel";
+            this.PontLabel.Size = new System.Drawing.Size(13, 13);
+            this.PontLabel.TabIndex = 5;
+            this.PontLabel.Text = "0";
             // 
             // EmailLabel
             // 
@@ -426,21 +435,13 @@ namespace JarmuKolcsonzo.Views
             // 
             // CancelButton
             // 
+            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.Location = new System.Drawing.Point(348, 319);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 7;
-            this.CancelButton.Text = "Cancel";
+            this.CancelButton.Text = "Mégse";
             this.CancelButton.UseVisualStyleBackColor = true;
-            // 
-            // PontLabel
-            // 
-            this.PontLabel.AutoSize = true;
-            this.PontLabel.Location = new System.Drawing.Point(111, 135);
-            this.PontLabel.Name = "PontLabel";
-            this.PontLabel.Size = new System.Drawing.Size(13, 13);
-            this.PontLabel.TabIndex = 5;
-            this.PontLabel.Text = "0";
             // 
             // RendelesForm
             // 
