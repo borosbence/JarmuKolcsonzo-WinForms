@@ -123,6 +123,7 @@ namespace JarmuKolcsonzo.Repositories
         public void Update(rendelesVM rendelesVM)
         {
             var rendeles = db.rendeles.Find(rendelesVM.rendelesId);
+            var ugyfel = db.ugyfel.Find(rendelesVM.ugyfelId);
             if (rendeles != null)
             {
                 rendeles.datum = rendelesVM.rendelesDatum;
@@ -136,9 +137,10 @@ namespace JarmuKolcsonzo.Repositories
                 }
                 
                 rendeles.ugyfel_id = rendelesVM.ugyfelId;
-                rendeles.ugyfel.pont = rendelesVM.ugyfelPont;
+                ugyfel.pont = rendelesVM.ugyfelPont;
 
                 db.Entry(rendeles).State = EntityState.Modified;
+                db.Entry(ugyfel).State = EntityState.Modified;
             }
         }
 

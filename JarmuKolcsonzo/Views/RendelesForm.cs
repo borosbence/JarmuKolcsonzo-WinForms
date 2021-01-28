@@ -45,9 +45,10 @@ namespace JarmuKolcsonzo.Views
             get
             {
                 int.TryParse(NapokNumericUpDown.Value.ToString(), out int rendelesNapok);
+                int.TryParse(ArNumericUpDown.Value.ToString(), out int ar);
                 decimal.TryParse(PontLabel.Text, out decimal ugyfelPont);
                 var rendelesVM = new rendelesVM(rendelesId,
-                    dateTimePicker1.Value.Date, rendelesNapok, ArNumericUpDown.Value,
+                    dateTimePicker1.Value.Date, rendelesNapok, ar,
                     ugyfelId, NevTextBox.Text, ugyfelPont,
                     jarmuId, RendszamTextBox.Text);
                 return rendelesVM;
@@ -94,6 +95,8 @@ namespace JarmuKolcsonzo.Views
                 DijLabel.Text = value.ToString();
             }
         }
+        public bool PontokFelhasznalva => PontokCheckBox.Checked;
+        public decimal rendelesAr { set => ArNumericUpDown.Value = value; }
 
         public string[] ugyfelList
         {
@@ -143,26 +146,36 @@ namespace JarmuKolcsonzo.Views
             }
         }
 
-        public bool PontokFelhasznalva => PontokCheckBox.Checked;
-
-        public decimal rendelesAr { set => ArNumericUpDown.Value = value; }
-
-        private void NevTextBox_Leave(object sender, EventArgs e)
+        private void NevTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            var ugyfelnev = NevTextBox.Text;
-            if (ugyfelList.Contains(ugyfelnev))
+            TelefonszamLabel.Text = null;
+            EmailLabel.Text = null;
+            PontLabel.Text = null;
+            ugyfelId = 0;
+            if (e.KeyCode == Keys.Enter)
             {
-                ugyfelId = presenter.GetUgyfelId(ugyfelnev);
+                var ugyfelnev = NevTextBox.Text;
+                if (ugyfelList.Contains(ugyfelnev))
+                {
+                    ugyfelId = presenter.GetUgyfelId(ugyfelnev);
+                }
             }
         }
 
-        private void RendszamTextBox_Leave(object sender, EventArgs e)
+        private void RendszamTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            var rendszam = RendszamTextBox.Text;
-            if (jarmuList.Contains(rendszam))
+            TipusLabel.Text = null;
+            FerohelyLabel.Text = null;
+            DijLabel.Text = null;
+            jarmuId = 0;
+            if (e.KeyCode == Keys.Enter)
             {
-                jarmuId = presenter.GetJarmuId(rendszam);
-                presenter.CalculatePrice();
+                var rendszam = RendszamTextBox.Text;
+                if (jarmuList.Contains(rendszam))
+                {
+                    jarmuId = presenter.GetJarmuId(rendszam);
+                    presenter.CalculatePrice();
+                }
             }
         }
 

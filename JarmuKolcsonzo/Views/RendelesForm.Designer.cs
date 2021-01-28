@@ -173,7 +173,7 @@ namespace JarmuKolcsonzo.Views
             this.NevTextBox.Name = "NevTextBox";
             this.NevTextBox.Size = new System.Drawing.Size(200, 20);
             this.NevTextBox.TabIndex = 1;
-            this.NevTextBox.Leave += new System.EventHandler(this.NevTextBox_Leave);
+            this.NevTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NevTextBox_KeyDown);
             // 
             // TelefonszamLabel
             // 
@@ -226,7 +226,7 @@ namespace JarmuKolcsonzo.Views
             this.RendszamTextBox.Name = "RendszamTextBox";
             this.RendszamTextBox.Size = new System.Drawing.Size(200, 20);
             this.RendszamTextBox.TabIndex = 2;
-            this.RendszamTextBox.Leave += new System.EventHandler(this.RendszamTextBox_Leave);
+            this.RendszamTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RendszamTextBox_KeyDown);
             // 
             // label5
             // 
